@@ -1,0 +1,21 @@
+
+    <div class="card">
+      <div class="card-header" role="tab" id="heading{{playlist.id}}">
+        <h5 class="mb-0">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{playlist.id}}" >
+            {{playlist.name}}
+          </a>
+        </h5>
+      </div>
+
+      <div id="collapse{{playlist.id}}" class="collapse in" role="tabpanel" >
+        <div class="card">
+          {{playlist.description}}
+
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let video of playlist.videoList">{{video.title}}hgj</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>

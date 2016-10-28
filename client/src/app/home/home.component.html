@@ -18,8 +18,11 @@
     <!-- List of Videos -->
     <div class="col-sm-4">
       <div class="card card-block">
-        Video List
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+
+          <app-playlist *ngFor="let item of playlists" [playlist]="item"  ></app-playlist>
+        </div>
       </div>
     </div>
-  </div>
+</div>
 </div>
