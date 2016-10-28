@@ -27,11 +27,11 @@ module.exports = {
         },
 
         // add encryption / security
-        password: {
-            type: 'string',
-            size: 128,
-            required: true
-        },
+        // password: {
+        //     type: 'string',
+        //     size: 128,
+        //     required: true
+        // },
 
         // e.g., "Polly"
         firstName: {
