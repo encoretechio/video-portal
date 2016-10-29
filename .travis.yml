@@ -2,7 +2,11 @@ language: node_js
 node_js:
   - "6"
   - "6.7"
+  
+env:
+- ITEM=client
+- ITEM=admin
+- ITEM=backend
 
 script:
-- cd client && npm install && npm test
-- cd admin && npm install && npm test
+- cd $ITEM && npm install && npm test
