@@ -4,4 +4,4 @@ node_js:
   - "6.1"
 
 script:
-- cd client && npm install && test
+- cd client && npm install && npm test
