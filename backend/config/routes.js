@@ -48,6 +48,11 @@ module.exports.routes = {
 
   '/': 'HomepageController.index',
 
+  // security routes
+  'post /login' : 'AuthController.login',
+  'post /signup' : 'AuthController.signup',
+  'get /activate/:token' : 'AuthController.activate',
+
   // user routes
   'GET /user/:user_id': 'UserController.getUser',
   'GET /user': 'UserController.getUsers', 
