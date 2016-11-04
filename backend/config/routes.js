@@ -55,13 +55,14 @@ module.exports.routes = {
 
   // user routes
   'GET /user/:user_id': 'UserController.getUser',
-  'GET /user': 'UserController.getUsers', 
+  'GET /user': 'UserController.getUsers',
   'POST /user': 'UserController.createUser',
   'POST /user/:user_id': 'UserController.editUser',
   'DELETE /user/:user_id': 'UserController.deleteUser',
+  'GET /currentuser': 'UserController.getCurrentUser',
 
   // role endpoints
-  'GET /role': 'RoleController.getRoles', 
+  'GET /role': 'RoleController.getRoles',
   'POST /role': 'RoleController.createRole',
   'DELETE /role/:role_id': 'RoleController.deleteRole',
   'POST /role/:role_id/add_playlists': 'RoleController.addPlaylists',
