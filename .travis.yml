@@ -18,4 +18,4 @@ install:
   - sudo apt-get install -q google-chrome-stable
 
 script:
-- cd $ITEM && ./run_test.sh
+- cd $ITEM && chmod ugo+x ./run-test.sh && ./run_test.sh
