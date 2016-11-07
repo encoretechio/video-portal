@@ -12,7 +12,6 @@ import { LoginDetails } from '../models/login-details'
 export class UserLoginComponent implements OnInit {
 
   details:LoginDetails = {
-      email:"",
       username:"",
       password:"",
       rememberMe:true

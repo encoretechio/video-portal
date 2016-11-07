@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from './models/user';
+import { Playlist } from './models/playlist';
 import { LoginDetails } from './models/login-details';
-import { USERS } from './mock-data/users';
+import { USERS, PLAYLISTS } from './mock-data/data';
 
 @Injectable()
 export class DataService {
@@ -19,6 +20,12 @@ export class DataService {
         }
       }
       return Promise.resolve(value);
+    }
+
+
+    getPlaylists():Promise<Playlist[]>
+    {
+      return Promise.resolve(PLAYLISTS);
     }
 
 }

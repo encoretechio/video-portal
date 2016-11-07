@@ -4,7 +4,6 @@ angular.module('insert')
 /** @ngInject */
 function addUserCtrl(insertService,$scope) {
 
-
     $scope.initialize = function(){
       console.log("initialize addUserController")
       $scope.formData = {};
