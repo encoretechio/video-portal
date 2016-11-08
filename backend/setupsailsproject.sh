@@ -12,3 +12,5 @@ npm install bcrypt
 npm install jsonwebtoken
 npm install sails-build-dictionary
 npm install sails-util
+
+forever start app.js
