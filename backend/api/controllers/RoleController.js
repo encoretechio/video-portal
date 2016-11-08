@@ -34,7 +34,8 @@ module.exports = {
 	
   	//getRoles - Send all roles
   	getRoles: function(request, response){
-  		Role.find().populate('viewable_playlists').exec(function(error, roles){
+      // TODO: populate does not work as expected
+  		Role.find().populate('viewable_playlists', { select: ['id', 'name'] }).exec(function(error, roles){
   			if (error) {
     			// handle error here- e.g. `res.serverError(err);`
     			return;

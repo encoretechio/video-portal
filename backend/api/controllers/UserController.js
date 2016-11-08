@@ -10,8 +10,8 @@ module.exports = {
     createUser: function(request, response){
       var user = request.body;
       User.create(user).exec(function (error, user){
-        if (error) { 
-          return response.serverError(error); 
+        if (error) {
+          return response.serverError(error);
         }
 
         sails.log('user\'s id is:', user.id);
@@ -31,7 +31,7 @@ module.exports = {
         return response.ok();
       });
     },
-	
+
   	//getUsers - Send all users but not all details : Name, ID, Phone, email, designation
   	getUsers: function(request, response){
   		User.find().exec(function(error, users){
@@ -39,7 +39,7 @@ module.exports = {
     			// handle error here- e.g. `res.serverError(err);`
     			return;
   			}
-  			for (user of users){	
+  			for (user of users){
   				user.name = user.firstName + ' ' + user.lastName;
   			}
   			response.json(users);
@@ -54,7 +54,21 @@ module.exports = {
         user_id : request.param('user_id')
       }, function getSingleUserCallback(error, user){
         if (!error) {
-          response.json(user);    
+          response.json(user);
+        }
+      });
+  	},
+
+    // getCurrentUser - send limited details of the logged in user
+  	getCurrentUser: function(request, response){
+      // user_id is assigned to request.token from the 'authToken' policy
+      console.log(request.token);
+      var userId = request.token
+      UserService.getSingleUser({
+        user_id : userId
+      }, function getSingleUserCallback(error, user){
+        if (!error) {
+          response.json(user);
         }
       });
   	},

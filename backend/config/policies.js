@@ -48,4 +48,10 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+
+  '*': ['authToken'], // Everything resctricted here
+
+  'AuthController': {
+    '*': true // We dont need authorization here, allowing public access
+  }
 };
