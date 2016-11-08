@@ -14,3 +14,4 @@ npm install sails-build-dictionary
 npm install sails-util
 
 forever start app.js
+echo "Started The Forever Server"
