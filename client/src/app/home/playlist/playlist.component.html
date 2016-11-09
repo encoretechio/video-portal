@@ -8,14 +8,14 @@
         </h5>
       </div>
 
-      <div id="collapse{{playlist.id}}" class="collapse in" role="tabpanel" >
-        <div class="card">
-          {{playlist.description}}
+      <div id="collapse{{playlist.id}}" class="collapse in list-group" role="tabpanel" >
 
           <ul class="list-group">
+
+            <li class="list-group-item">{{playlist.description}}</li>
+
+
             <li class="list-group-item" *ngFor="let video of playlist.videoList">{{video.title}}hgj</li>
           </ul>
-        </div>
       </div>
-
     </div>
