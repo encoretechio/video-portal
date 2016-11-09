@@ -10,9 +10,9 @@ import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class DataService {
-    private url = 'http://http://52.36.197.150:1337';  // URL to web API
+    private url = 'http://52.36.197.150:1337';  // URL to web API
     constructor(private http: Http) { }
-    validateLogin(loginDetails: LoginDetails): Promise<boolean> {
+    validateLogin(loginDetails: LoginDetails): Observable<Boolean> {
       var value = false;
       //console.log(loginDetails.username+" - "+loginDetails.password);
       for(let u of USERS)
@@ -25,21 +25,23 @@ export class DataService {
       }
 
 
+      console.log("ladfa");
+      return this.http.get(this.url)
+                    .map(this.extractData)
+                    .catch(this.handleError);
 
-      console.error(      this.http.get(this.url)
-                      .map(this.extractData)
-                      .catch(this.handleError));
-
-      return Promise.resolve(value);
     }
 
     private extractData(res: Response) {
       let body = res.json();
+      console.log("body");
       return body.data || { };
     }
 
     private handleError (error: Response | any) {
   // In a real world app, we might use a remote logging infrastructure
+
+      console.log("error at data service");
       let errMsg: string;
       if (error instanceof Response) {
         const body = error.json() || '';
