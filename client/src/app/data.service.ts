@@ -3,7 +3,7 @@ import { User } from './models/user';
 import { Playlist } from './models/playlist';
 import { LoginDetails } from './models/login-details';
 import { USERS, PLAYLISTS } from './mock-data/data';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -11,6 +11,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class DataService {
     private url = 'http://52.36.197.150:1337';  // URL to web API
+    private headers = new Headers({'Content-Type': 'application/json'});
+    private token = "";
     constructor(private http: Http) { }
     validateLogin(loginDetails: LoginDetails): Observable<Boolean> {
       var value = false;
@@ -25,8 +27,22 @@ export class DataService {
       }
 
 
-      console.log("ladfa");
-      return this.http.get(this.url)
+      console.log("before login");
+//       return this.http.post(this.url+"/signup",
+//                             JSON.stringify({
+//     "username": "jana",
+//     "firstName": "Janaka",
+//     "lastName": "Chathuranga",
+//     "email": "jana@gmail.com",
+//     "contactNumber": "7111111111",
+//     "password": "111",
+//     "confirmPassword":"111",
+//     "active": null
+// }), {headers: this.headers})
+//                     .map(this.extractData)
+//                     .catch(this.handleError);
+
+      return this.http.post(this.url+"/login", JSON.stringify({email: loginDetails.username, password:loginDetails.password}), {headers: this.headers})
                     .map(this.extractData)
                     .catch(this.handleError);
 
@@ -34,7 +50,8 @@ export class DataService {
 
     private extractData(res: Response) {
       let body = res.json();
-      console.log("body");
+      console.log(body);
+      this.token = body.token;
       return body.data || { };
     }
 
