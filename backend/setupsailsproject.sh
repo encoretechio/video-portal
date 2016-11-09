@@ -13,5 +13,8 @@ npm install jsonwebtoken
 npm install sails-build-dictionary
 npm install sails-util
 
+#Remove 
+rm ./node_modules/sails-hook-jwt-auth/api/controllers/AuthController.js
+
 forever start app.js
 echo "Started The Forever Server"
