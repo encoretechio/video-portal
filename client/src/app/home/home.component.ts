@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Playlist } from '../models/playlist';
+import { UserData } from '../models/user-data';
 import { DataService } from '../data.service';
 
 @Component({
@@ -10,16 +10,16 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
-  playlists:Playlist[];
+  userData:UserData;
 
-  constructor(
-  private dataService:DataService) { }
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
-    this.dataService.getPlaylists().then(result =>
-      {
-        this.playlists = result;
-      });
+      this.userData = this.dataService.getUserData();
+    // this.dataService.getUserData().then(result =>
+    //   {
+    //     this.userData = result;
+    //   });
   }
 
 }

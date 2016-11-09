@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User } from './models/user';
-import { Playlist } from './models/playlist';
+import { UserData } from './models/user-data';
 import { LoginDetails } from './models/login-details';
-import { USERS, PLAYLISTS } from './mock-data/data';
+import { USER_DATA} from './mock-data/data';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -15,18 +14,6 @@ export class DataService {
     private token = "";
     constructor(private http: Http) { }
     validateLogin(loginDetails: LoginDetails): Observable<Boolean> {
-      var value = false;
-      //console.log(loginDetails.username+" - "+loginDetails.password);
-      for(let u of USERS)
-      {
-        //console.log(u.username+" - "+u.password);
-        if(u.username == loginDetails.username && u.password==loginDetails.password)
-        {
-          value = true;
-        }
-      }
-
-
       console.log("before login");
 //       return this.http.post(this.url+"/signup",
 //                             JSON.stringify({
@@ -72,9 +59,9 @@ export class DataService {
     }
 
 
-    getPlaylists():Promise<Playlist[]>
+    getUserData():UserData
     {
-      return Promise.resolve(PLAYLISTS);
+      return USER_DATA;
     }
 
 }
