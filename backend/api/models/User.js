@@ -27,11 +27,11 @@ module.exports = {
         },
 
         // add encryption / security
-        password: {
-            type: 'string',
-            size: 128,
-            required: true
-        },
+        // password: {
+        //     type: 'string',
+        //     size: 128,
+        //     required: true
+        // },
 
         // e.g., "Polly"
         firstName: {
@@ -78,12 +78,26 @@ module.exports = {
 
         adminRole: {
             model: 'role'
-        }
+        },
 	    
 	    // this can be used to associate a one to many relation with a contacts table
 	    // contacts: {
 	    //   collection: 'Contact',
 	    //   via: 'person'
 	    // }
+
+        password: {
+            type: 'string',
+            required: true,
+        },
+
+        active: {
+          type: 'boolean',
+          defaultsTo: true
+        },
+
+        isPasswordValid: function (password, cb) {
+          bcrypt.compare(password, this.password, cb);
+        }
     }
 };
