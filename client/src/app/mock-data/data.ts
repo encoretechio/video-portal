@@ -13,14 +13,14 @@ export const USER_DATA:UserData = {
         {
         id: 1,
         name: 'Playlist1' ,
-        description:"Desc",
+        description:"Description of the plalist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
         videoList:[ {id: 1, title: "title1", description:"string", url:"http://somethi.com/13"},
                     {  id: 2, title: "title2", description:"string", url:"http://somethi.com/12"},
                     {  id: 123, title: "title3", description:"string", url:"http://somethi.com/3"} ] },
         {
         id: 12,
         name: 'Playlist2' ,
-        description:"Desc",
+        description:"Description of the plalist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
         videoList:[ {id: 3, title: "title1", description:"string", url:"http://somethi.com/123"},
                     {  id: 4, title: "title2", description:"string", url:"http://somethi.com/123"} ] },
     ]

@@ -36,6 +36,7 @@ export class UserLoginComponent implements OnInit {
       },
       error => {
           console.log("Error at login Component"+error);
+          this.valid = false;
       }
         );
   }
