@@ -73,6 +73,30 @@ module.exports = {
       });
   	},
 
+    // getCurrentUserDetailed - send playlists, videos details of the logged in user
+  	getCurrentUserDetailed: function(request, response){
+      // user_id is assigned to request.token from the 'authToken' policy
+      var userId = request.token
+      console.log("hi");
+      console.log(request.token);
+      User.find(userId).populate('adminRole').exec(function(error, users){
+  			if (error) {
+    			// handle error here- e.g. `res.serverError(err);`
+    			return;
+  			}
+        console.log(users[0]);
+  			var user = users[0]
+  			response.json(user);
+  		});
+      // UserService.getSingleUser({
+      //   user_id : userId
+      // }, function getSingleUserCallback(error, user){
+      //   if (!error) {
+      //     response.json(user);
+      //   }
+      // });
+  	},
+
 
 
   	// editUser - POST update details with UserID

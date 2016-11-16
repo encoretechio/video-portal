@@ -28,12 +28,16 @@ export class UserLoginComponent implements OnInit {
 
   onSubmit(): void {
       //console.log("onSubmit - " + this.details.username + " - "+ this.details.password)
-      this.dataService.validateLogin(this.details).then(result => {
+      this.dataService.validateLogin(this.details).subscribe(result => {
           if (result)
               this.router.navigate(['']);
           else
             this.valid = false;
+      },
+      error => {
+          console.log("Error at login Component"+error);
+          this.valid = false;
       }
-    );
+        );
   }
 }

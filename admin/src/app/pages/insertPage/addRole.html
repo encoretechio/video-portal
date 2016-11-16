@@ -1,0 +1,27 @@
+<div class="col-sm-12">
+  <div ba-panel ba-panel-title="Add Role" ba-panel-class="with-scroll">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="user">User</label>
+          <select type="text" class="form-control" id="user" placeholder="user name" ng-model="formData.username" ng-options="item.Id as item.username for item in allUsers">
+            <option value="">Select User</option>
+          </select>
+          <!--<input type="text" class="form-control" id="user" placeholder="user name" ng-model="formData.firstName">-->
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select type="text" class="form-control" id="role" placeholder="Role" ng-model="formData.role">
+            <option value="" selected="selected">Select Role</option>
+            <option value="admin">System Admin</option>
+            <option value="officer">Officer</option>
+            <option value="user">User</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
+  </div>`
+</div>

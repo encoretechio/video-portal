@@ -19,6 +19,7 @@
 
     'commonServices',
     'insert',
+    'user',
   ])
       .config(routeConfig);
 
@@ -43,6 +44,10 @@
       }, {
         title: '404 Page',
         fixedHref: '404.html',
+        blank: true
+      },{
+        title: 'Insert Page',
+        stateRef: 'insert',
         blank: true
       }]
     });

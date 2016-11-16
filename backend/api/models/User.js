@@ -26,21 +26,17 @@ module.exports = {
             unique: true
         },
 
-        // add encryption / security
-        // password: {
-        //     type: 'string',
-        //     size: 128,
-        //     required: true
-        // },
+        nickname:{
+          type: 'string',
+          size: 128
+        },
 
-        // e.g., "Polly"
         firstName: {
             type: 'string',
       		size: 128,
             required: true
         },
 
-        // e.g., "Smith"
         lastName: {
             type: 'string',
       		size: 128,
@@ -61,10 +57,10 @@ module.exports = {
         },
 
         email: {
-      		type: 'email',
+      		  type: 'email',
             required: true,
-      		unique: true
-    	},
+      		  unique: true
+    	  },
 
 
         contactNumber: {
@@ -79,7 +75,7 @@ module.exports = {
         adminRole: {
             model: 'role'
         },
-	    
+
 	    // this can be used to associate a one to many relation with a contacts table
 	    // contacts: {
 	    //   collection: 'Contact',

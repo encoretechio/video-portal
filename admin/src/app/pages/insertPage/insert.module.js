@@ -17,6 +17,12 @@
           parent : 'insert',
           templateUrl: 'app/pages/insertPage/addUser.html',
           controller: 'addUserController',
+        })
+        .state('insert.addRole', {
+          url: '/role',
+          parent : 'insert',
+          templateUrl: 'app/pages/insertPage/addRole.html',
+          controller: 'addRoleController',
         });
   }
 })();
