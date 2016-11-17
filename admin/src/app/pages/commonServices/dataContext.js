@@ -4,19 +4,50 @@
     angular.module('commonServices')
       .service('dataContext',function($http,connectInfo){
 
-        this.setData = function(route,postData){
+
+        this.getData = function(route){
+            var returnData = {};
+            console.log("GET data");
             console.log(connectInfo.url + ":" + connectInfo.port + "/" + route);
+
+            //Test method to POST data example.
+            $http({
+                method  : 'GET',
+                url     : connectInfo.url + ":" + connectInfo.port + "/" + route,
+                //data    : postData,
+                headers : { 'Content-Type': 'application/json',
+                            'Authorization' : 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImlhdCI6MTQ3OTIyMjM0OX0.WAi12LVaNRQAjck2CnLDKifM1DHrTBnz9jtf6HXCel4',
+                            //'Access-Control-Request-Headers' : '*'
+                          }
+               })
+                .success(function(data) {
+                  if (data.errors) {
+                    // Showing errors.
+                    //console.log(data.errors);
+                  } else {
+                    returnData == data;
+                    console.log(data);
+                  }
+            });
+
+            return returnData;
+        };
+
+        this.postData = function(route,postData){
+            console.log("POST data");
+            console.log(connectInfo.url + ":" + connectInfo.port + "/" + route);
+            console.log(postData);
 
             //Test method to POST data example.
             $http({
                 method  : 'POST',
                 url     : connectInfo.url + ":" + connectInfo.port + "/" + route,
                 data    : postData,
-                headers : {'Content-Type': 'application/x-www-form-urlencoded',
-                    'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers',
-                    'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlhdCI6MTQ3OTE0MzAxMX0.UsEWUST-2WXOiUvc9WVUG59h4TDaGeg4CdD_rpgbc8E'}
 
-            })
+                headers : { 'Content-Type': 'application/json',
+                            'Authorization' : 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjIsImlhdCI6MTQ3OTIyMjM0OX0.WAi12LVaNRQAjck2CnLDKifM1DHrTBnz9jtf6HXCel4'
+                          }
+               })
                 .success(function(data) {
                   if (data.errors) {
                     // Showing errors.
@@ -28,25 +59,6 @@
 
             return 200;
         }
-        
-        this.getData= function (route) {
 
-            /*$http.get(connectInfo.url + ":" + connectInfo.port + "/" + route).success(function(data) {
-
-            }).error(function (){
-                alert("an unexpected error occurred!!!");
-            })*/
-
-            $http({
-                method: 'GET',
-                url: connectInfo.url + ":" + connectInfo.port + "/" + route,
-                headers : {'Content-Type': 'application/x-www-form-urlencoded',
-                    'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjcsImlhdCI6MTQ3OTE0MzAxMX0.UsEWUST-2WXOiUvc9WVUG59h4TDaGeg4CdD_rpgbc8E'}
-            }).success(function (data) {
-                return data;
-            }).error(function (){
-                alert("an unexpected error occurred!!!");
-            });
-        }
       });
 })();

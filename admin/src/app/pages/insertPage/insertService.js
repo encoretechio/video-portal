@@ -5,12 +5,12 @@ angular.module('insert')
 function insertServ(dataContext) {
 
   this.addUser = function(data){
-      dataContext.setData("add/user",data);
+      dataContext.posttData("add/user",data);
       return 200;
   };
 
   this.addRole = function(data){
-      dataContext.setData("role",data);
+      dataContext.postData("role",data);
       return 200;
   };
 
