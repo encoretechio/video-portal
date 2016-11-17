@@ -2,16 +2,15 @@
     'use strict';
 
     angular.module('commonServices')
-      .service('dataContext',function($http,connectInfo){
-
+      .service('dataContext',function($http,connectInfo,$q){
 
         this.getData = function(route){
-            var returnData = {};
+            var defer = $q.defer();
             console.log("GET data");
             console.log(connectInfo.url + ":" + connectInfo.port + "/" + route);
 
             //Test method to POST data example.
-            $http({
+             $http({
                 method  : 'GET',
                 url     : connectInfo.url + ":" + connectInfo.port + "/" + route,
                 //data    : postData,
@@ -25,12 +24,12 @@
                     // Showing errors.
                     //console.log(data.errors);
                   } else {
-                    returnData == data;
                     console.log(data);
+                    defer.resolve(data);
                   }
             });
+            return defer.promise;
 
-            return returnData;
         };
 
         this.postData = function(route,postData){

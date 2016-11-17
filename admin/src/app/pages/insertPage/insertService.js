@@ -5,7 +5,7 @@ angular.module('insert')
 function insertServ(dataContext) {
 
   this.addUser = function(data){
-      dataContext.posttData("add/user",data);
+      dataContext.postData("add/user",data);
       return 200;
   };
 
@@ -14,7 +14,7 @@ function insertServ(dataContext) {
       return 200;
   };
 
-  this.getRoles = function () {
+  this.getRoles = function(){
       return dataContext.getData("role");
-  }
+  };
 }
