@@ -1,5 +1,8 @@
 // api/services/UserService.js
 
+var Promise = require('promise');
+
+
 var UserService = {
 
   /**
@@ -29,6 +32,60 @@ var UserService = {
 
   },
 
+
+  // http get function with promise
+    var httpGet = function(url) {
+        return new Promise(function (resolve, reject) {
+            console.log("inside get url:"+url);
+            http.get(url, function (response) {
+                var body = '';
+
+                response.on('data', function (chunk) {
+                    body += chunk;
+                });
+
+                response.on('end', function () {
+                    data = JSON.parse(body);
+
+                    console.log("res:"+data);
+
+
+                    resolve(data);
+                });
+            }).on('error', function (e) {
+                console.log("Got an error: ", e);
+                reject(new Error(e));
+            });
+        });
+    }
+  /**
+   * get a single user with details of playlists and videos
+   * 
+   */
+  getSingleUserDetailed: function (options, callback){
+    var tempUser = {};
+
+    User.find(options.user_id).populate('adminRole').exec(function(error, users){
+      if (error) {
+        // handle error here- e.g. `res.serverError(err);`
+        return error;
+
+      }else if ( users.length > 0){
+        var user = users[0];
+   
+        tempUser.name = user.firstName + ' ' + user.lastName;
+        tempUser.id = user.id;
+        tempUser.email = user.email;
+        tempUser.contactNumber = user.contactNumber;
+        tempUser.designation = user.designation;
+
+      }
+      callback(null, tempUser);
+    });
+
+  },
+
+  
   /**
    * get a list of users
    * with contact details
