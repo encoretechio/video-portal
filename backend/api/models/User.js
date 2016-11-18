@@ -72,6 +72,7 @@ module.exports = {
             type: 'string'
         },
 
+        // change attr. name to role
         adminRole: {
             model: 'role'
         },

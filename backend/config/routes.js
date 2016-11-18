@@ -60,7 +60,9 @@ module.exports.routes = {
   'POST /user/:user_id': 'UserController.editUser',
   'DELETE /user/:user_id': 'UserController.deleteUser',
   'GET /currentuser': 'UserController.getCurrentUser',
-  'GET /currentuserdetailed': 'UserController.getCurrentUserDetailed',
+  // 'GET /currentuserdetailed': 'UserController.getCurrentUserProfile',
+  // 'GET /userprofile': 'UserController.getCurrentUserProfile',
+  'GET /userprofile/:user_id': 'UserController.getUserProfile',
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',

@@ -73,25 +73,20 @@ module.exports = {
       });
   	},
 
-    // getCurrentUserDetailed - send playlists, videos details of the logged in user
-  	getCurrentUserDetailed: function(request, response){
-      var userId = request.token
+    // getUserProfile - send playlists, videos details of the requested user_id for admin,
+    // send currentuser profile for normal users if requested with currentuser_id
+  	getuserProfile: function(request, response){
+      var userId = request.token;
+      var requested_profile_id = request.params.user_id;
 
       UserService.getSingleUserDetailed({
-        user_id : userId
-      }, function getSingleUserDetailedCallback(error, user){
+        user_id : userId,
+        profile_id : requested_profile_id
+      }, function getSingleUserDetailedCallback(error, profile){
         if (!error) {
-          response.json(user);
+          response.json(profile);
         }
       });
-
-    //   User.find(userId).populate('adminRole').exec(function(error, users){
-  		// 	if (error) {
-    // 			return;
-  		// 	}
-  		// 	var user = users[0]
-  		// 	response.json(user);
-  		// });
   	},
 
 
