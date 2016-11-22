@@ -27,6 +27,16 @@ module.exports = {
       		size: 256,
         },
 
+        description: {
+            type: 'string',
+            // size: 256,
+        },
+
+        length: {
+            type: 'string',
+            size: 128
+        },
+
         // many to many relationship with playlist
         playlists: {
         	collection: 'playlist',

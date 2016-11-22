@@ -22,6 +22,11 @@ module.exports = {
             required: true
         },
 
+        description: {
+            type: 'string',
+            // size: 256,
+        },
+
         // many to many relationship with role
         roles_with_access: {
         	collection: 'role',
