@@ -78,13 +78,17 @@ module.exports = {
   	getuserProfile: function(request, response){
       var userId = request.token;
       var requested_profile_id = request.params.user_id;
-
+      console.log("1");
       UserService.getSingleUserDetailed({
         user_id : userId,
         profile_id : requested_profile_id
       }, function getSingleUserDetailedCallback(error, profile){
         if (!error) {
+          console.log("end"+profile);
           response.json(profile);
+        }else{
+          console.log("end"+error);
+          response(error);
         }
       });
   	},
