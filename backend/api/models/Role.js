@@ -22,6 +22,10 @@ module.exports = {
             required: true
         },	
 
+        admin: {
+            type: 'boolean'
+        },
+
         // viewable_playlists: {
         // 	collection: 'playlist',
         // 	via: 'roles_with_access',

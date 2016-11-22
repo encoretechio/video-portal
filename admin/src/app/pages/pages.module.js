@@ -19,6 +19,7 @@
 
     'commonServices',
     'insert',
+    'user',
   ])
       .config(routeConfig);
 

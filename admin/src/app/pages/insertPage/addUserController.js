@@ -15,4 +15,8 @@ function addUserCtrl(insertService,$scope) {
         insertService.addUser($scope.formData);
         console.log($scope.formData);
     };
+
+    insertService.getRoles().then(function(data) {
+        $scope.allRoles =  data;
+    });
 }
