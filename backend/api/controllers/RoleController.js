@@ -10,8 +10,8 @@ module.exports = {
     createRole: function(request, response){
       var role = request.body;
       Role.create(role).exec(function (error, role){
-        if (error) { 
-          return response.serverError(error); 
+        if (error) {
+          return response.serverError(error);
         }
 
         sails.log('role\'s id is:', role.id);
@@ -31,7 +31,7 @@ module.exports = {
         return response.ok();
       });
     },
-	
+
   	//getRoles - Send all roles
   	getRoles: function(request, response){
       // TODO: populate does not work as expected
@@ -43,7 +43,7 @@ module.exports = {
   			var roleArray = [];
   			for (role of roles){
   				var tempRole = {};
-  				tempRole.id = role.id;	
+  				tempRole.id = role.id;
   				tempRole.name = role.name;
   				tempRole.viewable_playlists = role.viewable_playlists;
   				roleArray.push(tempRole);
@@ -52,13 +52,25 @@ module.exports = {
   		});
   	},
 
+    // get Role details
+  	getRole: function(request, response){
+  		Role.findOne(request.params.role_id).populate('viewable_playlists', { select: ['id', 'name'] }).exec(function(error, role) {
+  			if(error){
+  				// handle error
+  				return response.negotiate(error);
+  			}
+
+  			return response.json(role);
+		  });
+  	},
+
   	// add playlists which are accessible by the role
   	addPlaylists: function(request, response){
   		Role.findOne(request.params.role_id).exec(function(error, role) {
   			if(error){
   				// handle error
-  				return response.negotiate(error);	
-  			} 
+  				return response.negotiate(error);
+  			}
 
   			// Queue up a records to be inserted into the join table
   			role.viewable_playlists.add(request.body.playlists);
@@ -69,9 +81,9 @@ module.exports = {
           			return response.negotiate(error);
         		}
         		sails.log('playlists added');
-        		return response.ok();	
+        		return response.ok();
   			});
-		});
+		  });
   	},
 
   	// remove playlists which are accessible by the role
@@ -79,8 +91,8 @@ module.exports = {
   		Role.findOne(request.params.role_id).exec(function(error, role) {
   			if(error){
   				// handle error
-  				return response.negotiate(error);	
-  			} 
+  				return response.negotiate(error);
+  			}
 
   			for (playlist of request.body.playlists){
   				role.viewable_playlists.remove(playlist);
@@ -92,9 +104,8 @@ module.exports = {
           			return response.negotiate(error);
         		}
         		sails.log('playlists removed');
-        		return response.ok();	
+        		return response.ok();
   			});
 		});
   	},
 };
-

@@ -66,6 +66,7 @@ module.exports.routes = {
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',
+  'GET /role/:role_id': 'RoleController.getRole',
   'POST /role': 'RoleController.createRole',
   'DELETE /role/:role_id': 'RoleController.deleteRole',
   'POST /role/:role_id/add_playlists': 'RoleController.addPlaylists',
