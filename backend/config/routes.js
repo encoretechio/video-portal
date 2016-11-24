@@ -73,12 +73,13 @@ module.exports.routes = {
   'POST /role/:role_id/remove_playlists': 'RoleController.removePlaylists',
 
   // video routes
+  // 'POST /video': 'VideoController.createVideo',
   // 'GET /video/:video_id/users_who_can_answer_comments': 'VideoController.getUsersWhoCanAnswerComments',
 
   // playlist routes
-  // 'GET /playlist/:playlist_id': 'PlaylistController.getPlaylist',
-  // 'GET /playlist': 'PlaylistController.getPlaylists',
-  // 'POST /playlist': 'PlaylistController.createPlaylist',
+  'GET /playlist/:playlist_id': 'PlaylistController.getPlaylist',
+  'GET /playlist': 'PlaylistController.getPlaylists',
+  'POST /playlist': 'PlaylistController.createPlaylist',
   'GET /playlist/:playlist_id/users_who_can_answer_comments': 'PlaylistController.getUsersWhoCanAnswerComments',
 
 };
