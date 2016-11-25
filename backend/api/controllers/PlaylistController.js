@@ -10,7 +10,7 @@ module.exports = {
   //  can create with associations - refer video-portal/client/src/app/mock-data/create-Playlist.json.js
    createPlaylist: function(request, response){
      var playlist = request.body;
-     Playlist.create(playlist).exec(function (error, role){
+     Playlist.create(playlist).exec(function (error, playlist){
        if (error) {
          return response.serverError(error);
        }

@@ -73,7 +73,7 @@ module.exports.routes = {
   'POST /role/:role_id/remove_playlists': 'RoleController.removePlaylists',
 
   // video routes
-  // 'POST /video': 'VideoController.createVideo',
+  'POST /video': 'VideoController.createVideo',
   // 'GET /video/:video_id/users_who_can_answer_comments': 'VideoController.getUsersWhoCanAnswerComments',
 
   // playlist routes
@@ -81,18 +81,15 @@ module.exports.routes = {
   'GET /playlist': 'PlaylistController.getPlaylists',
   'POST /playlist': 'PlaylistController.createPlaylist',
   'GET /playlist/:playlist_id/users_who_can_answer_comments': 'PlaylistController.getUsersWhoCanAnswerComments',
-
+  // 'POST /playlist/:playlist_id/add_videos': 'PlaylistController.addVideos',
+  // 'POST /playlist/:playlist_id/remove_videos': 'PlaylistController.removeVideos',
 };
 
+// Example defaults
+// Overwrite or disable these
 // HTTP Method  URL         Description
 // POST         /user       creates a new user
 // GET          /user/2     gets a user with ID of 2
 // GET          /user       gets a list of all users
 // PUT          /user/2     updates a user with ID of 2
 // DELETE       /user/2     deletes a user with ID of 2
-
-// POST         /role       creates a new role
-// GET          /role/2     gets a role with ID of 2
-// GET          /role       gets a list of all roles
-// PUT          /role/2     updates a role with ID of 2
-// DELETE       /role/2     deletes a role with ID of 2
