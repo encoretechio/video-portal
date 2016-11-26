@@ -80,6 +80,10 @@ module.exports.routes = {
   // 'POST /playlist': 'PlaylistController.createPlaylist',
   'GET /playlist/:playlist_id/users_who_can_answer_comments': 'PlaylistController.getUsersWhoCanAnswerComments',
 
+  'POST /comment' : 'CommentController.createComment',
+  'GET /comment/video/:videoID' : 'CommentController.getCommentsByVideoID',
+  'GET /comment/user/:userID' : 'CommentController.getCommentsByUserID',
+
 };
 
 // HTTP Method  URL         Description
