@@ -33,13 +33,13 @@ module.exports = {
 
         firstName: {
             type: 'string',
-      		size: 128,
+      		  size: 128,
             required: true
         },
 
         lastName: {
             type: 'string',
-      		size: 128,
+      		  size: 128,
             required: true
         },
 
@@ -75,6 +75,12 @@ module.exports = {
         // change attr. name to role
         adminRole: {
             model: 'role'
+        },
+
+        // json object to keep watched videos of a user
+        // format - { video_id : time, v2 : t2, ..}
+        watchedVideos: {
+            type: 'string'
         },
 
 	    // this can be used to associate a one to many relation with a contacts table

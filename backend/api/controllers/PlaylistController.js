@@ -57,5 +57,51 @@ module.exports = {
       	});
   	},
 
-  	// add actions to add/remove users
+    // add videos to the playlist
+  	addVideos: function(request, response){
+  		Playlist.findOne(request.params.playlist_id).exec(function(error, playlist) {
+  			if(error){
+  				// handle error
+  				return response.negotiate(error);
+  			}
+
+  			// Queue up a records to be inserted into the join table
+  			playlist.videos.add(request.body.videos);
+
+  			// Save the playlist, creating the new associations in the join table
+  			playlist.save(function(error) {
+  				if (error) {
+          			return response.negotiate(error);
+        		}
+        		sails.log('videos added');
+        		return response.ok();
+  			});
+		  });
+  	},
+
+  	// remove videos
+    // body should be - { videos : [list of video_ids] }
+  	removeVideos: function(request, response){
+  		Playlist.findOne(request.params.playlist_id).exec(function(error, playlist) {
+  			if(error){
+  				// handle error
+  				return response.negotiate(error);
+  			}
+
+  			for (video of request.body.videos){
+  				playlist.videos.remove(video);
+  			}
+
+  			// Save the playlist, creating the new associations in the join table
+  			playlist.save(function(error) {
+  				if (error) {
+          			return response.negotiate(error);
+        		}
+        		sails.log('videos removed');
+        		return response.ok();
+  			});
+		  });
+  	},
+
+  	// TODO: add actions to add/remove users
 };

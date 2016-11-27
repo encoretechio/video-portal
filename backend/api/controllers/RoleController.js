@@ -106,6 +106,6 @@ module.exports = {
         		sails.log('playlists removed');
         		return response.ok();
   			});
-		});
+		  });
   	},
 };

@@ -60,9 +60,8 @@ module.exports.routes = {
   'POST /user/:user_id': 'UserController.editUser',
   'DELETE /user/:user_id': 'UserController.deleteUser',
   'GET /currentuser': 'UserController.getCurrentUser',
-  // 'GET /currentuserdetailed': 'UserController.getCurrentUserProfile',
-  // 'GET /userprofile': 'UserController.getCurrentUserProfile',
   'GET /userprofile/:user_id': 'UserController.getUserProfile',
+  // 'POST /user/:user_id/update_video': 'UserController.updateVideo'
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',
@@ -81,8 +80,8 @@ module.exports.routes = {
   'GET /playlist': 'PlaylistController.getPlaylists',
   'POST /playlist': 'PlaylistController.createPlaylist',
   'GET /playlist/:playlist_id/users_who_can_answer_comments': 'PlaylistController.getUsersWhoCanAnswerComments',
-  // 'POST /playlist/:playlist_id/add_videos': 'PlaylistController.addVideos',
-  // 'POST /playlist/:playlist_id/remove_videos': 'PlaylistController.removeVideos',
+  'POST /playlist/:playlist_id/add_videos': 'PlaylistController.addVideos',
+  'POST /playlist/:playlist_id/remove_videos': 'PlaylistController.removeVideos',
 };
 
 // Example defaults
