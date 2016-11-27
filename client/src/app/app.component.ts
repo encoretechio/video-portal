@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './data.service';
 import { UserData } from './models/user-data';
+import { USER_DATA} from './mock-data/data';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,11 @@ export class AppComponent {
     private dataService:DataService) {
   }
   ngOnInit() {
-      this.userData = this.dataService.getUserData();
+      this.userData = USER_DATA;
+    // this.dataService.getUserData().subscribe(result =>
+    //   {
+    //     this.userData = result;
+    //   });
   }
 
   isRouteNotActiveByMe(routePath: string)

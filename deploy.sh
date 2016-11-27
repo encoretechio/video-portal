@@ -5,4 +5,3 @@ cd backend
 
 chmod +x ./setupsailsproject.sh
 ./setupsailsproject.sh
-

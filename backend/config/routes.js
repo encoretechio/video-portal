@@ -60,6 +60,9 @@ module.exports.routes = {
   'POST /user/:user_id': 'UserController.editUser',
   'DELETE /user/:user_id': 'UserController.deleteUser',
   'GET /currentuser': 'UserController.getCurrentUser',
+  // 'GET /currentuserdetailed': 'UserController.getCurrentUserProfile',
+  // 'GET /userprofile': 'UserController.getCurrentUserProfile',
+  'GET /userprofile/:user_id': 'UserController.getUserProfile',
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',
@@ -72,7 +75,14 @@ module.exports.routes = {
   // 'GET /video/:video_id/users_who_can_answer_comments': 'VideoController.getUsersWhoCanAnswerComments',
 
   // playlist routes
+  // 'GET /playlist/:playlist_id': 'PlaylistController.getPlaylist',
+  // 'GET /playlist': 'PlaylistController.getPlaylists',
+  // 'POST /playlist': 'PlaylistController.createPlaylist',
   'GET /playlist/:playlist_id/users_who_can_answer_comments': 'PlaylistController.getUsersWhoCanAnswerComments',
+
+  'POST /comment' : 'CommentController.createComment',
+  'GET /comment/video/:videoID' : 'CommentController.getCommentsByVideoID',
+  'GET /comment/user/:userID' : 'CommentController.getCommentsByUserID',
 
 };
 

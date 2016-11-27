@@ -11,7 +11,7 @@ import 'rxjs/add/operator/catch';
 export class DataService {
     private url = 'http://52.36.197.150:1337';  // URL to web API
     private headers = new Headers({'Content-Type': 'application/json'});
-    private token = "";
+    private static token = "";
     constructor(private http: Http) { }
     validateLogin(loginDetails: LoginDetails): Observable<Boolean> {
       console.log("before login");
@@ -35,10 +35,16 @@ export class DataService {
 
     }
 
+    getHeadersWithToken(){
+        console.log("Get token handel"+DataService.token);
+        return new Headers({'Content-Type': 'application/json', 'authorization':('Bearer '+DataService.token)});
+    }
+
     private extractData(res: Response) {
       let body = res.json();
       console.log(body);
-      this.token = body.token;
+      DataService.token = body.token;
+      console.log(DataService.token)
       return body.data || { };
     }
 
@@ -58,10 +64,18 @@ export class DataService {
       return Observable.throw(errMsg);
     }
 
+    extractUserData(res: Response){
+        let body = res.json();
+        // let userData:UserData = body.data;
+        return USER_DATA;
+    }
 
-    getUserData():UserData
+    getUserData():Observable<UserData>
     {
-      return USER_DATA;
+        //return USER_DATA;
+        return this.http.get(this.url+"/userprofile/3", {headers: this.getHeadersWithToken()})
+                      .map(this.extractUserData)
+                      .catch(this.handleError);
     }
 
 }
