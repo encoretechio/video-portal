@@ -10,6 +10,9 @@
       [routerLink]="['/login']" [routerLinkActive]="['active']">Logout({{userData.user.username}})</a>
     </li>
   </ul>
+
+    <a class="nav-item nav-link float-xs-right"
+    [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a>
 </nav>
 <br>
 <router-outlet></router-outlet>
