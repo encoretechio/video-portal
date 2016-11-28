@@ -101,11 +101,47 @@ module.exports = {
   		User.update(request.params.user_id, data, function(error, updated) {
         	if (error) {
     			// handle error here- e.g. `res.serverError(err);`
-    			return;
+    			return error;
   			}
 
   			console.log('Updated user to have name ' + updated[0].name);
   			response.json(updated);
     	});
-  	}
+  	},
+
+    // updateVideo - update watched times of user's videos
+    updateVideo: function(request, response){
+      var user;
+      var watchedVideos = {};
+      User.findOne(request.params.user_id).exec(function(error, user){
+  			if (error) {
+    			// handle error here- e.g. `res.serverError(err);`
+    			return error;
+  			}
+  			user = user;
+        watchedVideos = request.body;
+        console.log(watchedVideos);
+        user.watchedVideos = JSON.stringify(watchedVideos);
+        user.save(function(error) {
+  				if (error) {
+          		return response.negotiate(error);
+        	}
+        	sails.log('videos updated');
+        	response.json(user.watchedVideos);
+  			});
+        // response.json(user.watchedVideos);
+
+        // user.watchedVideos = watchedVideos;
+        // // Queue up a records to be inserted into the join table
+        //
+  			// // Save the role, creating the new associations in the join table
+  			// user.save(function(error) {
+  			// 	if (error) {
+        //   			return response.negotiate(error);
+        // 		}
+        // 		sails.log('videos updated');
+        // 		response.json(user.watchedVideos);
+  			// });
+  		});
+    },
 };

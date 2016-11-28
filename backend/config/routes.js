@@ -23,13 +23,11 @@
 module.exports.routes = {
 
   /***************************************************************************
-  *                                                                          *
   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
   * etc. depending on your default view engine) your home page.              *
   *                                                                          *
   * (Alternatively, remove this and add an `index.html` file in your         *
   * `assets` directory)                                                      *
-  *                                                                          *
   ***************************************************************************/
 
   // '/': {
@@ -37,16 +35,12 @@ module.exports.routes = {
   // },
 
   /***************************************************************************
-  *                                                                          *
   * Custom routes here...                                                    *
   *                                                                          *
   * If a request to a URL doesn't match any of the custom routes above, it   *
   * is matched against Sails route blueprints. See `config/blueprints.js`    *
   * for configuration options and examples.                                  *
-  *                                                                          *
   ***************************************************************************/
-
-  '/': 'HomepageController.index',
 
   // security routes
   'post /login' : 'AuthController.login',
@@ -61,7 +55,7 @@ module.exports.routes = {
   'DELETE /user/:user_id': 'UserController.deleteUser',
   'GET /currentuser': 'UserController.getCurrentUser',
   'GET /userprofile/:user_id': 'UserController.getUserProfile',
-  // 'POST /user/:user_id/update_video': 'UserController.updateVideo'
+  'POST /user/:user_id/update_video': 'UserController.updateVideo',
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',
