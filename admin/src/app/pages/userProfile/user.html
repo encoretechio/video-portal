@@ -100,16 +100,30 @@
 
         <h3 class="with-line">Subscribed Playlists and Videos</h3>
 
-        <div class="col-md-6 col-md-offset-3">
-            <div ba-panel ba-panel-title="Playlists" ba-panel-class="with-scroll tree-panel">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div js-tree="basicConfig" ng-model="treeData" tree="basicTree"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <div ba-panel ba-panel-title="Playlists" ba-panel-class="with-scroll tree-panel">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div js-tree="basicConfig" ng-model="treeData" tree="basicTree" tree-events="ready:readyCB;changed:changedCB"></div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <br><br><br><br><br>
+                
+                <div ba-panel ba-panel-title="Video Player">
+                <video controls height="100%" width="100%" src="{{getVideoUrl()}}">
+                </video>
+            </div>
+            </div>
+
+            
         </div>
-        <div class="col-sm-9">
+
+        <div class="col-xs-9">
             <button type="button" class="btn btn-primary btn-with-icon save-profile">
                 <i class="ion-android-checkmark-circle"></i>Update Profile
             </button>
