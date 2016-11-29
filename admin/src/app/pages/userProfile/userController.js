@@ -2,13 +2,14 @@ angular.module('user')
   .controller('userController', userCtrl);
 
 /** @ngInject */
-function userCtrl($scope, $state,$stateParams, $timeout,$sce) {
+function userCtrl($scope, $state,$stateParams, $timeout,$sce,$filter) {
 
     $scope.userID = $stateParams.userID;
     $scope.users = {
         "user1" : {
             "id" : "1",
             "username" : "Panii",
+            "profilePic":"Vlad.png",
             "firstname" : "Pranidhith",
             "lastname" : "Munasinghe",
             "role" : "System Admin",
@@ -86,6 +87,29 @@ function userCtrl($scope, $state,$stateParams, $timeout,$sce) {
             ]
         }
     };
+    var profileImage = $scope.users.user1.profilePic.split(".")[0];
+    var profileImageExt = $scope.users.user1.profilePic.split(".")[1];
+
+    $scope.picture = $filter('profilePicture')(profileImage,profileImageExt);
+
+    $scope.removePicture = function () {
+      $scope.picture = $filter('appImage')('theme/no-photo.png');
+      $scope.noPicture = true;
+    };
+
+    $scope.uploadPicture = function () {
+      var fileInput = document.getElementById('uploadFile');
+      fileInput.click();
+
+    };
+
+    $scope.getFile = function () {
+      fileReader.readAsDataUrl($scope.file, $scope)
+          .then(function (result) {
+            $scope.picture = result;
+          });
+    };
+
 
     $scope.basicConfig = {
         core: {
