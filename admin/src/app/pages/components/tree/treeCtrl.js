@@ -164,7 +164,7 @@
       },
       {
         "id": "nd8",
-        "parent": "nd2",
+        "parent": "'",
         "text": "Node 2.1",
         "state": {
           "opened": true

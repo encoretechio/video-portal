@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { PlaylistComponent } from './home/playlist/playlist.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressListComponent } from './progress/progress-list/progress-list.component';
+import { UserProfileComponent }  from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProgressListComponent } from './progress/progress-list/progress-list.co
     HomeComponent,
     PlaylistComponent,
     ProgressComponent,
-    ProgressListComponent
+    ProgressListComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

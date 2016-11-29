@@ -64,7 +64,12 @@ module.exports = {
 	 	Comment.find({video : requestVideoID})
 	 		.populate('author')
 			.exec(function(error, comments){
-				//sails.log(comments);
+        if (error) {
+          return response.serverError(error);
+        }
+        else if (comments.length == 0) {
+          return response.send(200,"No comments found");
+        }
 				return response.json(comments);
 		});
 	},
@@ -76,7 +81,12 @@ module.exports = {
 	 	Comment.find({author : userID})
 	 		.populate('video')
 			.exec(function(error, comments){
-				//sails.log(comments);
+        if (error) {
+          return response.serverError(error);
+        }
+        else if (comments.length == 0) {
+          return response.send(200,"No comments found");
+        }
 				return response.json(comments);
 		});
 	}

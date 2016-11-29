@@ -6,9 +6,15 @@
       <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link"
-      [routerLink]="['/login']" [routerLinkActive]="['active']">Logout({{userData.user.username}})</a>
+      <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Logout({{userData.user.username}})</a>
     </li>
+    <li class="nav-item dropdown float-xs-right">
+      <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">User</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a>
+        <a class="dropdown-item" [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a>
+      </div>
   </ul>
 </nav>
 <br>
