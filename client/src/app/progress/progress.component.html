@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-block">
+          <div class="col-md-3">
+            <h2>My Progress</h2>
+            <!--<p> content and time</p>-->
+          </div>
+          <div class="col-md-9">
+            <div class="text-xs-center" id="example-caption-1">current progress &hellip; 25%</div>
+            <progress class="progress progress-info" value="25" max="100"></progress>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- List of Videos -->
+    <div class="col-md-12">
+      <div>
+        <app-progress-list *ngFor="let item of userData.playlists" [playlist]="item"></app-progress-list>
+      </div>
+    </div>
+  </div>
+</div>

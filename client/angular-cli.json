@@ -15,13 +15,13 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-      "../node_modules/bootstrap/dist/css/bootstrap.css",
-        "styles.css"
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environments": {
         "source": "environments/environment.ts",
