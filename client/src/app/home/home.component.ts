@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.dataService.getUserData().subscribe(result =>
       {
         this.userData = result;
+        console.log(result);
       });
   }
 
