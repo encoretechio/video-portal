@@ -41,6 +41,9 @@
       }, {
         title: 'User Profile',
         stateRef: 'profile'
+      },{
+        title: 'User',
+        stateRef: 'user'
       }, {
         title: '404 Page',
         fixedHref: '404.html',

@@ -27,6 +27,15 @@
           <input type="text" class="form-control" id="inputWebsite" placeholder="Website" ng-model="formData.website">
         </div>
       </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select type="text" class="form-control" id="role" ng-model="formData.role" ng-options="role.id as role.name for role in allRoles">
+            <option value="">Select Role</option>
+          </select>
+          <!--<input type="text" class="form-control" id="user" placeholder="user name" ng-model="formData.firstName">-->
+        </div>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary" ng-click="submit()">Submit</button>
   </div>`
