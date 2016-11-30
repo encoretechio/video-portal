@@ -1,5 +1,6 @@
 import { UserData } from '../models/user-data';
 import { ProgressData } from '../models/progr-data';
+import { Comment } from '../models/comment';
 
 export const USER_DATA: UserData = {
     user: {
@@ -60,6 +61,12 @@ export const PROGR_DATA: ProgressData = {
         },
     ]
 };
+
+
+export const COMMENT_DATA: Comment[] =[
+    {name: "BiBile",content: "What is this comment???", imageUrl:"http://www.wikihow.com/images/f/ff/Draw-a-Cute-Cartoon-Person-Step-14.jpg"},
+    {name: "Chathura",content: "This is the second comment...",imageUrl:"http://www.clker.com/cliparts/O/v/9/a/W/c/girl-cartoon.svg"}
+    ] ;
 
 
 // Old data

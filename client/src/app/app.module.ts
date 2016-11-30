@@ -12,6 +12,7 @@ import { PlaylistComponent } from './home/playlist/playlist.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressListComponent } from './progress/progress-list/progress-list.component';
 import { UserProfileComponent }  from './user-profile/user-profile.component';
+import { CommentListComponent }  from './home/comment-list/comment-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserProfileComponent }  from './user-profile/user-profile.component';
     PlaylistComponent,
     ProgressComponent,
     ProgressListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,

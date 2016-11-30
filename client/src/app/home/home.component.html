@@ -1,4 +1,5 @@
 <div class="container">
+  <h3> Logged in as {{userData.user.username}}</h3>
   <div class="row">
     <div class="col-sm-8">
       <div class="card ">
@@ -9,7 +10,7 @@
       Your browser does not support the the video player.
       </video>
       <div class="card-block">
-        <h3> Video- Title {{userData.user.username}} </h3>
+        <h3> Video- Title </h3>
         <p> Description </p>
       </div>
     </div>
@@ -17,6 +18,7 @@
 <div class="card ">
     <div class="card-block">
         Comments
+        <app-comment-list [comments]="commentList"></app-comment-list>
     </div>
 </div>
 
@@ -25,7 +27,6 @@
     <!-- List of Videos -->
     <div class="col-sm-4">
         <div id="accordion" role="tablist" aria-multiselectable="true">
-
           <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"  ></app-playlist>
         </div>
     </div>
