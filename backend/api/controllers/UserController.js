@@ -101,11 +101,36 @@ module.exports = {
   		User.update(request.params.user_id, data, function(error, updated) {
         	if (error) {
     			// handle error here- e.g. `res.serverError(err);`
-    			return;
+    			return error;
   			}
 
   			console.log('Updated user to have name ' + updated[0].name);
   			response.json(updated);
     	});
-  	}
+  	},
+
+    // updateVideo - update watched times of user's videos
+    updateVideo: function(request, response){
+      // TODO: validate video id - get a list of video ids using a route and call using a sync method
+      // object to keep info sent in request
+      var watchedVideos = {};
+      User.findOne(request.params.user_id).exec(function(error, user){
+  			if (error) {
+    			// handle error here- e.g. `res.serverError(err);`
+    			return error;
+  			}
+        watchedVideos = request.body;
+        console.log(watchedVideos);
+        for (id in watchedVideos){
+          user.watchedVideos[id] = watchedVideos[id];
+        }
+        user.save(function(error) {
+  				if (error) {
+          		return response.negotiate(error);
+        	}
+        	sails.log('videos updated');
+        	response.json(user.watchedVideos);
+  			});
+  		});
+    },
 };

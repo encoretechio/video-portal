@@ -6,7 +6,21 @@
  */
 
 module.exports = {
-	//getUsersWhoCanAnswerComments - Send users list who can answer comments with contact details 
+  // createVideo - create a video
+ //  can create with associations - add playlists while creating
+  createVideo: function(request, response){
+    var video = request.body;
+    Video.create(video).exec(function (error, video){
+      if (error) {
+        return response.serverError(error);
+      }
+
+      sails.log('video\'s id is:', video.id);
+      return response.json(video);
+    });
+  },
+
+	//getUsersWhoCanAnswerComments - Send users list who can answer comments with contact details
   	getUsersWhoCanAnswerComments: function(request, response){
   		// var video = sails.middleware.blueprints.findOne(request, response);
   		// var video = {};
@@ -37,4 +51,3 @@ module.exports = {
   		// });
   	},
 };
-
