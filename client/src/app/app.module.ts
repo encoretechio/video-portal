@@ -9,13 +9,19 @@ import { AppComponent } from './app.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { HomeComponent } from './home/home.component';
 import { PlaylistComponent } from './home/playlist/playlist.component';
+import { ProgressComponent } from './progress/progress.component';
+import { ProgressListComponent } from './progress/progress-list/progress-list.component';
+import { UserProfileComponent }  from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserLoginComponent,
     HomeComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    ProgressComponent,
+    ProgressListComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

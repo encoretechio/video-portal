@@ -3,8 +3,8 @@
 
     angular.module('commonServices', [])
         .constant("connectInfo",{
-            "url":"http://8.8.8.8",
-            "port":"3000"
+            "url":"http://52.36.197.150",
+            "port":"1337"
         }
     );
 })();

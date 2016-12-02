@@ -5,9 +5,6 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-// To create using sails console
-// User.create({ firstName: 'Shanika', lastName: 'Ediriweera', streetName: 'Wanatha Rd', town: 'Nugegoda', birthDate: '06-09-1993', email: 'shanika@gmail.com', contactNumber: '0711246252', designation: 'Intern', adminRole: 'SystemAdmin' }).exec(console.log);
-
 module.exports = {
     attributes: {
         //eg: BIB001
@@ -16,7 +13,6 @@ module.exports = {
             type: 'integer',
             autoIncrement: true,
             primaryKey: true,
-            // required: true
         },
 
         username: {
@@ -62,7 +58,6 @@ module.exports = {
       		  unique: true
     	  },
 
-
         contactNumber: {
             type: 'string'
         },
@@ -80,7 +75,7 @@ module.exports = {
         // json object to keep watched videos of a user
         // format - { video_id : time, v2 : t2, ..}
         watchedVideos: {
-            type: 'string'
+            type: 'json'
         },
 
 	    // this can be used to associate a one to many relation with a contacts table

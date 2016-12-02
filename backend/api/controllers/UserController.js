@@ -115,17 +115,19 @@ module.exports = {
 
     // updateVideo - update watched times of user's videos
     updateVideo: function(request, response){
-      var user;
+      // TODO: validate video id - get a list of video ids using a route and call using a sync method
+      // object to keep info sent in request
       var watchedVideos = {};
       User.findOne(request.params.user_id).exec(function(error, user){
   			if (error) {
     			// handle error here- e.g. `res.serverError(err);`
     			return error;
   			}
-  			user = user;
         watchedVideos = request.body;
         console.log(watchedVideos);
-        user.watchedVideos = JSON.stringify(watchedVideos);
+        for (id in watchedVideos){
+          user.watchedVideos[id] = watchedVideos[id];
+        }
         user.save(function(error) {
   				if (error) {
           		return response.negotiate(error);
@@ -133,19 +135,6 @@ module.exports = {
         	sails.log('videos updated');
         	response.json(user.watchedVideos);
   			});
-        // response.json(user.watchedVideos);
-
-        // user.watchedVideos = watchedVideos;
-        // // Queue up a records to be inserted into the join table
-        //
-  			// // Save the role, creating the new associations in the join table
-  			// user.save(function(error) {
-  			// 	if (error) {
-        //   			return response.negotiate(error);
-        // 		}
-        // 		sails.log('videos updated');
-        // 		response.json(user.watchedVideos);
-  			// });
   		});
     },
 };
