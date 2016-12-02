@@ -11,9 +11,14 @@ var getUserSync = function(user_id, profile_id) {
             // change reject with HTTP error
             reject(error);
           }else if ( users.length > 0){
-            // TODO: this method is not good, CHECK ADMIN using a seperate method
-            user = users[0];
-            profile = users[1];
+            // check which object is user and profile
+            if(users[0].id == user_id){
+              user = users[0];
+              profile = users[1];   
+            }else{
+              user = users[1];
+              profile = users[0];
+            }
           }
 
           // send currentuser profile for all users if requested with currentuser_id

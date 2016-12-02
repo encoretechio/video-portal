@@ -88,7 +88,11 @@ module.exports = {
           response.json(profile);
         }else{
           console.log("end"+error);
-          response(error);
+          // send the error msg with 401 status
+          return response.json( 401, { err: {
+            status: 'danger',
+            message: response.i18n(error)
+          }});
         }
       });
   	},
