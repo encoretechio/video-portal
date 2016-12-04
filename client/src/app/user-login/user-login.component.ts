@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { LoginDetails } from '../models/login-details'
 
+import { LoginService }  from '../services/login.service';
+
 @Component({
   selector: 'user-login',
   templateUrl: './user-login.component.html',
@@ -20,7 +22,8 @@ export class UserLoginComponent implements OnInit {
 
   constructor(
     private router:Router,
-    private dataService:DataService) {
+    private dataService:DataService,
+    private loginService:LoginService) {
   }
 
   ngOnInit() {
@@ -28,6 +31,9 @@ export class UserLoginComponent implements OnInit {
 
   onSubmit(): void {
       //console.log("onSubmit - " + this.details.username + " - "+ this.details.password)
+
+
+      /*
       this.dataService.validateLogin(this.details).subscribe(result => {
           if (result)
               this.router.navigate(['']);
@@ -39,5 +45,17 @@ export class UserLoginComponent implements OnInit {
           this.valid = false;
       }
         );
+      */
+
+      this.loginService.login(this.details.username,this.details.password);
+
+      let timeoutId = setTimeout(() => {
+        this.router.navigate(['']);
+      }, 3000);
+
+
+
+
+
   }
 }

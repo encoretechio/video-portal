@@ -14,6 +14,10 @@ import { ProgressListComponent } from './progress/progress-list/progress-list.co
 import { UserProfileComponent }  from './user-profile/user-profile.component';
 import { CommentListComponent }  from './home/comment-list/comment-list.component';
 
+import { HttpService }  from './services/http.service';
+import { LoginService }  from './services/login.service';
+import { DataContextService }  from './shared/data-context.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +35,11 @@ import { CommentListComponent }  from './home/comment-list/comment-list.componen
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [
+    HttpService,
+    LoginService,
+    DataContextService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
