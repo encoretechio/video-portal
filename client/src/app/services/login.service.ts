@@ -12,14 +12,23 @@ export class LoginService {
   public login(emailParam:string, passwordParam:string){
     this.requestOptions.headers.set('Content-Type','application/json');
     let loginInfo = {email:emailParam,  password:passwordParam}
-
+    let loginSuccess:Boolean;
+    
     this.httpService.sendObjects<any>("login",loginInfo).subscribe(
       result=>{
-        //localStorage.setItem('AuthToken',result.token);
         this.dataContext.setAuthToken(result.token)
-        this.requestOptions.headers.set('authorization','Bearer '+ this.dataContext.getAuthToken());
+        this.dataContext.refresh();
+        loginSuccess = true;
+      },
+      error => {
+        console.log("Error at login Component"+error);
+        loginSuccess = false;
+      },
+      () => {
+        return loginSuccess;
       }
     );
+
   }
 
   public logout(){
