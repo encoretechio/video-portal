@@ -1,0 +1,27 @@
+<div class="card" *ngFor="let comment of comments">
+  <div class="card-block" >
+    <div class="col-sm-10" >
+      <div class="col-sm-2" >
+        <img src="{{comment.imageUrl}}" alt="Smiley face" height=auto width="100%">
+      </div>
+      <div class="col-sm-10" >
+        <h6>{{ comment.name }} </h6>
+        <h5>{{ comment.content }}</h5>
+        <p>{{ today | date }} </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" >
+  <div class="card-block" >
+    <form>
+      <div class="col-sm-10">
+        <input type="text"><br>
+      </div>
+      <div class="col-sm-2" >
+        <input type="submit" value="Comment">
+      </div>
+    </form>
+  </div>
+</div>

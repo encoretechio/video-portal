@@ -12,6 +12,11 @@ import { PlaylistComponent } from './home/playlist/playlist.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProgressListComponent } from './progress/progress-list/progress-list.component';
 import { UserProfileComponent }  from './user-profile/user-profile.component';
+import { CommentListComponent }  from './home/comment-list/comment-list.component';
+
+import { HttpService }  from './services/http.service';
+import { LoginService }  from './services/login.service';
+import { DataContextService }  from './shared/data-context.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,8 @@ import { UserProfileComponent }  from './user-profile/user-profile.component';
     PlaylistComponent,
     ProgressComponent,
     ProgressListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,11 @@ import { UserProfileComponent }  from './user-profile/user-profile.component';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [
+    HttpService,
+    LoginService,
+    DataContextService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

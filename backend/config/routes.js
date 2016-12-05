@@ -23,13 +23,11 @@
 module.exports.routes = {
 
   /***************************************************************************
-  *                                                                          *
   * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
   * etc. depending on your default view engine) your home page.              *
   *                                                                          *
   * (Alternatively, remove this and add an `index.html` file in your         *
   * `assets` directory)                                                      *
-  *                                                                          *
   ***************************************************************************/
 
   // '/': {
@@ -37,16 +35,12 @@ module.exports.routes = {
   // },
 
   /***************************************************************************
-  *                                                                          *
   * Custom routes here...                                                    *
   *                                                                          *
   * If a request to a URL doesn't match any of the custom routes above, it   *
   * is matched against Sails route blueprints. See `config/blueprints.js`    *
   * for configuration options and examples.                                  *
-  *                                                                          *
   ***************************************************************************/
-
-  '/': 'HomepageController.index',
 
   // security routes
   'post /login' : 'AuthController.login',
@@ -60,41 +54,40 @@ module.exports.routes = {
   'POST /user/:user_id': 'UserController.editUser',
   'DELETE /user/:user_id': 'UserController.deleteUser',
   'GET /currentuser': 'UserController.getCurrentUser',
-  // 'GET /currentuserdetailed': 'UserController.getCurrentUserProfile',
-  // 'GET /userprofile': 'UserController.getCurrentUserProfile',
   'GET /userprofile/:user_id': 'UserController.getUserProfile',
+  'POST /user/:user_id/update_video': 'UserController.updateVideo',
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',
+  'GET /role/:role_id': 'RoleController.getRole',
   'POST /role': 'RoleController.createRole',
   'DELETE /role/:role_id': 'RoleController.deleteRole',
   'POST /role/:role_id/add_playlists': 'RoleController.addPlaylists',
   'POST /role/:role_id/remove_playlists': 'RoleController.removePlaylists',
 
   // video routes
+  'POST /video': 'VideoController.createVideo',
   // 'GET /video/:video_id/users_who_can_answer_comments': 'VideoController.getUsersWhoCanAnswerComments',
 
   // playlist routes
-  // 'GET /playlist/:playlist_id': 'PlaylistController.getPlaylist',
-  // 'GET /playlist': 'PlaylistController.getPlaylists',
-  // 'POST /playlist': 'PlaylistController.createPlaylist',
+  'GET /playlist/:playlist_id': 'PlaylistController.getPlaylist',
+  'GET /playlist': 'PlaylistController.getPlaylists',
+  'POST /playlist': 'PlaylistController.createPlaylist',
   'GET /playlist/:playlist_id/users_who_can_answer_comments': 'PlaylistController.getUsersWhoCanAnswerComments',
+  'POST /playlist/:playlist_id/add_videos': 'PlaylistController.addVideos',
+  'POST /playlist/:playlist_id/remove_videos': 'PlaylistController.removeVideos',
 
+  // comment routes
   'POST /comment' : 'CommentController.createComment',
   'GET /comment/video/:videoID' : 'CommentController.getCommentsByVideoID',
   'GET /comment/user/:userID' : 'CommentController.getCommentsByUserID',
-
 };
 
+// Example defaults
+// Overwrite or disable these
 // HTTP Method  URL         Description
 // POST         /user       creates a new user
 // GET          /user/2     gets a user with ID of 2
 // GET          /user       gets a list of all users
 // PUT          /user/2     updates a user with ID of 2
 // DELETE       /user/2     deletes a user with ID of 2
-
-// POST         /role       creates a new role
-// GET          /role/2     gets a role with ID of 2
-// GET          /role       gets a list of all roles
-// PUT          /role/2     updates a role with ID of 2
-// DELETE       /role/2     deletes a role with ID of 2
