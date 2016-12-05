@@ -2,7 +2,7 @@ angular.module('insert')
   .controller('addUserController', ['insertService','$scope', addUserCtrl]);
 
 /** @ngInject */
-function addUserCtrl(insertService,$scope) {
+function addUserCtrl(insertService,$scope,$mdDialog) {
 
     $scope.initialize = function(){
       console.log("initialize addUserController")
@@ -14,9 +14,11 @@ function addUserCtrl(insertService,$scope) {
     $scope.submit = function(){
         insertService.addUser($scope.formData);
         console.log($scope.formData);
+        insertService.showAlert();
     };
 
     insertService.getRoles().then(function(data) {
         $scope.allRoles =  data;
     });
+
 }
