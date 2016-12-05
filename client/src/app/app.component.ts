@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from './data.service';
 import { UserData } from './models/user-data';
 import { USER_DATA} from './mock-data/data';
+import { DataContextService} from './shared/data-context.service';
 
 @Component({
   selector: 'app-root',
@@ -16,14 +17,20 @@ export class AppComponent {
 
   constructor(
     private router:Router,
-    private dataService:DataService) {
+    private dataService:DataService,
+    private dataContext:DataContextService) {
+
+
+
   }
   ngOnInit() {
-      this.userData = USER_DATA;
+    this.userData = USER_DATA;
     // this.dataService.getUserData().subscribe(result =>
     //   {
     //     this.userData = result;
     //   });
+    console.log("HOME COMPONENT");
+    this.dataContext.refresh();
   }
 
   isRouteNotActiveByMe(routePath: string)
