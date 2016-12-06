@@ -35,6 +35,8 @@ export class HomeComponent implements OnInit {
 
     this.httpService.getObjects<any>("currentuser").subscribe(result=>{console.log(result);});
 
+    this.httpService.getObjects<any>("userprofile/11").subscribe(result=>{console.log(result);});
+
   }
 
 }
