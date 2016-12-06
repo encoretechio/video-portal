@@ -16,7 +16,8 @@
     'BlurAdmin.pages.charts',
     'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
-
+    "ng","ngAnimate","ngAria",
+    'ngMaterial',
     'commonServices',
     'insert',
     'user',

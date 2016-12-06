@@ -15,6 +15,7 @@ function addRoleCtrl(insertService,$scope) {
     $scope.submit = function(){
         insertService.addRole($scope.formData);
         console.log($scope.formData);
+        insertService.showAlert();
     };
 
     $scope.userChanged = function (value) {
