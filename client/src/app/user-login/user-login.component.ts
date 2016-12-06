@@ -47,11 +47,11 @@ export class UserLoginComponent implements OnInit {
         );
       */
 
-      this.loginService.login(this.details.username,this.details.password);
+      this.loginService.login(this.details.username,this.details.password, () =>this.router.navigate(['']) );
 
-      let timeoutId = setTimeout(() => {
-        this.router.navigate(['']);
-      }, 3000);
+      // let timeoutId = setTimeout(() => {
+      //   this.router.navigate(['']);
+      // }, 3000);
 
 
 

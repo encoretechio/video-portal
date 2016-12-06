@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from '../models/user-data';
+import {User} from '../models/user';
 import { DataService } from '../data.service';
 import { HttpService } from '../services/http.service';
 
@@ -33,9 +34,17 @@ export class HomeComponent implements OnInit {
     this.commentList = COMMENT_DATA;
     this.userData = USER_DATA;
 
-    this.httpService.getObjects<any>("currentuser").subscribe(result=>{console.log(result);});
+    this.httpService.getObjects<any>("currentuser").subscribe(result=>{
+      let user = result as User;
+      console.log(user.id);
+      console.log(result);
+      this.httpService.getObjects<any>("userprofile/"+user.id).subscribe(result=>{
+        this.userData = result as UserData;
+        console.log(result);
+      });
+      ;});
 
-    this.httpService.getObjects<any>("userprofile/11").subscribe(result=>{console.log(result);});
+  //  this.httpService.getObjects<any>("userprofile/11").subscribe(result=>{console.log(result);});
 
   }
 

@@ -9,11 +9,11 @@ export class LoginService {
 
   constructor(private requestOptions:RequestOptions, private httpService:HttpService, private dataContext:DataContextService) { }
 
-  public login(emailParam:string, passwordParam:string){
+  public login(emailParam:string, passwordParam:string, onSuccess){
     this.requestOptions.headers.set('Content-Type','application/json');
     let loginInfo = {email:emailParam,  password:passwordParam}
     let loginSuccess:Boolean;
-    
+
     this.httpService.sendObjects<any>("login",loginInfo).subscribe(
       result=>{
         this.dataContext.setAuthToken(result.token)
@@ -25,7 +25,7 @@ export class LoginService {
         loginSuccess = false;
       },
       () => {
-        return loginSuccess;
+        onSuccess(loginSuccess);
       }
     );
 
