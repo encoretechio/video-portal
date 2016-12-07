@@ -1,51 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { UserData } from '../models/user-data';
 import {User} from '../models/user';
-import { DataService } from '../data.service';
+import {Playlist} from '../models/playlist';
+import { Comment } from '../models/comment';
 import { HttpService } from '../services/http.service';
 
 import { COMMENT_DATA } from '../mock-data/data';
-import { USER_DATA } from '../mock-data/data';
-import { Comment } from '../models/comment';
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [DataService]
+  //providers: [HttpService]
 })
 export class HomeComponent implements OnInit {
 
   userData:UserData;
   commentList:Comment[];
 
-  constructor(private dataService:DataService, private httpService:HttpService) { }
+  constructor(private httpService:HttpService) { }
 
   ngOnInit() {
-    //   this.dataService.getUserData().subscribe(result => {
-    //       this.userData = result;});
-    /*
-    this.dataService.getUserData().subscribe(result =>
-      {
-        this.userData = result;
-        console.log(result);
-      });
-    */
-    this.commentList = COMMENT_DATA;
-    this.userData = USER_DATA;
 
-    this.httpService.getObjects<any>("currentuser").subscribe(result=>{
-      let user = result as User;
-      console.log(user.id);
-      console.log(result);
-      this.httpService.getObjects<any>("userprofile/"+user.id).subscribe(result=>{
-        this.userData = result as UserData;
-        console.log(result);
+    this.commentList = COMMENT_DATA;
+    //this.userData = USER_DATA;
+
+    this.httpService.getObject<User>("currentuser").subscribe(user=>{
+      this.httpService.getObject<UserData>("userprofile/"+user.id).subscribe(result=>{
+        this.userData = result;
+        console.log(this.userData);
       });
       ;});
-
-  //  this.httpService.getObjects<any>("userprofile/11").subscribe(result=>{console.log(result);});
-
   }
 
 }

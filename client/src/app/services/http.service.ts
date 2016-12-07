@@ -26,6 +26,13 @@ export class HttpService {
               .catch(this.handleError);
     }
 
+    public getObject<T> (path: string): Observable<T>  {
+        return this.http.get(this.baseUrl+path)
+            .map((response: Response) => <T> response.json())
+            .do(data => console.log('Retrieved data from: ' + this.baseUrl+path))
+            .catch(this.handleError);
+    }
+
     public getObjects<T> (path: string): Observable<T[]>  {
         return this.http.get(this.baseUrl+path)
             .map((response: Response) => <T[]> response.json())
