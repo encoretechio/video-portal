@@ -19,7 +19,7 @@ export class ProgressListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.playlist.videoList.forEach(element => {
+    this.playlist.videos.forEach(element => {
       if (element.percentage == 100){
         this.count += 1;
       }
