@@ -1,1 +1,3 @@
-npm install && ng build
+npm install
+ng build
+cp -R ./dist ../dist/client
