@@ -17,6 +17,6 @@ deploy:
   secret_access_key:
     secure: kAA/azmta458YglUN4rbmrepID/LojKUE+2iTAi8/E3dhnxOs2j/qLtQh+gfnUpAlzLNY7cjZvoO5x8wZRliR8Ik+k6sCAfUcd4AE7HpOWKM0epqHNYx3esLiCupLGSH4FF+XKVdsyXlaJl2OCoXsPa9v22Z51CH87WJC/xxGjrLGR5D7KyG8fEQqKD5JAuCdpLkffqmcQu4g3nosJYppdarNZmEMjzCyYBlcSn7ZpS4zd25a5JtBqVFgyaFJtDb6AdmGZa4JhcOSfoxuzkyAYelXIsok0s/LWy3yNQo9Xl8/hzLkk+Wu3DUj1odHDmZIgHmYf9h2RhYWpO1kFCaCrEHOsaS9XJILmOKAn4v4xFDIs0zVe2/BXSguoVymlx0Wc+bNUQNO9nF1IGtg7q7nhx3o2IdCUCjMQM0oNNbSJQDGuoUc+gdn1MNoZ3vj4sA48EVWAWkJOFJFFkkb+44TcNO79NGDZlgc58QGCOa0/yGDiMQHx0AM9KVt6oTy5/sTpQVyAHoLR/UaHEOtn5CKDa9xh8dPtJv9rRPQ/SVCKoeBIjCmdE6th7YgOwzCQv6kuZKx9SNkyKAQqnSiMXB9QSPihP7l6Cteo+0/+ND0SxLGOWCQkr7fgnP+jGvu6dUXR/vdwAPW0KX2WUtlG05NTSV2TJYvuDkvjI2CC4GqgQ=
   bucket: letsbuild-client
-  local_dir: client/dist
+  local_dir: dist
   on:
     repo: LetsBuildSomething/video-portal
