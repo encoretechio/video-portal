@@ -2,7 +2,8 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-- '6.7'
+  - "6.7"
+#to build client
 env:
 - ITEM=client
 install:
