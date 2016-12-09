@@ -1,5 +1,5 @@
 npm install gulp
 npm install bower
 npm install
-gulp serve:dist
+gulp
 mv release dist
