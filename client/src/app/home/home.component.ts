@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
     this.commentList = COMMENT_DATA;
 
-    this.video = <Video>{id: 1, title: "Welcome to the video portal", description: "This is the description of the welcome video.", link: "http://static.videogular.com/assets/videos/videogular.mp4"};
+    this.video = <Video>{id: 0, title: "Welcome to the video portal", description: "This is the description of the welcome video.", link: "http://static.videogular.com/assets/videos/videogular.mp4"};
 
     //Subscribe to router to get the video id
     this.sub = this.route.params.subscribe(params => {
@@ -65,6 +65,18 @@ export class HomeComponent implements OnInit {
 
     }
 
+  }
+  
+  
+  changeVideo(id: number) {
+    for(let playList of this.userData.playlists){
+      for(let video of playList.videos){
+        if(video.id==id){
+          this.video = video
+          break;
+        }
+      }
+    }
   }
 
 }

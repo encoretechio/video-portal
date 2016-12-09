@@ -12,7 +12,7 @@ import { DataContextService} from './shared/data-context.service';
   providers: [DataService]
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'LetsBuild Video Portal';
   userData:UserData;
 
   constructor(
@@ -25,10 +25,7 @@ export class AppComponent {
   }
   ngOnInit() {
     this.userData = USER_DATA;
-    // this.dataService.getUserData().subscribe(result =>
-    //   {
-    //     this.userData = result;
-    //   });
+    
     console.log("HOME COMPONENT");
     this.dataContext.refresh();
   }

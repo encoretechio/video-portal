@@ -25,7 +25,7 @@
   <!-- List of Videos -->
   <div class="col-sm-4">
       <div id="accordion" role="tablist" aria-multiselectable="true">
-        <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"  ></app-playlist>
+        <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"  (onVideoLink)="changeVideo($event)"></app-playlist>
       </div>
   </div>
 
