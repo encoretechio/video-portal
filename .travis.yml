@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - "6.7"
+- "6.7"
 #to build client
 env:
 - ITEM=client
@@ -11,7 +11,7 @@ install:
 script:
 - cd $ITEM && chmod ugo+x ./build.sh && ./build.sh
 deploy:
-	skip_cleanup: true
+  skip_cleanup: true
   provider: s3
   access_key_id: AKIAIYOICOTE5DZE2NGQ
   secret_access_key:
