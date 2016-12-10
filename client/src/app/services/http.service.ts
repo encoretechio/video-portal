@@ -13,9 +13,10 @@ export class HttpService {
     }
 
     private handleError(error: Response) {
-      if(error["status"].toString() == "403"){
+      /*if(error["status"].toString() == "403"){
         //  this.loginService.logout();
       }
+      */
       return Observable.throw(error || 'Server error');
     }
 
@@ -42,7 +43,7 @@ export class HttpService {
 
     public sendObjects<T> (path: string, object: T)  {
          return this.http.post(this.baseUrl+path, object)
-         .map((response: Response) => <T> response.json())
+         .map((response: Response) => response.json())
          .catch(this.handleError);
 
     }

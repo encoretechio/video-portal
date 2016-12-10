@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,EventEmitter, Input, Output } from '@angular/core';
 import { Comment } from '../../models/comment';
 
 @Component({
@@ -9,9 +9,13 @@ import { Comment } from '../../models/comment';
 export class CommentListComponent implements OnInit {
 
   private today: number;
+  //private messageContent: string;
 
   @Input()
   comments:Comment[];
+
+  @Output()
+  postComment = new EventEmitter<string>();
 
   constructor() {
     this.today = Date.now();
@@ -20,6 +24,12 @@ export class CommentListComponent implements OnInit {
   ngOnInit() {
     //console.log("COMMENT LIST COMPONENT");
   }
+
+  addComment(content: string) {
+    this.postComment.emit(content);
+  }
+
+
 }
 
 

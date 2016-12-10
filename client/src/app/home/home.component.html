@@ -13,10 +13,10 @@
     </div>
 
   <!-- List of comments for video -->
-  <div class="card ">
+  <div class="card " *ngIf="video.id != 0" >
       <div class="card-block">
-          Comments
-          <app-comment-list [comments]="commentList"></app-comment-list>
+          <h4 align="center">Comments</h4>
+          <app-comment-list [comments]="commentList" (postComment)="addComment($event)"></app-comment-list>
       </div>
   </div>
 
