@@ -6,7 +6,7 @@
       <a class="nav-link" [routerLink]="['/']" [routerLinkActive]="['active']">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item"style="float:right;" >
-      <a class="nav-link" [routerLink]="['/login']" [routerLinkActive]="['active']">Logout({{userData.user.username}} --CHANGE--)</a>
+      <a class="nav-link" (click)="LogOut()">Logout({{userData.user.username}} --CHANGE--)</a>
     </li>
     <li class="nav-item dropdown float-xs-right" style="float:right;">
       <a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true"

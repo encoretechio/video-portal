@@ -14,25 +14,11 @@ export class DataService {
   private static token = "";
   constructor(private http: Http) { }
   validateLogin(loginDetails: LoginDetails): Observable<Boolean> {
-    console.log("before login");
-    //       return this.http.post(this.url+"/signup",
-    //                             JSON.stringify({
-    //     "username": "jana",
-    //     "firstName": "Janaka",
-    //     "lastName": "Chathuranga",
-    //     "email": "jana@gmail.com",
-    //     "contactNumber": "7111111111",
-    //     "password": "111",
-    //     "confirmPassword":"111",
-    //     "active": null
-    // }), {headers: this.headers})
-    //                     .map(this.extractData)
-    //                     .catch(this.handleError);
+    console.log("LOGIN COMPONENT");
 
     return this.http.post(this.url + "/login", JSON.stringify({ email: loginDetails.username, password: loginDetails.password }), { headers: this.headers })
       .map(this.extractData)
       .catch(this.handleError);
-
   }
 
   getHeadersWithToken() {

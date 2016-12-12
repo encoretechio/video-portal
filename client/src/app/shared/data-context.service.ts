@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Headers, RequestOptions} from '@angular/http';
-import {Observable} from 'rxjs/Rx'; 
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class DataContextService {
@@ -18,8 +18,13 @@ export class DataContextService {
     return this.authToken;
   }
 
+  public removeAuthToken(){
+    localStorage.removeItem('AuthToken');
+    this.authToken = null;
+    //this.requestOptions.headers.delete('authorization');
+  }
+
   public refresh(){
-    //console.log("refreshToken");
     this.authToken = localStorage.getItem('AuthToken');
 
     if(localStorage.getItem('AuthToken') != null){

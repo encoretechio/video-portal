@@ -1,22 +1,31 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Rx';  //'rxjs/Observable'
-import { Http, Response} from '@angular/http';
-
-import {Headers, RequestOptions} from '@angular/http';
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
+import { Router } from '@angular/router';
+import { DataContextService }  from '../shared/data-context.service';
 
 @Injectable()
 export class HttpService {
     private baseUrl:string;
+    //private loginService:LoginService;  ---> Circular Dependency
 
-    constructor(private http:Http, private requestOptions:RequestOptions ) {
+    constructor(private http:Http, private router:Router, private requestOptions:RequestOptions, private dataContext:DataContextService) {
       this.baseUrl="http://52.36.197.150:1337/";
     }
 
     private handleError(error: Response) {
-      /*if(error["status"].toString() == "403"){
-        //  this.loginService.logout();
+
+      // Error with JSON parsing errors  toString of undefined.
+      if(error["status"] && error["status"].toString() == "401")
+      {
+          console.log("Authorization Error : Should logout");
+          //Logout : cannt use LoginService.logout cause of Circular Dependency
+
+          //this.requestOptions.headers.set('Content-Type','application/json');
+          //this.dataContext.removeAuthToken();
+          //this.router.navigate(['login']);
       }
-      */
+
       return Observable.throw(error || 'Server error');
     }
 

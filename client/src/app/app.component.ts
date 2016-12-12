@@ -4,6 +4,7 @@ import { DataService } from './data.service';
 import { UserData } from './models/user-data';
 import { USER_DATA} from './mock-data/data';
 import { DataContextService} from './shared/data-context.service';
+import { LoginService }  from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -18,14 +19,15 @@ export class AppComponent {
   constructor(
     private router:Router,
     private dataService:DataService,
-    private dataContext:DataContextService) {
+    private dataContext:DataContextService,
+    private loginService:LoginService) {
 
 
 
   }
   ngOnInit() {
     this.userData = USER_DATA;
-    
+
     console.log("HOME COMPONENT");
     this.dataContext.refresh();
   }
@@ -34,4 +36,13 @@ export class AppComponent {
   {
     return this.router.url!=routePath;
   }
+
+  LogOut(){
+    console.log("Logging Out");
+    this.loginService.logout( () =>this.router.navigate(['login']) );
+  }
+
+
+
+
 }

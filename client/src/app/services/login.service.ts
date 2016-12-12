@@ -31,8 +31,10 @@ export class LoginService {
 
   }
 
-  public logout(){
-
+  public logout(onSuccess){
+    this.requestOptions.headers.set('Content-Type','application/json');
+    this.dataContext.removeAuthToken();
+    onSuccess(true);
   }
 
 }
