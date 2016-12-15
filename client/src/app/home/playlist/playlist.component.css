@@ -31,9 +31,11 @@
 
 .card-block{
     padding: 0.75rem;
+    background:#e7edb4;
 }
 
 .list-group-item
 {
     padding: 0.75rem;
+    background:#e8f293;
 }
