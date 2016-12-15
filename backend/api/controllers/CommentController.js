@@ -17,13 +17,16 @@ module.exports = {
 						User.findOne({id:user_id}).exec(function(error, user){
 							if(error){
 								reject(error);
-							  return response.serverError(error);
+								// dont give response here
+							  	return response.serverError(error);
 							}
 							if(user == null){
 								reject("Invalid User ID")
+								// dont give response here
 								return response.serverError("Invalid userID");
 							}
-							resolve(user);});
+							resolve(user);
+						});
 			});
 		}
 		var checkVideo = function(video_id){
@@ -51,10 +54,18 @@ module.exports = {
 			});
 		}
 
-		checkUser(request.body.author)
-			.then(checkVideo(request.body.video))
-			.then(addComment(request.body));
-
+		checkUser(request.body.author).then(function(user){
+				console.log(user);
+				return checkVideo(request.body.video);
+			}).then(function(video){
+				console.log(video);
+				addComment(request.body);
+			}).catch(function(error){
+				return response.json( 401, { err: {
+            		status: 'danger',
+            		message: response.i18n(error)
+          		}});
+			});
 	},
 
 	getCommentsByVideoID: function(request, response){
