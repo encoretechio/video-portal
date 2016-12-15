@@ -1,4 +1,4 @@
-<div class="appComponent">
+
 <!-- Header -->
   <header id="header" class="alt" *ngIf="isRouteNotActiveByMe('/login')">
     <h1 id="logo"><a href="#">LETS BUILD <span> VIDEO PORTAL</span></a></h1>
@@ -21,9 +21,11 @@
   <section id="banner" *ngIf="isRouteNotActiveByMe('/login')">
   </section>
 
-  <br />
 
-  <router-outlet></router-outlet>
+  <div class="appComponent">
+    <br />
+    <router-outlet></router-outlet>
+  </div>
 
   <!-- Footer -->
   <footer id="footer">
@@ -39,4 +41,3 @@
       </ul>
 
   </footer>
-</div>
