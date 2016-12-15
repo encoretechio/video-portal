@@ -1,5 +1,5 @@
 <div class="container">
-  <h3> Logged in as {{userData.user.username}}</h3>
+  <alert tupe="info" dismissible="true"><strong>Login Success!</strong> username is {{userData.user.username}}</alert>
   <div class="row">
     <div class="col-sm-8">
       <div class="card ">
@@ -28,6 +28,5 @@
         <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"  (onVideoLink)="changeVideo($event)"></app-playlist>
       </div>
   </div>
-
 </div>
 </div>

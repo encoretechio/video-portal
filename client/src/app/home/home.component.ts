@@ -8,6 +8,7 @@ import { HttpService } from '../services/http.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { LoginService }  from '../services/login.service';
+import { DataContextService }  from '../shared/data-context.service';
 
 import { USER_DATA } from '../mock-data/data';
 //COMMENT_DATA
@@ -31,7 +32,8 @@ export class HomeComponent implements OnInit {
     private httpService:HttpService, 
     private route: ActivatedRoute, 
     private router:Router,
-    private loginService:LoginService) { }
+    private loginService:LoginService,
+    private dataContext:DataContextService) { }
 
   ngOnInit() {
 
@@ -51,6 +53,9 @@ export class HomeComponent implements OnInit {
         this.httpService.getObject<UserData>("userprofile/"+user.id).subscribe( result=>{
               this.userData = result;
               console.log(this.userData);
+
+              let user = this.userData.user;
+              this.dataContext.setUserDetails(user.id,user.username,user.email);
               //find the video object from video id;
 
               /*
@@ -67,7 +72,6 @@ export class HomeComponent implements OnInit {
                   }
                 }
               */
-
           });
       },
       err => {
