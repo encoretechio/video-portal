@@ -125,6 +125,10 @@ module.exports = {
   			}
         watchedVideos = request.body;
         console.log(watchedVideos);
+        // create an enpty object if user.watchedVideos is null
+        if(user.watchedVideos == null){
+          user.watchedVideos = {};
+        }
         for (id in watchedVideos){
           user.watchedVideos[id] = watchedVideos[id];
         }
