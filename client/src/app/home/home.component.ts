@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { LoginService }  from '../services/login.service';
 import { DataContextService }  from '../shared/data-context.service';
+import {Observable} from 'rxjs/Rx';
 
 import { USER_DATA } from '../mock-data/data';
 //COMMENT_DATA
@@ -29,8 +30,8 @@ export class HomeComponent implements OnInit {
   video: Video;
 
   constructor(
-    private httpService:HttpService, 
-    private route: ActivatedRoute, 
+    private httpService:HttpService,
+    private route: ActivatedRoute,
     private router:Router,
     private loginService:LoginService,
     private dataContext:DataContextService) { }
@@ -48,7 +49,6 @@ export class HomeComponent implements OnInit {
 
     if(!this.userData)
     {
-      this.userData = USER_DATA;
       this.httpService.getObject<User>("currentuser").subscribe(user=>{
         this.httpService.getObject<UserData>("userprofile/"+user.id).subscribe( result=>{
               this.userData = result;
@@ -113,4 +113,12 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  updateVideoProgress(){
+    let progress = 0;
+    let video = {}
+    video[this.video.id] = progress;
+    this.httpService.sendObjects<any>("/user/"+this.userData.user.id+"/update_video",video).subscribe(result=>{
+      console.log("Comment Added");
+    });
+  }
 }

@@ -1,32 +1,33 @@
-<div class="container">
-  <alert tupe="info" dismissible="true"><strong>Login Success!</strong> username is {{userData.user.username}}</alert>
+<div class="container" *ngIf="userData">
+  <alert tupe="info" dismissible="true"><strong>Hi {{userData.user.firstName}}</strong>, Welcome to Video Portal! </alert>
   <div class="row">
     <div class="col-sm-8">
       <div class="card ">
-      <video controls height="100%" width="100%" [src]="video.link" controls>
-      Your browser does not support the the video player.
-      </video>
-      <div class="card-block">
-        <h3> {{video.title}} </h3>
-        <p> {{video.description  }} </p>
+        <video controls height="100%" width="100%" [src]="video.link" controls>
+          Your browser does not support the the video player.
+        </video>
+        <div class="card-block">
+          <h3> {{video.title}} </h3>
+          <p> {{video.description }} </p>
+        </div>
       </div>
-    </div>
 
-  <!-- List of comments for video -->
-  <div class="card " *ngIf="video.id != 0" >
-      <div class="card-block">
+      <!-- List of comments for video -->
+      <div class="card " *ngIf="video.id != 0">
+        <div class="card-block">
           <h4 align="center">Comments</h4>
           <app-comment-list [comments]="commentList" (postComment)="addComment($event)"></app-comment-list>
+        </div>
       </div>
-  </div>
 
     </div>
 
-  <!-- List of Videos -->
-  <div class="col-sm-4">
+    <!-- List of Videos -->
+    <div class="col-sm-4">
       <div id="accordion" role="tablist" aria-multiselectable="true">
-        <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"  (onVideoLink)="changeVideo($event)"></app-playlist>
+        <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"
+                      (onVideoLink)="changeVideo($event)"></app-playlist>
       </div>
+    </div>
   </div>
-</div>
 </div>
