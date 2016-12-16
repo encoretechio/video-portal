@@ -5,6 +5,7 @@ import { Comment } from '../models/comment';
 export const USER_DATA: UserData = <UserData>{
   user: {
     id: 2,
+    nickName:'Nick Name',
     username: "shaedi",
     firstName: "Shanika",
     lastName: "Ediriweera",
@@ -35,6 +36,7 @@ export const USER_DATA: UserData = <UserData>{
 export const PROGR_DATA: ProgressData = {
     user: {
         id: 2,
+        nickName:'Nick Name',
         username: "shaedi",
         firstName: "Shanika",
         lastName: "Ediriweera",

@@ -51,6 +51,7 @@ export class HttpService {
     }
 
     public sendObjects<T> (path: string, object: T)  {
+        console.log("Posting..")
          return this.http.post(this.baseUrl+path, object)
          .map((response: Response) => response.json())
          .catch(this.handleError);

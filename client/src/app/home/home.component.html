@@ -1,9 +1,9 @@
 <div class="container" *ngIf="userData">
-  <alert tupe="info" dismissible="true"><strong>Hi {{userData.user.firstName}}</strong>, Welcome to Video Portal! </alert>
+  <alert tupe="info" dismissible="true"><strong>Hi {{userData.user.nickName}}</strong>, Welcome to Video Portal! </alert>
   <div class="row">
     <div class="col-sm-8">
       <div class="card ">
-        <video controls height="100%" width="100%" [src]="video.link" controls>
+          <video controls height="100%" width="100%" [src]="video.link" #videoElement controls>
           Your browser does not support the the video player.
         </video>
         <div class="card-block">

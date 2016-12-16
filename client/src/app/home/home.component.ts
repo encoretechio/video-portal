@@ -10,17 +10,17 @@ import { Router } from '@angular/router';
 import { LoginService }  from '../services/login.service';
 import { DataContextService }  from '../shared/data-context.service';
 import {Observable} from 'rxjs/Rx';
-
-import { USER_DATA } from '../mock-data/data';
-//COMMENT_DATA
+import {ElementRef, ViewChild} from '@angular/core'; // To access DOM element and get the current time of <video>
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  //providers: [HttpService]
 })
+
+
+
 export class HomeComponent implements OnInit {
 
   userData:UserData;
@@ -28,6 +28,10 @@ export class HomeComponent implements OnInit {
   private sub: any;
   videoId: number;
   video: Video;
+  videoProgress:any;
+
+
+  @ViewChild('videoElement') videoElement:ElementRef;
 
   constructor(
     private httpService:HttpService,
@@ -72,6 +76,12 @@ export class HomeComponent implements OnInit {
                   }
                 }
               */
+
+          //    Start a timer to listen to video play
+          let timer = Observable.timer(2000,5000);
+          timer.subscribe(this.updateVideoProgress.bind(this));
+
+
           });
       },
       err => {
@@ -114,11 +124,30 @@ export class HomeComponent implements OnInit {
   }
 
   updateVideoProgress(){
-    let progress = 0;
-    let video = {}
-    video[this.video.id] = progress;
-    this.httpService.sendObjects<any>("/user/"+this.userData.user.id+"/update_video",video).subscribe(result=>{
-      console.log("Comment Added");
+
+    let videoProgress = {}
+    if(this.video && this.videoProgress){
+
+      let progress = this.videoElement.nativeElement.currentTime;
+      //this.progressList contain progress of all videos. If it is not there or less than the current progress update call will be executed
+      if((typeof this.videoProgress[this.video.id] === "undefined")|| this.videoProgress[this.video.id] < progress)
+        videoProgress[this.video.id] = progress;
+      else
+        return;
+    }
+
+    this.httpService.sendObjects<any>("user/"+this.userData.user.id+"/update_video",videoProgress).subscribe(result=>{
+      this.videoProgress = result;
     });
+
+    // console.log("--")
+    // if(this.video) {
+    //   let progress = this.videoElement.nativeElement.currentTime;
+    //   let video = {}
+    //   video[this.video.id] = progress;
+    //   console.log('video:')
+    //   console.log(video)
+    //
+    // }
   }
 }
