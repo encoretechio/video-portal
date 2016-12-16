@@ -13,23 +13,26 @@ export class PlaylistComponent implements OnInit {
 
   @Input()
   indexValue:number;
-  
-  @Output() 
+
+  @Input()
+  selectedVideoId:number;
+
+  @Output()
   onVideoLink = new EventEmitter<number>();
-  
+
   constructor() { }
 
   ngOnInit() {
 
   }
-  
+
     selectVideo(id: number) {
       this.onVideoLink.emit(id);
     }
-  
-  
-  
-  
-  
+
+
+
+
+
 
 }

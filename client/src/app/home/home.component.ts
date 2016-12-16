@@ -123,6 +123,32 @@ export class HomeComponent implements OnInit {
     });
   }
 
+
+  //Should be added to a Generic Utills class
+  getLengthTextFromSeconds(sec_num:number){
+    let hours   = Math.floor(sec_num / 3600);
+    let minutes = Math.floor((sec_num/ 60)%60);
+    let seconds = Math.floor(sec_num%60);
+
+    let h = hours<10?"0"+hours:hours,
+      m = minutes<10?"0"+minutes:minutes,
+      s = seconds<10?"0"+seconds:seconds;
+
+    return h+':'+m+':'+s;
+  }
+
+  getSecondsFromLengthText(txt:string=""){
+
+    let elements = (txt+"").split(":");
+    let seconds = 0;
+    let power = 1;
+    for(let i=elements.length-1; i>=0; i--){
+      seconds += power*+elements[i]
+      power*=60;
+    }
+    return seconds;
+  }
+
   updateVideoProgress(){
 
     let videoProgress = {}
@@ -130,14 +156,16 @@ export class HomeComponent implements OnInit {
 
       let progress = this.videoElement.nativeElement.currentTime;
       //this.progressList contain progress of all videos. If it is not there or less than the current progress update call will be executed
-      if((typeof this.videoProgress[this.video.id] === "undefined")|| this.videoProgress[this.video.id] < progress)
-        videoProgress[this.video.id] = progress;
+      if((typeof this.videoProgress[this.video.id] === "undefined")|| this.getSecondsFromLengthText(this.videoProgress[this.video.id]) < progress)
+        videoProgress[this.video.id] = this.getLengthTextFromSeconds(progress);
       else
         return;
     }
+    console.log(videoProgress)
 
     this.httpService.sendObjects<any>("user/"+this.userData.user.id+"/update_video",videoProgress).subscribe(result=>{
       this.videoProgress = result;
+      this.updateUserDataUsingVideoProgress();
     });
 
     // console.log("--")
@@ -149,5 +177,17 @@ export class HomeComponent implements OnInit {
     //   console.log(video)
     //
     // }
+  }
+
+  updateUserDataUsingVideoProgress(){
+    for(let playList of this.userData.playlists){
+      for(let video of playList.videos){
+        if(this.videoProgress[video.id]){
+          video.watchedLength = this.videoProgress[video.id];
+        }
+        else
+          video.watchedLength = 0;
+      }
+    }
   }
 }

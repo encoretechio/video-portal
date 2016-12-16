@@ -13,14 +13,14 @@ export class ProgressListComponent implements OnInit {
 
   @Input()
   indexValue:number;
- 
-  private count = 0; 
+
+  private count = 0;
   constructor() { }
 
   ngOnInit() {
 
     this.playlist.videos.forEach(element => {
-      if (element.percentage == 100){
+      if (element.watchedLength >= element.length){
         this.count += 1;
       }
     });

@@ -19,6 +19,12 @@
     border-bottom: none;
     border-top-right-radius: 0;
     border-top-left-radius: 0;
+  background-color: #e8f293;
+
+}
+
+.video-li-selected{
+  background-color: #83d3c9;
 }
 
 .playlist-heading-a:hover{
@@ -32,10 +38,4 @@
 .card-block{
     padding: 0.75rem;
     background:#e7edb4;
-}
-
-.list-group-item
-{
-    padding: 0.75rem;
-    background:#e8f293;
 }
