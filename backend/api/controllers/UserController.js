@@ -4,6 +4,8 @@
  * @description :: Server-side logic for managing users
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
+var bcrypt = require('bcrypt');
+var helper = require('../../lib/helper.js');
 
 module.exports = {
     // createUser - create a user
@@ -98,9 +100,63 @@ module.exports = {
   	},
 
 
+    // changePassword - POST old password and new password with UserID
+    changePassword: function(request,response){
+
+      User.findOne( request.param('user_id')).exec( function(error, user) {
+        if ( error ) {
+          response.json( 500, { err: error } );
+        }
+
+        // validate user
+        if ( !user ) {
+          return response.json( 401, { err: {
+            status: 'warn',
+            message: response.i18n('Invalid user id')
+          }});
+        }
+
+        // validate old password
+        user.isPasswordValid( request.body.oldPassword, function (error, bool) {
+          if ( error ) return response.serverError(error);
+          if ( bool ) {
+            // old password is correct
+            // Encrypt password before saving to database
+            bcrypt.genSalt(10, function(error, salt) {
+              bcrypt.hash(request.body.newPassword, salt, function(err, hash) {
+                if ( error ){
+                  return response.json(500, { err: error });
+                }
+
+                // adding hashed newpassword to the data object
+                user.password = hash;
+
+                // update user 
+                user.save(function(error) {
+                  if (error) {
+                      return response.negotiate(error);
+                  }
+                  console.log('password changed of user: ' + user.username);
+                  return response.json( 200, { message: 'Password changed successfully!' } );
+                });
+
+              });
+            });
+          } else {
+            return response.json( 401, { err: {
+              status: 'danger',
+              message: response.i18n('Old password incorrect')
+            }});
+          }
+        });
+      });
+
+    },
+
 
   	// editUser - POST update details with UserID
   	editUser: function(request,response){
+      // TODO: make password unupdateable from this route
   		var data = request.body;
   		User.update(request.params.user_id, data, function(error, updated) {
         	if (error) {
