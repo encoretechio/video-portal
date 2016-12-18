@@ -7,7 +7,7 @@ function insertServ(dataContext,$mdDialog) {
   this.alertMsg;
 
   this.addUser = function(data){
-      dataContext.postData("add/user",data);
+      dataContext.postData("signup",data);
       return 200;
   };
 
