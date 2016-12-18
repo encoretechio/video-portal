@@ -32,6 +32,7 @@
     "bootstrap": "4.0.0-alpha.4"
   },
   "devDependencies": {
+    "angular-cli": "1.0.0-beta.15",
     "@types/jasmine": "^2.2.30",
     "ts-node": "1.2.1",
     "codelyzer": "~0.0.26",
