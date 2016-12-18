@@ -1,34 +1,33 @@
-<div class="container">
-  <h3> Logged in as {{userData.user.username}}</h3>
+<div class="container" *ngIf="userData">
+  <alert tupe="info" dismissible="true"><strong>Hi {{userData.user.nickName}}</strong>, Welcome to Video Portal! </alert>
   <div class="row">
     <div class="col-sm-8">
       <div class="card ">
-      <video controls height="100%" width="100%">
-        <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
-        <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
-        <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
-      Your browser does not support the the video player.
-      </video>
-      <div class="card-block">
-        <h3> Video- Title </h3>
-        <p> Description </p>
+          <video controls height="100%" width="100%" [src]="video.link" #videoElement controls>
+          Your browser does not support the the video player.
+        </video>
+        <div class="card-block">
+          <h3> {{video.title}} </h3>
+          <p> {{video.description }} </p>
+        </div>
       </div>
-    </div>
 
-<div class="card ">
-    <div class="card-block">
-        Comments
-        <app-comment-list [comments]="commentList"></app-comment-list>
-    </div>
-</div>
+      <!-- List of comments for video -->
+      <div class="card " *ngIf="video.id != 0">
+        <div class="card-block">
+          <h4 align="center">Comments</h4>
+          <app-comment-list [comments]="commentList" (postComment)="addComment($event)"></app-comment-list>
+        </div>
+      </div>
 
     </div>
 
     <!-- List of Videos -->
     <div class="col-sm-4">
-        <div id="accordion" role="tablist" aria-multiselectable="true">
-          <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"  ></app-playlist>
-        </div>
+      <div id="accordion" role="tablist" aria-multiselectable="true">
+        <app-playlist *ngFor="let item of userData.playlists" [playlist]="item"
+                      (onVideoLink)="changeVideo($event)" [selectedVideoId]="video.id"></app-playlist>
+      </div>
     </div>
-</div>
+  </div>
 </div>

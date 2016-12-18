@@ -2,72 +2,111 @@ import { UserData } from '../models/user-data';
 import { ProgressData } from '../models/progr-data';
 import { Comment } from '../models/comment';
 
-export const USER_DATA: UserData = {
-    user: {
-        id: 2,
-        username: "shaedi",
-        firstName: "Shanika",
-        lastName: "Ediriweera",
-        email: "shaedi@abc.com",
-        contactNumber: "011-121313222",
-        password: "",
-        active: true
+export const USER_DATA: UserData = <UserData>{
+  user: {
+    id: 2,
+    nickName:'Nick Name',
+    username: "shaedi",
+    firstName: "Shanika",
+    lastName: "Ediriweera",
+    email: "shaedi@abc.com",
+    contactNumber: "011-121313222",
+    password: "",
+    active: true
+  },
+  playlists: [
+    {
+      id: 1,
+      name: 'Playlist1',
+      description: "Description of the plalist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
+      videos: [{id: 1, title: "title1", description: "string", link: "http://somethi.com/13"},
+        {id: 2, title: "title2", description: "string", link: "http://somethi.com/12"},
+        {id: 123, title: "title3", description: "string", link: "http://somethi.com/3"}]
     },
-    playlists: [
-        {
-            id: 1,
-            name: 'Playlist1',
-            description: "Description of the plalist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
-            videoList: [{ id: 1, title: "title1", description: "string", url: "http://somethi.com/13" },
-            { id: 2, title: "title2", description: "string", url: "http://somethi.com/12" },
-            { id: 123, title: "title3", description: "string", url: "http://somethi.com/3" }]
-        },
-        {
-            id: 12,
-            name: 'Playlist2',
-            description: "Description of the plalist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
-            videoList: [{ id: 3, title: "title1", description: "string", url: "http://somethi.com/123" },
-            { id: 4, title: "title2", description: "string", url: "http://somethi.com/123" }]
-        },
-    ]
+    {
+      id: 12,
+      name: 'Playlist2',
+      description: "Description of the plalist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
+      videos: [{id: 3, title: "title1", description: "string", link: "http://somethi.com/123"},
+        {id: 4, title: "title2", description: "string", link: "http://somethi.com/123"}]
+    },
+  ]
 };
 
-export const PROGR_DATA: ProgressData = {
-    user: {
-        id: 2,
-        username: "shaedi",
-        firstName: "Shanika",
-        lastName: "Ediriweera",
-        email: "shaedi@abc.com",
-        contactNumber: "011-121313222",
-        password: "",
-        active: true
+export const PROGR_DATA: ProgressData = <ProgressData>{
+  user: {
+    id: 2,
+    nickName: 'Nick Name',
+    username: "shaedi",
+    firstName: "Shanika",
+    lastName: "Ediriweera",
+    email: "shaedi@abc.com",
+    contactNumber: "011-121313222",
+    password: "",
+    active: true
+  },
+  playlists: [
+    {
+      id: 1,
+      name: 'Playlist1',
+      description: "Description of the playlist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
+      videos: [{
+        id: 1,
+        title: "title1",
+        description: "string",
+        link: "http://somethi.com/13",
+        status: "Completed",
+        watchedLength: 0
+      },
+        {
+          id: 2,
+          title: "title2",
+          description: "string",
+          link: "http://somethi.com/12",
+          status: "In Progress",
+          watchedLength: 0
+        },
+        {
+          id: 123,
+          title: "title3",
+          description: "string",
+          link: "http://somethi.com/3",
+          status: "To Be",
+          watchedLength: 0
+        }]
     },
-    playlists: [
+    {
+      id: 12,
+      name: 'Playlist2',
+      description: "Description of the playlist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
+      videos: [{
+        id: 3,
+        title: "title1",
+        description: "string",
+        link: "http://somethi.com/123",
+        status: "Completed",
+        watchedLength: 0
+      },
         {
-            id: 1,
-            name: 'Playlist1',
-            description: "Description of the playlist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
-            videoList: [{ id: 1, title: "title1", description: "string", url: "http://somethi.com/13", status: "Completed", percentage: 100 },
-            { id: 2, title: "title2", description: "string", url: "http://somethi.com/12", status: "In Progress", percentage: 10 },
-            { id: 123, title: "title3", description: "string", url: "http://somethi.com/3", status: "To Be", percentage: 0 }]
-        },
-        {
-            id: 12,
-            name: 'Playlist2',
-            description: "Description of the playlist. Thit is about a general idea on what playlist is about. Things the titile can't describe can be included here.",
-            videoList: [{ id: 3, title: "title1", description: "string", url: "http://somethi.com/123", status: "Completed", percentage: 100 },
-            { id: 4, title: "title2", description: "string", url: "http://somethi.com/123", status: "Completed", percentage: 100 }]
-        },
-    ]
+          id: 4,
+          title: "title2",
+          description: "string",
+          link: "http://somethi.com/123",
+          status: "Completed",
+          watchedLength: 0
+        }]
+    },
+  ]
 };
 
 
+/*
+// CHANGE NOW   ----------------------------------------------------------------
 export const COMMENT_DATA: Comment[] =[
     {name: "BiBile",content: "What is this comment???", imageUrl:"http://www.wikihow.com/images/f/ff/Draw-a-Cute-Cartoon-Person-Step-14.jpg"},
     {name: "Chathura",content: "This is the second comment...",imageUrl:"http://www.clker.com/cliparts/O/v/9/a/W/c/girl-cartoon.svg"}
     ] ;
-
+*/
 
 // Old data
 // export const USERS: User[] = [

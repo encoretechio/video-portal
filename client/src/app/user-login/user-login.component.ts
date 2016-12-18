@@ -30,32 +30,10 @@ export class UserLoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-      //console.log("onSubmit - " + this.details.username + " - "+ this.details.password)
 
-
-      /*
-      this.dataService.validateLogin(this.details).subscribe(result => {
-          if (result)
-              this.router.navigate(['']);
-          else
-            this.valid = false;
-      },
-      error => {
-          console.log("Error at login Component"+error);
-          this.valid = false;
-      }
-        );
-      */
-
-      this.loginService.login(this.details.username,this.details.password);
-
-      let timeoutId = setTimeout(() => {
-        this.router.navigate(['']);
-      }, 3000);
-
-
-
-
+      this.loginService.login(this.details.username,this.details.password,
+          () =>this.router.navigate([''])
+      );
 
   }
 }

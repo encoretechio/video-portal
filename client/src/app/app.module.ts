@@ -17,6 +17,7 @@ import { CommentListComponent }  from './home/comment-list/comment-list.componen
 import { HttpService }  from './services/http.service';
 import { LoginService }  from './services/login.service';
 import { DataContextService }  from './shared/data-context.service';
+import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DataContextService }  from './shared/data-context.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    AlertModule
   ],
   providers: [
     HttpService,
