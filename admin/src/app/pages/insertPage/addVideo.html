@@ -1,0 +1,31 @@
+<div class="col-sm-12">
+    <div ba-panel ba-panel-title="Add Video" ba-panel-class="with-scroll">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="playlist">Playlist</label>
+                    <select type="text" class="form-control" id="playlist" placeholder="playlist name" ng-model="formData.playlistName" ng-options="playlist.id as playlist.name for playlist in allPlaylists">
+                        <option value="">Select Playlist</option>
+                    </select>
+                    <!--<input type="text" class="form-control" id="user" placeholder="user name" ng-model="formData.firstName">-->
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Title" ng-model="formData.title">
+                    </input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="button-wrapper"><button type="button" class="btn btn-info btn-raised" ng-click = "uploadVideo()">Upload Video</button></div>
+            </div>
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-primary" ng-click = "submit()" ng-disabled="!formData.title && !formData.playlistName" >Submit</button>
+                <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)">
+            </div>
+        </div>
+    </div>`
+</div>

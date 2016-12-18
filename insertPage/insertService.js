@@ -20,16 +20,6 @@ function insertServ(dataContext,$mdDialog) {
       return dataContext.getData("role");
   };
 
-  this.addPlaylist = function(data){
-      dataContext.postData("playlist", data);
-  };
-  this.addVideo = function(data){
-      dataContext.postData("video", data);
-  };
-  this.getPlaylists = function(){
-      return dataContext.getData("playlist");
-  };
-
   this.showAlert = function(ev) {
     // Appending dialog to document.body to cover sidenav in docs app
     // Modal dialogs should fully cover application
@@ -45,6 +35,4 @@ function insertServ(dataContext,$mdDialog) {
         .targetEvent(ev)
     );
   };
-
-
 }
