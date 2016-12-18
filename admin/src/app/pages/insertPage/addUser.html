@@ -3,6 +3,14 @@
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group">
+          <label for="inputUsername">User Name</label>
+          <input type="text" class="form-control" id="inputUsername" placeholder="User Name" ng-model="formData.username">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
           <label for="inputFirstName">First Name</label>
           <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" ng-model="formData.firstName">
         </div>
@@ -23,17 +31,31 @@
       </div>
       <div class="col-sm-6">
         <div class="form-group">
-          <label for="inputWebsite">Website</label>
-          <input type="text" class="form-control" id="inputWebsite" placeholder="Website" ng-model="formData.website">
+          <label for="inputContact">Contact No</label>
+          <input type="text" class="form-control" id="inputContact" placeholder="Contact Number" ng-model="formData.contactNo">
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group">
           <label for="role">Role</label>
-          <select type="text" class="form-control" id="role" ng-model="formData.role" ng-options="role.id as role.name for role in allRoles">
+          <select type="text" class="form-control" id="role" ng-model="formData.adminRole" ng-options="role.id as role.name for role in allRoles">
             <option value="">Select Role</option>
           </select>
           <!--<input type="text" class="form-control" id="user" placeholder="user name" ng-model="formData.firstName">-->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" ng-model="formData.password">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="inputConfirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="inputConfirmPassword" ng-model="formData.confirmPassword">
         </div>
       </div>
     </div>
