@@ -113,7 +113,8 @@ var UserService = {
         contactNumber: user.contactNumber,
         address: user.streetName+' '+user.town,
         birthday: user.birthday,
-        designation: user.designation
+        designation: user.designation,
+        watchedVideos: user.watchedVideos
       };
       var role_id = user.adminRole.id;
       return getPlaylistIdsSync(role_id);
