@@ -81,9 +81,10 @@ module.exports = {
         if (error) {
           return response.serverError(error);
         }
+        /*
         else if (comments.length == 0) {
           return response.send(200,"No comments found");
-        }
+        }*/
 				return response.json(comments);
 		});
 	},
@@ -98,9 +99,11 @@ module.exports = {
         if (error) {
           return response.serverError(error);
         }
+        /*
         else if (comments.length == 0) {
           return response.send(200,"No comments found");
         }
+        */
 				return response.json(comments);
 		});
 	}

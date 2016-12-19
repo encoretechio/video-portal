@@ -10,4 +10,10 @@ function mainCtrl($scope, $state) {
      $scope.addRole = function(){
       $state.go('insert.addRole');
     };
+    $scope.addPlaylist = function(){
+      $state.go('insert.addPlaylist');
+    };
+    $scope.addVideo = function(){
+      $state.go('insert.addVideo');
+    };
 }

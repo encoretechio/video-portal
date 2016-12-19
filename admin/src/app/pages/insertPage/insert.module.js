@@ -23,6 +23,18 @@
           parent : 'insert',
           templateUrl: 'app/pages/insertPage/addRole.html',
           controller: 'addRoleController',
-        });
+        })
+        .state('insert.addPlaylist', {
+            url: '/playlist',
+            parent : 'insert',
+            templateUrl: 'app/pages/insertPage/addPlaylist.html',
+            controller: 'addPlaylistController',
+        })
+        .state('insert.addVideo', {
+          url: '/video',
+          parent : 'insert',
+          templateUrl: 'app/pages/insertPage/addVideo.html',
+          controller: 'addVideoController',
+      });
   }
 })();

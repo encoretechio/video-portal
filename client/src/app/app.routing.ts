@@ -22,6 +22,10 @@ const appRoutes: Routes = [
   {
     path: 'profile',
     component: UserProfileComponent
+  },
+  {
+    path: 'video/:videoId',
+    component:HomeComponent
   }
 ];
 

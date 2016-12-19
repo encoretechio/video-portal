@@ -1,17 +1,50 @@
-<div class="container">
-        <form class="form-signin" >
-          <h2 class="form-signin-heading">Sign In</h2>
-          <div [hidden]="valid" class="alert alert-danger"> Invalid Login details </div>
+<!-- Main -->
+  <article id="main">
 
-          <label for="inputEmail" class="sr-only">Email address</label>
-          <input id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" name="username" [(ngModel)]="details.username">
-          <label for="inputPassword" class="sr-only">Password</label>
-          <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" name="password" [(ngModel)]="details.password">
-          <div class="checkbox">
-            <label>
-              <input [(ngModel)]="details.rememberMe" name="rememberMe" type="checkbox"> Remember me
-            </label>
+    <header class="special container">
+      <span class="icon fa-bar-chart-o"></span>
+      <br />
+      <h2><strong>Lets Build</strong><br />Video Portal</h2>
+    </header>
+
+    <!-- One -->
+      <section class="wrapper style2 container special-alt">
+        <div class="row 50%">
+          <div class="8u 12u(narrower)">
+
+            <form class="form-signin" >
+              <h2 class="form-signin-heading">Sign In</h2>
+              <br />
+              <div [hidden]="valid" class="alert alert-danger"> Invalid Login details </div>
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" name="username" [(ngModel)]="details.username">
+              <br>
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" name="password" [(ngModel)]="details.password">
+              <br>
+              <div class="checkbox">
+                <label>
+                  <input [(ngModel)]="details.rememberMe" name="rememberMe" type="checkbox"> Remember me!
+                </label>
+              </div>
+              <br>
+              <button class="button" type="submit" (click)="onSubmit()">Submit</button>
+            </form>
           </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="onSubmit()">Sign in</button>
-        </form>
-</div>
+
+          <div class="4u 12u(narrower) important(narrower)">
+
+            <ul class="featured-icons">
+              <li><span class="icon fa-clock-o"><span class="label">Feature 1</span></span></li>
+              <li><span class="icon fa-volume-up"><span class="label">Feature 2</span></span></li>
+              <li><span class="icon fa-laptop"><span class="label">Feature 3</span></span></li>
+              <li><span class="icon fa-inbox"><span class="label">Feature 4</span></span></li>
+              <li><span class="icon fa-lock"><span class="label">Feature 5</span></span></li>
+              <li><span class="icon fa-cog"><span class="label">Feature 6</span></span></li>
+            </ul>
+
+          </div>
+        </div>
+
+      </section>
+  </article>
