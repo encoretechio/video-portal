@@ -10,7 +10,7 @@ export class HttpService {
     //private loginService:LoginService;  ---> Circular Dependency
 
     constructor(private http:Http, private router:Router, private requestOptions:RequestOptions, private dataContext:DataContextService) {
-      this.baseUrl="http://52.36.197.150:1337/";
+      this.baseUrl="http://52.36.197.150/";
     }
 
     private handleError(error: Response) {
