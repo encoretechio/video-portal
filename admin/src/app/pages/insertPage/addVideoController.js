@@ -18,6 +18,7 @@ function addVideoCtrl(insertService,$scope) {
         if($scope.formData.title) {
             insertService.addVideo($scope.formData);
             console.log($scope.formData);
+
         }
     };
 
@@ -26,6 +27,15 @@ function addVideoCtrl(insertService,$scope) {
         fileInput.click();
         console.log(fileInput.value);
 
+    };
+
+    $scope.getFile = function() {
+        var fileReader = new FileReader();
+        $scope.file  = document.querySelector('input[type=file]').files[0];
+        fileReader.readAsDataURL($scope.file, $scope)
+            .then(function(result) {
+                $scope.images.push(result);
+            });
     };
 
     insertService.getPlaylists().then(function(data) {
