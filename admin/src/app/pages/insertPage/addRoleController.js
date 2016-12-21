@@ -42,6 +42,8 @@ function addRoleCtrl(insertService,$scope) {
     $scope.dropdownSettings = {
         scrollableHeight: '100px',
         scrollable: true,
+        showCheckAll:false,
+        showUncheckAll:false
     };
 
     $scope.dropdownTexts = {
