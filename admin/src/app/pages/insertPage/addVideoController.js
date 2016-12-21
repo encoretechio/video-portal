@@ -18,7 +18,8 @@ function addVideoCtrl(insertService,$scope) {
         if($scope.formData.title) {
             insertService.addVideo($scope.formData);
             console.log($scope.formData);
-
+            insertService.alertMsg = "You successfully added a Video";
+            insertService.showAlert();
         }
     };
 

@@ -23,7 +23,8 @@ function addRoleCtrl(insertService,$scope) {
         $scope.formData.viewable_playlists = $scope.viewable_playlists;
         insertService.addRole($scope.formData);
         console.log($scope.formData);
-
+        insertService.alertMsg = "You successfully added a role";
+        insertService.showAlert();
     };
 
     $scope.userChanged = function (value) {
