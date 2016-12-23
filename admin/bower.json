@@ -55,6 +55,7 @@
     "angular-xeditable": "~0.1.9",
 	"angular-aria": "~1.5.9",
 	"angular-material":"~1.1.1",
+	"myforce-angularjs-dropdown-multiselect":"~1.10.2",
     "ng-js-tree": "~0.0.7"
   },
   "resolutions": {

@@ -12,6 +12,7 @@ angular.module('BlurAdmin', [
   'ui.slimscroll',
   'ngJsTree',
   'angular-progress-button-styles',
+  'angularjs-dropdown-multiselect',
 
   'BlurAdmin.theme',
   'BlurAdmin.pages'

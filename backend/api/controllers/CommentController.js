@@ -5,56 +5,70 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
- var Promise = require('promise');
+var Promise = require('promise');
 
 module.exports = {
-
+	// createComment- create a comment after validating user and video
 	createComment: function(request, response){
-
+		// async method to validate user
 		var checkUser = function(user_id){
 			return new Promise(function (resolve, reject){
-						sails.log("Checking for user: " + user_id );
-						User.findOne({id:user_id}).exec(function(error, user){
-							if(error){
-								reject(error);
-							  return response.serverError(error);
-							}
-							if(user == null){
-								reject("Invalid User ID")
-								return response.serverError("Invalid userID");
-							}
-							resolve(user);});
+				sails.log("Checking for user: " + user_id );
+				User.findOne({id:user_id}).exec(function(error, user){
+					if(error){
+						reject(error);
+					}
+					if(user == null){
+						console.log("Invalid User ID");
+						reject("Invalid User ID");
+					}
+					resolve(user);
+				});
 			});
-		}
+		};
+
+		// async method to validate video
 		var checkVideo = function(video_id){
 			return new Promise(function (resolve, reject){
-						sails.log("Checking for video: " + user_id );
-						User.findOne({id:video_id}).exec(function(error, video){
-							if(error){
-								reject(error);
-								return response.serverError(error);
-							}
-							if(video == null){
-								reject("Invalid Video ID")
-								return response.serverError("Invalid videoID");
-							}
-							resolve(video);});
+				sails.log("Checking for video: " + video_id );
+				Video.findOne({id:video_id}).exec(function(error, video){
+					if(error){
+						reject(error);
+					}
+					if(video == null){
+						console.log("Invalid Video ID");
+						reject("Invalid Video ID");
+					}
+					resolve(video);
+				});
 			});
-		}
+		};
+
+		// method to create comment
 		var addComment = function(comment){
 			Comment.create(comment).exec(function (error, comment){
 				if (error) {
-					return response.serverError(error);
+					return response.serverError(error+"5");
 				}
 				sails.log('comment added');
 				return response.json(comment);
 			});
-		}
+		};
 
-		checkUser(request.body.author)
-			.then(checkVideo(request.body.video))
-			.then(addComment(request.body));
-
+		checkUser(request.body.author).then(function(user){
+				console.log(user,"user printed");
+				// returning a async method with Promise
+				return checkVideo(request.body.video);
+			}).then(function(video){
+				console.log(video);
+				addComment(request.body);
+			}).catch(function(error){
+				// handling all errors
+				return response.json( 401, { err: {
+            		status: 'danger',
+            		message: response.i18n(error)
+          		}});
+			});
 	},
 
 	getCommentsByVideoID: function(request, response){

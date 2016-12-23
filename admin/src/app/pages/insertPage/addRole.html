@@ -9,12 +9,25 @@
           </div>
         </div>
       </div>
-      <!--<div class="col-sm-6">
-        <div class="form-group">
-          <label for="inputDescription">Description</label>
-          <input type="text" class="form-control" id="inputDescription" placeholder="description" ng-model="formData.description">
+
+      <div class="col-sm-6">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="inputName">Viewable Playlists</label>
+            <div ng-dropdown-multiselect="" options="backendPlaylists" selected-model="viewable_playlists"
+                 extra-settings="dropdownSettings"
+                 translation-texts="dropdownTexts">
+            </div>
+          </div>
         </div>
+      </div>
+
+      <!--<div class="form-group">
+
+        <div ng-dropdown-multiselect="" options="standardSelectItems" selected-model="viewable_playlists"></div>
       </div>-->
+
+
     </div>
     <button type="submit" class="btn btn-primary" ng-click="submit()" ng-disabled = "!formData.name">Submit</button>
   </div>`

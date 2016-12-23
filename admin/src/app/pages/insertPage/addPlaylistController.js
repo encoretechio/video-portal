@@ -15,6 +15,8 @@ function addPlaylistCtrl(insertService,$scope) {
         if($scope.formData.name) {
             insertService.addPlaylist($scope.formData);
             console.log($scope.formData);
+            insertService.alertMsg = "You successfully added a Playlist";
+            insertService.showAlert();
         }
     };
 }
