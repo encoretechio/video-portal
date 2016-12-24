@@ -18,8 +18,8 @@
       icon: 'person',
     }, {
       color: pieColor,
-      description: 'Purchases',
-      stats: '$ 89,745',
+      description: 'Idle Users',
+      stats: ' 19,745',
       icon: 'money',
     }, {
       color: pieColor,
