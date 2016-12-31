@@ -8,4 +8,5 @@ export class User {
   contactNumber:string;
   password:string;
   active:boolean;
+  watchedVideos:any;
 }

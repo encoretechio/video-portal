@@ -12,7 +12,8 @@ export const USER_DATA: UserData = <UserData>{
     email: "shaedi@abc.com",
     contactNumber: "011-121313222",
     password: "",
-    active: true
+    active: true,
+    watchedVideos:{}
   },
   playlists: [
     {
@@ -43,7 +44,8 @@ export const PROGR_DATA: ProgressData = <ProgressData>{
     email: "shaedi@abc.com",
     contactNumber: "011-121313222",
     password: "",
-    active: true
+    active: true,
+    watchedVideos:{}
   },
   playlists: [
     {
