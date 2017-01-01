@@ -4,6 +4,6 @@ export class Video {
   description:string;
   link:string;
   status?: string;
-  length?:number;
-  watchedLength?: number;
+  length?:string;
+  watchedLength?: string;
 }

@@ -8,7 +8,7 @@
             <!--<p> content and time</p>-->
           </div>
           <div class="col-md-9">
-            <div class="text-xs-center" id="example-caption-1">current progress &hellip; 25%</div>
+            <div class="text-xs-center" id="example-caption-1"> {{userData.user.nickName}}, your current progress &hellip;{{ totalProgress | number:'1.0-0'}}%</div>
             <progress class="progress progress-info" value="25" max="100"></progress>
           </div>
         </div>

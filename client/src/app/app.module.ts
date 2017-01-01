@@ -17,6 +17,8 @@ import { CommentListComponent }  from './home/comment-list/comment-list.componen
 import { HttpService }  from './services/http.service';
 import { LoginService }  from './services/login.service';
 import { DataContextService }  from './shared/data-context.service';
+import {VideoLengthToSecondsPipe} from "./shared/video-length-to-seconds.pipe";
+import {PercentPipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { DataContextService }  from './shared/data-context.service';
     ProgressComponent,
     ProgressListComponent,
     UserProfileComponent,
-    CommentListComponent
+    CommentListComponent,
+    VideoLengthToSecondsPipe
   ],
   imports: [
     BrowserModule,

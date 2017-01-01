@@ -20,10 +20,10 @@
         <a href="#">
           <img src="//i.ytimg.com/vi/g5-TXR3Cmrk/mqdefault.jpg" class="video-thumbnail rounded float-xs-left" alt="...">
           <span class="video-length">
-                    12:23
+                    {{video.watchedLength}}/{{video.length}}
                 </span> {{video.title}}
           <h3 style="float:right;"><span class="tag tag-success">{{video.status}}</span></h3>
-          <span class="tag tag-default">{{video.percentage}}%</span>
+          <span class="tag tag-default">{{(video.watchedLength| videoLengthToSeconds) /  (video.length| videoLengthToSeconds) | percent:'1.0-0'}}%</span>
         </a>
       </li>
     </ul>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Playlist } from '../../models/playlist';
+import {getSecondsFromLengthText} from "../../shared/utils";
 
 @Component({
   selector: 'app-progress-list',
@@ -20,7 +21,7 @@ export class ProgressListComponent implements OnInit {
   ngOnInit() {
 
     this.playlist.videos.forEach(element => {
-      if (element.watchedLength >= element.length){
+      if (getSecondsFromLengthText(element.watchedLength) >= getSecondsFromLengthText(element.length)){
         this.count += 1;
       }
     });

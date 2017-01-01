@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
+import {UserData} from "../models/user-data";
 
 @Injectable()
 export class DataContextService {
 
   private authToken:string;
-  private userId:number;
-  private userName:string;
-  private userEmail:string;
+  private userData:UserData;
 
   constructor(private requestOptions:RequestOptions) { }
 
@@ -27,27 +26,20 @@ export class DataContextService {
     //this.requestOptions.headers.delete('authorization');
   }
 
-  public setUserDetails(id:number, name:string, email:string){
-    localStorage.setItem('UserId',id.toString());
-    this.userId = id;
-    localStorage.setItem('UserName',name);
-    this.userName = name;
-    localStorage.setItem('UserEmail',email);
-    this.userEmail = email;
+  public setUserData(userData:UserData){
+    this.userData = userData;
+    for(let playList of userData.playlists){
+      for(let video of playList.videos){
+        if(userData.user.watchedVideos[video.id]) {
+          video.watchedLength = userData.user.watchedVideos[video.id];
+        }
+      }
+    }
+    console.log(this.userData)
   }
 
-  public removeUserDetails(){
-    localStorage.removeItem('UserId');
-    this.userId = null;
-    localStorage.removeItem('UserName');
-    this.userName = null;
-    localStorage.removeItem('UserEmail');
-    this.userEmail = null;
-  }
-
-  // Check whether it returns
-  public getUserId(){
-    return this.userId;
+  public getUserData(){
+    return this.userData;
   }
 
   public refresh(){
@@ -56,11 +48,6 @@ export class DataContextService {
     if(localStorage.getItem('AuthToken') != null){
           this.requestOptions.headers.set('authorization','Bearer '+ this.getAuthToken());
     }
-
-    this.userId = parseInt(localStorage.getItem('UserId'));
-    this.userName = localStorage.getItem('UserName');
-    this.userEmail = localStorage.getItem('UserName');
-
   }
 
 }

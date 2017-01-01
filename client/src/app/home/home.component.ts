@@ -134,7 +134,7 @@ export class HomeComponent implements OnInit {
           video.watchedLength = this.videoProgress[video.id];
         }
         else
-          video.watchedLength = 0;
+          video.watchedLength = "0";
       }
     }
   }

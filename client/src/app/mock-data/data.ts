@@ -58,7 +58,7 @@ export const PROGR_DATA: ProgressData = <ProgressData>{
         description: "string",
         link: "http://somethi.com/13",
         status: "Completed",
-        watchedLength: 0
+        watchedLength: "0"
       },
         {
           id: 2,
@@ -66,7 +66,7 @@ export const PROGR_DATA: ProgressData = <ProgressData>{
           description: "string",
           link: "http://somethi.com/12",
           status: "In Progress",
-          watchedLength: 0
+          watchedLength: "0",
         },
         {
           id: 123,
@@ -74,7 +74,7 @@ export const PROGR_DATA: ProgressData = <ProgressData>{
           description: "string",
           link: "http://somethi.com/3",
           status: "To Be",
-          watchedLength: 0
+          watchedLength: "0"
         }]
     },
     {
@@ -87,7 +87,7 @@ export const PROGR_DATA: ProgressData = <ProgressData>{
         description: "string",
         link: "http://somethi.com/123",
         status: "Completed",
-        watchedLength: 0
+        watchedLength: "0"
       },
         {
           id: 4,
@@ -95,7 +95,7 @@ export const PROGR_DATA: ProgressData = <ProgressData>{
           description: "string",
           link: "http://somethi.com/123",
           status: "Completed",
-          watchedLength: 0
+          watchedLength: "0"
         }]
     },
   ]
