@@ -2,17 +2,24 @@ import { Injectable } from '@angular/core';
 import {Headers, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Rx';
 import {UserData} from "../models/user-data";
+import {User} from "../models/user";
+
+const AUTH_TOKEN_KEY = 'AuthToken';
+const USER_DATA_KEY = 'UserData';
+const USER_KEY = 'User';
 
 @Injectable()
 export class DataContextService {
 
   private authToken:string;
+  private userId:string;
+  private user:User;
   private userData:UserData;
 
   constructor(private requestOptions:RequestOptions) { }
 
   public setAuthToken(token:string){
-    localStorage.setItem('AuthToken',token);
+    localStorage.setItem(AUTH_TOKEN_KEY,token);
     this.authToken = token;
   }
 
@@ -20,9 +27,20 @@ export class DataContextService {
     return this.authToken;
   }
 
-  public removeAuthToken(){
-    localStorage.removeItem('AuthToken');
+  public setUser(user:User){
+    localStorage.setItem(USER_KEY, JSON.stringify(user));
+    this.user = user;
+  }
+
+  public getUser(){
+    return this.user;
+  }
+
+  public removeData(){
+    localStorage.removeItem(AUTH_TOKEN_KEY);
+    localStorage.removeItem(USER_DATA_KEY);
     this.authToken = null;
+    this.userData = null;
     //this.requestOptions.headers.delete('authorization');
   }
 
@@ -35,17 +53,20 @@ export class DataContextService {
         }
       }
     }
-    console.log(this.userData)
+    localStorage.setItem(USER_DATA_KEY,JSON.stringify(this.userData)) ;
   }
 
   public getUserData(){
-    return this.userData;
+    if(this.userData)
+      return this.userData;
   }
 
   public refresh(){
-    this.authToken = localStorage.getItem('AuthToken');
+    this.authToken = localStorage.getItem(AUTH_TOKEN_KEY);
+    this.userData = JSON.parse(localStorage.getItem(USER_DATA_KEY));
+    this.user = JSON.parse(localStorage.getItem(USER_KEY));
 
-    if(localStorage.getItem('AuthToken') != null){
+    if(localStorage.getItem(AUTH_TOKEN_KEY) != null){
           this.requestOptions.headers.set('authorization','Bearer '+ this.getAuthToken());
     }
   }
