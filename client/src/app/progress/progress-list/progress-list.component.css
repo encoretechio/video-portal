@@ -21,6 +21,10 @@
     border-top-left-radius: 0;
 }
 
+.video-li-completed{
+  background-color: rgba(0,0,0,0.5);
+}
+
 .playlist-heading-a:hover{
     text-decoration: none;
 }
