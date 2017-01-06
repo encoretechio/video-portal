@@ -61,7 +61,7 @@
         author: 'Ravindu',
         surname: 'Hasantha',
         header: 'Posted new message',
-        text: 'Sales Manager, Awissawelal Branch',
+        text: 'Sales Manager, Awissawella Branch',
         time: '12.11.2015',
         ago: '3 days ago',
         expanded: false,
