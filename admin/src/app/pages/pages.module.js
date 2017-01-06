@@ -28,7 +28,11 @@
         title: 'Insert Page',
         stateRef: 'insert',
         blank: true
-      }]
+      }, {
+          title: 'User Profile',
+          stateRef: 'user'
+        }
+      ]
     });
   }
 
