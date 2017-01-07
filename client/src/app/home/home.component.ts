@@ -55,8 +55,10 @@ export class HomeComponent implements OnInit {
     });
 
     this.userData = this.dataContext.getUserData();
-    if (!this.userData) {
-      const user = this.dataContext.getUser();
+    const user = this.dataContext.getUser();
+    if (!this.userData ) {
+      if(!user)
+        this.loginService.logout(() => this.router.navigate(['login']));
       this.httpService.getObject<UserData>("userprofile/" + user.id).subscribe(result => {
           this.userData = result;
           this.dataContext.setUserData(this.userData);

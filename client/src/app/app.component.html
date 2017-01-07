@@ -1,23 +1,5 @@
 
-<!-- Header -->
-  <header id="header" class="alt" *ngIf="isRouteNotActiveByMe('/login')">
-    <h1 id="logo"><a href="#">LETS BUILD <span> VIDEO PORTAL</span></a></h1>
-    <nav id="nav">
-      <ul>
-        <li class="current" [routerLink]="['/']" [routerLinkActive]="['active']"><a href="index.html">HOME</a></li>
-        <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
-        <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
-        <li class="submenu">
-          <a href="#">User</a>
-          <ul>
-            <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
-            <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
-          </ul>
-        </li>
-        <li><a class="button special" (click)="LogOut()">LogOut</a></li>
-      </ul>
-    </nav>
-  </header>
+
 
 <!-- Banner -->
   <section id="banner" *ngIf="isRouteNotActiveByMe('/login')">
@@ -26,7 +8,27 @@
 
   <div class="appComponent">
     <br />
-    <router-outlet></router-outlet>
+    <router-outlet>
+      <!-- Header -->
+      <header id="header" class="alt" *ngIf="isRouteNotActiveByMe('/login')">
+        <h1 id="logo"><a href="#">LETS BUILD <span> VIDEO PORTAL</span></a></h1>
+        <nav id="nav">
+          <ul>
+            <li class="current" [routerLink]="['/']" [routerLinkActive]="['active']"><a href="index.html">HOME</a></li>
+            <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
+            <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
+            <li class="submenu">
+              <a href="#">User</a>
+              <ul>
+                <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
+                <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
+              </ul>
+            </li>
+            <li><a class="button special" (click)="LogOut()">LogOut</a></li>
+          </ul>
+        </nav>
+      </header>
+    </router-outlet>
   </div>
 
   <!-- Footer -->
