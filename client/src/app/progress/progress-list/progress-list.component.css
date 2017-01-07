@@ -3,14 +3,22 @@
     width: 100px;
 }
 
-.video-length{
+.video-length {
     position: absolute;
-    left: 12px;
-    padding: 3px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    font-size: 10px;
-    bottom: 12px;
+    left: 8px;
+    bottom: 7px;
+    padding: 0 4px;
+    font-weight: 500;
+    font-size: 11px;
+    background-color: #000;
+    color: #fff!important;
+    height: 14px;
+    line-height: 14px;
+    opacity: .75;
+    filter: alpha(opacity=75);
+    display: -moz-inline-stack;
+    vertical-align: bottom;
+    text-align: left;
 }
 
 .video-li{

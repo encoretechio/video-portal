@@ -30,9 +30,4 @@ export class PlaylistComponent implements OnInit {
       this.onVideoLink.emit(id);
     }
 
-
-
-
-
-
 }

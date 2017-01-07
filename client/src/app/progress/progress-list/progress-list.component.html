@@ -1,17 +1,17 @@
-<div class="card">
-  <div class="card-block">
+<div class="panel panel-default">
+  <div class="panel-body">
     <div class="col-sm-11">
       <a data-toggle="collapse" class="playlist-heading-a" data-parent="#accordion" href="#collapse{{playlist.id}}">
-        <h5 class="card-title" id="heading{{playlist.id}}">
+        <h5 id="heading{{playlist.id}}">
           {{playlist.name}}
         </h5>
-        <h6 class="card-subtitle text-muted">
+        <h6 class="text-muted">
           <p><small>{{playlist.description}}</small></p>
         </h6>
       </a>
     </div>
     <div class="col-sm-1">
-      <h1><span class="tag tag-success">{{count}}/{{playlist.videos.length}}</span></h1>
+      <h1><span class="label label-success">{{count}}/{{playlist.videos.length}}</span></h1>
     </div>
   </div>
   <div id="collapse{{playlist.id}}" class="collapse in list-group" role="tabpanel">
@@ -22,8 +22,8 @@
           <span class="video-length">
                     {{video.watchedLength}}/{{video.length}}
                 </span> {{video.title}}
-          <h3 style="float:right;"><span class="tag tag-success">{{video.status}}</span></h3>
-          <span class="tag tag-default">{{(video.watchedLength| videoLengthToSeconds) /  (video.length| videoLengthToSeconds) | percent:'1.0-0'}}%</span>
+          <h3 style="float:right;"><span class="label label-success">{{video.status}}</span></h3>
+          <span class="label label-default">{{(video.watchedLength| videoLengthToSeconds) /  (video.length| videoLengthToSeconds) | percent:'1.0-0'}}</span>
         </a>
       </li>
     </ul>

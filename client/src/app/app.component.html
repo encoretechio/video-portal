@@ -1,45 +1,46 @@
-
 <!-- Header -->
-  <header id="header" class="alt" *ngIf="isRouteNotActiveByMe('/login')">
-    <h1 id="logo"><a href="#">LETS BUILD <span> VIDEO PORTAL</span></a></h1>
-    <nav id="nav">
-      <ul>
-        <li class="current" [routerLink]="['/']" [routerLinkActive]="['active']"><a href="index.html">HOME</a></li>
-        <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
-        <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
-        <li class="submenu">
-          <a href="#">User</a>
-          <ul>
-            <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
-            <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
-          </ul>
-        </li>
-        <li><a class="button special" (click)="LogOut()">LogOut</a></li>
-      </ul>
-    </nav>
-  </header>
+<loading-animate></loading-animate>
+<header id="header" class="alt" *ngIf="isRouteNotActiveByMe('/login')">
+  <h1 id="logo"><a href="#">LETS BUILD <span> VIDEO PORTAL</span></a></h1>
+  <nav id="nav">
+    <ul>
+      <li class="current" [routerLink]="['/']" [routerLinkActive]="['active']"><a href="index.html">HOME</a></li>
+      <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
+      <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
+      <li class="submenu">
+        <a href="#">User</a>
+        <ul>
+          <li><a [routerLink]="['/profile']" [routerLinkActive]="['active']">Profile</a></li>
+          <li><a [routerLink]="['/progress']" [routerLinkActive]="['active']">Progress</a></li>
+        </ul>
+      </li>
+      <li><a class="button special" (click)="LogOut()">LogOut</a></li>
+    </ul>
+  </nav>
+</header>
 
 <!-- Banner -->
-  <section id="banner" *ngIf="isRouteNotActiveByMe('/login')">
-  </section>
+<section id="banner" *ngIf="isRouteNotActiveByMe('/login')">
+</section>
 
 
-  <div class="appComponent">
-    <br />
-    <router-outlet></router-outlet>
-  </div>
+<div class="appComponent">
+  <br />
+  <router-outlet></router-outlet>
+</div>
 
-  <!-- Footer -->
-  <footer id="footer">
+<!-- Footer -->
+<footer id="footer">
 
-      <ul class="icons">
-        <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
-        <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
-        <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
-      </ul>
+  <ul class="icons">
+    <li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+    <li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+    <li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+  </ul>
 
-      <ul class="copyright">
-        <li>&copy; Reserved </li><li>Developed by : <a href="http://html5up.net">Lets-Build.tech</a></li>
-      </ul>
+  <ul class="copyright">
+    <li>&copy; Reserved </li>
+    <li>Developed by : <a href="http://html5up.net">Lets-Build.tech</a></li>
+  </ul>
 
-  </footer>
+</footer>

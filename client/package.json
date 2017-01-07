@@ -25,8 +25,9 @@
     "@angular/platform-browser-dynamic": "^2.4.1",
     "@angular/router": "^3.4.0",
     "@angular/upgrade": "^2.4.1",
-    "bootstrap": "4.0.0-alpha.4",
+    "bootstrap": "3.3.6",
     "core-js": "2.4.1",
+    "ng2-loading-animate": "0.0.16",
     "rxjs": "~5.0.1",
     "ts-helpers": "1.1.1",
     "zone.js": "0.7.2"
