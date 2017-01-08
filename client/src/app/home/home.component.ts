@@ -56,23 +56,27 @@ export class HomeComponent implements OnInit {
 
     this.userData = this.dataContext.getUserData();
     const user = this.dataContext.getUser();
-    if (!this.userData ) {
-      if(!user)
-        this.loginService.logout(() => this.router.navigate(['login']));
-      this.httpService.getObject<UserData>("userprofile/" + user.id).subscribe(result => {
-          this.userData = result;
-          this.dataContext.setUserData(this.userData);
+    if(!user)
+    {
+      this.loginService.logout(() => this.router.navigate(['login']));
+    }
+    else {
+      if (!this.userData ) {
+        this.httpService.getObject<UserData>("userprofile/" + user.id).subscribe(result => {
+            this.userData = result;
+            this.dataContext.setUserData(this.userData);
 
-          //    Start a timer to listen to video play
-          let timer = Observable.timer(2000, 5000);
-          timer.subscribe(this.updateVideoProgress.bind(this));
-        },
-        err => {
-          console.log("ERROR GETTING DATA: AUTHENTICATION ERROR  -->");
-          //this.loginService.logout(true);
-          //this.router.navigate((['login']));
-          this.loginService.logout(() => this.router.navigate(['login']));
-        });
+            //    Start a timer to listen to video play
+            let timer = Observable.timer(2000, 5000);
+            timer.subscribe(this.updateVideoProgress.bind(this));
+          },
+          err => {
+            console.log("ERROR GETTING DATA: AUTHENTICATION ERROR  -->");
+            //this.loginService.logout(true);
+            //this.router.navigate((['login']));
+            this.loginService.logout(() => this.router.navigate(['login']));
+          });
+      }
     }
   }
 
