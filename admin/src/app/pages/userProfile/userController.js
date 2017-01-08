@@ -9,7 +9,7 @@ function userCtrl($scope, $state,$stateParams, $timeout,$sce,$filter) {
         "user1" : {
             "id" : "1",
             "username" : "Panii",
-            "profilePic":"Vlad.png",
+            "profilePic":"Pranidhith.png",
             "firstname" : "Pranidhith",
             "lastname" : "Munasinghe",
             "role" : "System Admin",

@@ -17,6 +17,8 @@ export class LoginService {
     this.httpService.sendObjects<any>("login",loginInfo).subscribe(
       result=>{
         this.dataContext.setAuthToken(result.token)
+        this.dataContext.setUser(result.user);
+        console.log(result);
         this.dataContext.refresh();
         loginSuccess = true;
       },
@@ -33,7 +35,7 @@ export class LoginService {
 
   public logout(onSuccess){
     this.requestOptions.headers.set('Content-Type','application/json');
-    this.dataContext.removeAuthToken();
+    this.dataContext.removeData();
     onSuccess(true);
   }
 

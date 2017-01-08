@@ -19,7 +19,6 @@ export class ProgressComponent implements OnInit {
   totalProgress:number;
   private dataService: DataService;
 
-  private
 
   constructor(
     private dataContext:DataContextService,
