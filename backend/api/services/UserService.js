@@ -14,7 +14,7 @@ var getUserSync = function(user_id, profile_id) {
             // check which object is user and profile
             if(users[0].id == user_id){
               user = users[0];
-              profile = users[1];   
+              profile = users[1];
             }else{
               user = users[1];
               profile = users[0];
@@ -123,6 +123,23 @@ var UserService = {
     }).then(function(playlists){
       // set playlist details in result
       result.playlists = playlists;
+
+      // add watched videos details to the videos in playlists
+      // looping the playlists
+      for (i in result.playlists){
+        // looping the videos in a playlist
+        for(j in result.playlists[i]["videos"]){
+            // check whether the video is watched
+            if(result.playlists[i]["videos"][j]["id"] in result.user.watchedVideos){
+              // set watched time if the video is in watched videos
+              result.playlists[i]["videos"][j]["watchedTime"] = result.user.watchedVideos[result.playlists[i]["videos"][j]["id"]];
+            }else {
+              // set watched time to 0:0:0 if the video is not in watched videos
+              result.playlists[i]["videos"][j]["watchedTime"] = "0:0:0";
+            }
+        }
+      }
+
       callback(null, result);
     }).catch(function(error){
       callback(error, null);

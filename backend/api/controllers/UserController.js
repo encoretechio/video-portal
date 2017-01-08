@@ -131,7 +131,7 @@ module.exports = {
                 // adding hashed newpassword to the data object
                 user.password = hash;
 
-                // update user 
+                // update user
                 user.save(function(error) {
                   if (error) {
                       return response.negotiate(error);
@@ -172,6 +172,7 @@ module.exports = {
     // updateVideo - update watched times of user's videos
     updateVideo: function(request, response){
       // TODO: validate video id - get a list of video ids using a route and call using a sync method
+      // TODO: validate video format - 0:0:0
       // object to keep info sent in request
       var watchedVideos = {};
       User.findOne(request.params.user_id).exec(function(error, user){
