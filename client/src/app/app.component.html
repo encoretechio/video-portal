@@ -12,14 +12,14 @@
       <h1 id="logo"><a href="#">LETS BUILD <span> VIDEO PORTAL</span></a></h1>
       <nav id="nav">
         <ul>
-          <li><a [routerLink]="['/']" [routerLinkActive]="['current']">HOME</a></li>
-          <li><a [routerLink]="['/profile']" [routerLinkActive]="['current']">Profile</a></li>
-          <li><a [routerLink]="['/progress']" [routerLinkActive]="['current']">Progress</a></li>
+          <li [routerLinkActive]="['current']"><a [routerLink]="['/']" >HOME</a></li>
+          <li [routerLinkActive]="['current']"><a [routerLink]="['/profile']" >Profile</a></li>
+          <li [routerLinkActive]="['current']"><a [routerLink]="['/progress']" >Progress</a></li>
           <li class="submenu">
             <a href="#">User</a>
             <ul>
-              <li><a [routerLink]="['/profile']" [routerLinkActive]="['current']">Profile</a></li>
-              <li><a [routerLink]="['/progress']" [routerLinkActive]="['current']">Progress</a></li>
+              <li [routerLinkActive]="['current']"><a [routerLink]="['/profile']">Profile</a></li>
+              <li [routerLinkActive]="['current']"><a [routerLink]="['/progress']" >Progress</a></li>
             </ul>
           </li>
           <li><a class="button special" (click)="LogOut()">LogOut</a></li>

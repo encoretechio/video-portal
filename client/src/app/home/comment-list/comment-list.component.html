@@ -1,19 +1,18 @@
 <div class="panel panel-default" *ngIf="comments && comments.length == 0">
   <div class="panel-body">
-    <div class="col-sm-12">
+    <div class="col-md-12">
       <h4>No Comments Found</h4>
     </div>
   </div>
 </div>
-
-<div class="panel panel-default" *ngFor="let comment of comments">
+<div class="panel panel-default comment-box" *ngFor="let comment of comments">
   <div class="panel-body">
     <div class="col-sm-10">
       <div class="col-sm-2">
         <img src="http://www.wikihow.com/images/f/ff/Draw-a-Cute-Cartoon-Person-Step-14.jpg" alt="Smiley face" height=auto width="100%">
         <!-- {{comment.imageUrl}} -->
       </div>
-      <div class="col-sm-10">
+      <div class="col-sm-8">
         <h6 *ngIf="comment.author">{{ comment.author.firstName }} {{ comment.author.lastName }}</h6>
         <h5>{{ comment.text }}</h5>
         <p>{{ comment.createdAt | date }} </p>
@@ -22,13 +21,15 @@
   </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-default comment-box">
   <div class="panel-body">
-    <div class="col-sm-8">
-      <input type="text" [(ngModel)]="messageContent" style="width: 100%"><br>
-    </div>
-    <div class="col-sm-4">
-      <input type="submit" value="Comment" [disabled]="!messageContent" (click)="addComment(messageContent)">
+    <div class="col-md-12">
+      <div class="col-md-8">
+        <input type="text" [(ngModel)]="messageContent" style="width: 100%"><br>
+      </div>
+      <div class="col-md-4">
+        <input type="submit" value="Comment" [disabled]="!messageContent" (click)="addComment(messageContent)">
+      </div>
     </div>
   </div>
 </div>

@@ -17,3 +17,9 @@
   color: rgba(255,255,255,1);
   background-color: rgba(0,0,0,0.5);
 }
+
+.pic-box {
+  margin-bottom: 4px;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0) ;
+  border-color: #fff;
+}

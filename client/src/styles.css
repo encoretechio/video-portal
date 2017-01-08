@@ -21,3 +21,8 @@ body {
   margin: auto;
   text-align: center;
 }
+
+.panel{
+  margin-bottom: 7px;
+  border-radius: 0;
+}

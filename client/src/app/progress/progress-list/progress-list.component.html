@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <div class="col-sm-11">
+    <div class="col-sm-10">
       <a data-toggle="collapse" class="playlist-heading-a" data-parent="#accordion" href="#collapse{{playlist.id}}">
         <h5 id="heading{{playlist.id}}">
           {{playlist.name}}
@@ -10,13 +10,14 @@
         </h6>
       </a>
     </div>
-    <div class="col-sm-1">
-      <h1><span class="label label-success">{{count}}/{{playlist.videos.length}}</span></h1>
+    <div class="col-sm-2">
+      <h1><span class="label label-success" style="float: right">{{count}}/{{playlist.videos.length}}</span></h1>
     </div>
   </div>
   <div id="collapse{{playlist.id}}" class="collapse in list-group" role="tabpanel">
     <ul class="list-group">
-      <li class="list-group-item video-li" [ngClass]="{'video-li-completed': ((video.watchedLength| videoLengthToSeconds) >=  (video.length| videoLengthToSeconds))}" *ngFor="let video of playlist.videos">
+      <li class="list-group-item video-li" [ngClass]="{'video-li-completed': ((video.watchedLength| videoLengthToSeconds) >=  (video.length| videoLengthToSeconds))}"
+        *ngFor="let video of playlist.videos">
         <a href="#">
           <img src="//i.ytimg.com/vi/g5-TXR3Cmrk/mqdefault.jpg" class="video-thumbnail rounded float-xs-left" alt="...">
           <span class="video-length">
@@ -25,7 +26,7 @@
           <h3 style="float:right;"><span class="label label-success">{{video.status}}</span></h3>
           <span class="label label-default">{{(video.watchedLength| videoLengthToSeconds) /  (video.length| videoLengthToSeconds) | percent:'1.0-0'}}</span>
         </a>
-      </li>
+        </li>
     </ul>
   </div>
 </div>
