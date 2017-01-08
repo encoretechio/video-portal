@@ -64,6 +64,8 @@ export class HomeComponent implements OnInit {
     if(!user)
     {
       this.loginService.logout(() => this.router.navigate(['login']));
+      this._loadingSvc.setValue(false);
+
     }
     else {
       if (!this.userData ) {
@@ -82,6 +84,8 @@ export class HomeComponent implements OnInit {
             //this.loginService.logout(true);
             //this.router.navigate((['login']));
             this.loginService.logout(() => this.router.navigate(['login']));
+            this._loadingSvc.setValue(false);
+
           });
       }
       else{
