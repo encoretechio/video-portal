@@ -19,6 +19,7 @@ import { LoginService }  from './services/login.service';
 import { DataContextService }  from './shared/data-context.service';
 import {VideoLengthToSecondsPipe} from "./shared/video-length-to-seconds.pipe";
 import {PercentPipe} from "@angular/common";
+import { LoadingAnimateModule, LoadingAnimateService } from 'ng2-loading-animate';
 
 @NgModule({
   declarations: [
@@ -35,13 +36,15 @@ import {PercentPipe} from "@angular/common";
   imports: [
     BrowserModule,
     FormsModule,
+    LoadingAnimateModule.forRoot(),
     HttpModule,
     routing
   ],
   providers: [
     HttpService,
     LoginService,
-    DataContextService
+    DataContextService,
+    LoadingAnimateService
   ],
   bootstrap: [AppComponent]
 })

@@ -6,6 +6,7 @@ import { PROGR_DATA } from '../mock-data/data';
 import {DataContextService} from "../shared/data-context.service";
 import {getSecondsFromLengthText} from "../shared/utils";
 import {forEach} from "@angular/router/src/utils/collection";
+import { LoadingAnimateService } from 'ng2-loading-animate';
 
 @Component({
   selector: 'app-progress',
@@ -20,10 +21,13 @@ export class ProgressComponent implements OnInit {
 
 
   constructor(
-    private dataContext:DataContextService) {
+    private dataContext:DataContextService,
+    private _loadingSvc: LoadingAnimateService) {
   }
 
   ngOnInit() {
+    this._loadingSvc.setValue(true);
+
     this.userData = this.dataContext.getUserData(); // fetching progress data
     let totalDuration  = 0;
     let watchedDuration = 0;
@@ -34,6 +38,7 @@ export class ProgressComponent implements OnInit {
       }
     }
     this.totalProgress = watchedDuration*100/totalDuration;
+    this._loadingSvc.setValue(false);
 
   }
 

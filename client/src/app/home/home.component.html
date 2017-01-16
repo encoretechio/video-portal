@@ -1,20 +1,20 @@
 <div class="container" *ngIf="userData">
-  <div class="alert alert-success" ><strong>Hi {{userData.user.nickName}}</strong>, Welcome to Video Portal! </div>
+  <div class="alert alert-success notification" ><strong>Hi {{userData.user.nickName}}</strong>, Welcome to Video Portal! </div>
   <div class="row">
     <div class="col-sm-8">
-      <div class="card ">
+      <div class="panel panel-default">
           <video controls height="100%" width="100%" [src]="video.link" #videoElement controls>
           Your browser does not support the the video player.
         </video>
-        <div class="card-block">
+        <div class="panel-body">
           <h3> {{video.title}} </h3>
           <p> {{video.description }} </p>
         </div>
       </div>
 
       <!-- List of comments for video -->
-      <div class="card " *ngIf="video.id != 0">
-        <div class="card-block">
+      <div class="panel" *ngIf="video.id != 0">
+        <div class="panel-body">
           <h4 align="center">Comments</h4>
           <app-comment-list [comments]="commentList" (postComment)="addComment($event)"></app-comment-list>
         </div>

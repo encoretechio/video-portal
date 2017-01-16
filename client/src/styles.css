@@ -1,13 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+
+body {
   background-color: #eee;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
+.comment {}
 
-.comment{
+.svg-center {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
 
+.panel{
+  margin-bottom: 7px;
+  border-radius: 0;
 }

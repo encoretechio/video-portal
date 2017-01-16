@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 import {LoginService}  from '../services/login.service';
 import {DataContextService}  from '../shared/data-context.service';
 import {Observable} from 'rxjs/Rx';
+import { LoadingAnimateService } from 'ng2-loading-animate';
 import {ElementRef, ViewChild} from '@angular/core'; // To access DOM element and get the current time of <video>
 import * as Utils from '../shared/utils'
 
@@ -32,16 +33,19 @@ export class HomeComponent implements OnInit {
 
   @ViewChild('videoElement') videoElement: ElementRef;
 
-  constructor(private httpService: HttpService,
-              private route: ActivatedRoute,
-              private router: Router,
-              private loginService: LoginService,
-              private dataContext: DataContextService) {
-  }
+  constructor(
+    private httpService: HttpService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private _loadingSvc: LoadingAnimateService,
+    private loginService: LoginService,
+    private dataContext: DataContextService) { }
+
 
   ngOnInit() {
-
+    this._loadingSvc.setValue(true);
     //this.commentList = COMMENT_DATA;
+
     this.video = <Video>{
       id: 0,
       title: "Welcome to the video portal",
@@ -56,9 +60,12 @@ export class HomeComponent implements OnInit {
 
     this.userData = this.dataContext.getUserData();
     const user = this.dataContext.getUser();
+
     if(!user)
     {
       this.loginService.logout(() => this.router.navigate(['login']));
+      this._loadingSvc.setValue(false);
+
     }
     else {
       if (!this.userData ) {
@@ -69,15 +76,23 @@ export class HomeComponent implements OnInit {
             //    Start a timer to listen to video play
             let timer = Observable.timer(2000, 5000);
             timer.subscribe(this.updateVideoProgress.bind(this));
+            this._loadingSvc.setValue(false);    
+
           },
           err => {
             console.log("ERROR GETTING DATA: AUTHENTICATION ERROR  -->");
             //this.loginService.logout(true);
             //this.router.navigate((['login']));
             this.loginService.logout(() => this.router.navigate(['login']));
+            this._loadingSvc.setValue(false);
+
           });
       }
+      else{
+        this._loadingSvc.setValue(false);
+      }
     }
+    
   }
 
   changeVideo(id: number) {
