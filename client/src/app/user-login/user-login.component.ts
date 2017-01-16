@@ -4,6 +4,7 @@ import {DataService} from '../data.service';
 import {LoginDetails} from '../models/login-details'
 
 import {LoginService}  from '../services/login.service';
+import {DataContextService} from "../shared/data-context.service";
 
 @Component({
   selector: 'user-login',
@@ -23,11 +24,12 @@ export class UserLoginComponent implements OnInit {
   errorMessage:string = "";
 
   constructor(private router: Router,
-              private dataService: DataService,
+              private dataContext:DataContextService,
               private loginService: LoginService) {
   }
 
   ngOnInit() {
+    this.dataContext.removeData();
   }
 
   onSubmit(): void {

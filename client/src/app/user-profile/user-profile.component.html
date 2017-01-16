@@ -46,7 +46,7 @@
                   <label for="exampleInputEmail1">Contact Number</label>
                   <input name="contactNumber" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.contactNumber"   placeholder="Contact Number">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
