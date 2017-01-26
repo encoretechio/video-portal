@@ -198,4 +198,24 @@ module.exports = {
   			});
   		});
     },
+
+    // getUserCount - get active user count, if req param role given get active user count for the role
+  	getUserCount: function(request, response){
+      console.log("in the action getusercount");
+      var role_id = request.params.role_id;
+      console.log("role_id:",role_id);
+      var query = {};
+      if (role_id != null){
+        query["adminRole"] = role_id;
+      }
+      console.log("query,",query);
+      User.count(query).exec(function countCB(error, count) {
+        console.log('There are ' + count + ' users.');
+  			if (error) {
+    			// handle error here- e.g. `res.serverError(err);`
+    			return;
+  			}
+  			response.json(count);
+  		});
+  	},
 };
