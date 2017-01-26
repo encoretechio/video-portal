@@ -1,29 +1,27 @@
-
-    <div class="card">
-        <div class="card-block">
-            <a data-toggle="collapse" class="playlist-heading-a" data-parent="#accordion" href="#collapse{{playlist.id}}" >
-            <h5 class="card-title" id="heading{{playlist.id}}">
+<div class="panel panel-default">
+  <div class="panel-body">
+    <a data-toggle="collapse" class="playlist-heading-a" data-parent="#accordion" href="#collapse{{playlist.id}}">
+      <h5 id="heading{{playlist.id}}">
             {{playlist.name}}
             </h5>
-            <h6 class="card-subtitle text-muted">
+      <h6 class="text-muted">
                      <p><small>{{playlist.description}}</small></p>
             </h6>
-            </a>
-      </div>
+    </a>
+  </div>
 
-      <div id="collapse{{playlist.id}}" class="collapse in list-group" role="tabpanel" >
-          <ul class="list-group">
-            <li class="list-group-item video-li" [ngClass]="{'video-li-selected':video.id===selectedVideoId}" *ngFor="let video of playlist.videos" (click)="selectVideo(video.id)">
-                <a href="#" >
-                <img src="//i.ytimg.com/vi/g5-TXR3Cmrk/mqdefault.jpg" class="video-thumbnail rounded float-xs-left" alt="...">
-                <span class="video-length">
+  <div id="collapse{{playlist.id}}" class="collapse in list-group" role="tabpanel">
+    <ul class="list-group">
+      <li class="list-group-item video-li" [ngClass]="{'video-li-selected':video.id===selectedVideoId}" *ngFor="let video of playlist.videos" (click)="selectVideo(video.id)">
+        <a href="#">
+          <img src="//i.ytimg.com/vi/g5-TXR3Cmrk/mqdefault.jpg" class="video-thumbnail rounded float-xs-left" alt="...">
+          <span class="video-length">
                     {{video.watchedLength}}/{{video.length}}
-                </span>
-                {{video.title}}
-                </a>
+                </span> {{video.title}}
+        </a>
 
-              <!--<span class="tag tag-default tag-pill float-xs-right">14</span>-->
-            </li>
-          </ul>
-      </div>
-    </div>
+        <!--<span class="tag tag-default tag-pill float-xs-right">14</span>-->
+      </li>
+    </ul>
+  </div>
+</div>

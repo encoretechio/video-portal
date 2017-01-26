@@ -39,21 +39,30 @@ export class DataContextService {
   public removeData(){
     localStorage.removeItem(AUTH_TOKEN_KEY);
     localStorage.removeItem(USER_DATA_KEY);
+    localStorage.removeItem(USER_KEY);
     this.authToken = null;
     this.userData = null;
+    this.user = null;
     //this.requestOptions.headers.delete('authorization');
   }
 
   public setUserData(userData:UserData){
-    this.userData = userData;
-    for(let playList of userData.playlists){
-      for(let video of playList.videos){
-        if(userData.user.watchedVideos[video.id]) {
-          video.watchedLength = userData.user.watchedVideos[video.id];
+    if(userData)
+    {
+      this.userData = userData;
+      for(let playList of userData.playlists){
+        for(let video of playList.videos){
+          if(userData.user.watchedVideos[video.id]) {
+            video.watchedLength = userData.user.watchedVideos[video.id];
+          }
         }
       }
+      localStorage.setItem(USER_DATA_KEY,JSON.stringify(this.userData)) ;
     }
-    localStorage.setItem(USER_DATA_KEY,JSON.stringify(this.userData)) ;
+    else {
+      localStorage.removeItem(USER_DATA_KEY);
+      this.userData = null;
+    }
   }
 
   public getUserData(){

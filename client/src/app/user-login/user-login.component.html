@@ -12,15 +12,15 @@
         <div class="row 50%">
           <div class="8u 12u(narrower)">
 
-            <form class="form-signin" >
+            <form class="form-signin">
               <h2 class="form-signin-heading">Sign In</h2>
               <br />
-              <div [hidden]="valid" class="alert alert-danger"> Invalid Login details </div>
+              <div [hidden]="valid" class="alert alert-danger"> {{errorMessage}} </div>
               <label for="inputEmail" class="sr-only">Email address</label>
-              <input id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" name="username" [(ngModel)]="details.username">
+              <input id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" name="username"  [disabled]="submitted" [(ngModel)]="details.username">
               <br>
               <label for="inputPassword" class="sr-only">Password</label>
-              <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" name="password" [(ngModel)]="details.password">
+              <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" name="password" [disabled]="submitted" [(ngModel)]="details.password">
               <br>
               <div class="checkbox">
                 <label>

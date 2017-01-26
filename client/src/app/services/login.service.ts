@@ -9,7 +9,7 @@ export class LoginService {
 
   constructor(private requestOptions:RequestOptions, private httpService:HttpService, private dataContext:DataContextService) { }
 
-  public login(emailParam:string, passwordParam:string, onSuccess){
+  public login(emailParam:string, passwordParam:string, onSuccess, onFail){
     this.requestOptions.headers.set('Content-Type','application/json');
     let loginInfo = {email:emailParam,  password:passwordParam}
     let loginSuccess:Boolean;
@@ -23,11 +23,13 @@ export class LoginService {
         loginSuccess = true;
       },
       error => {
+        onFail(error)
         console.log("Error at login Component"+error);
         loginSuccess = false;
       },
       () => {
-        onSuccess(loginSuccess);
+        if(loginSuccess)
+          onSuccess(loginSuccess);
       }
     );
 
