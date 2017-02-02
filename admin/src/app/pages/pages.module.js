@@ -12,6 +12,8 @@
     'BlurAdmin.pages.sides',
     'BlurAdmin.pages.insert',
     'BlurAdmin.pages.user',
+    'BlurAdmin.pages.login',
+    'BlurAdmin.pages.signup',
     "ng","ngAnimate","ngAria",
     'ngMaterial',
     'commonServices'
