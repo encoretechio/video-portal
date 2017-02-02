@@ -9,30 +9,21 @@
     'ui.router',
 
     'BlurAdmin.pages.dashboard',
+    'BlurAdmin.pages.sides',
+    'BlurAdmin.pages.insert',
+    'BlurAdmin.pages.user',
     "ng","ngAnimate","ngAria",
     'ngMaterial',
-    'commonServices',
-    'insert',
-    'user',
+    'commonServices'
   ])
       .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/main/dashboard');
 
     baSidebarServiceProvider.addStaticItem({
-      title: 'Pages',
-      icon: 'ion-document',
-      subMenu: [{
-        title: 'Insert Page',
-        stateRef: 'insert',
-        blank: true
-      }, {
-          title: 'User Profile',
-          stateRef: 'user'
-        }
-      ]
+
     });
   }
 

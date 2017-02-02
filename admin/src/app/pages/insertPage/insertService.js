@@ -1,4 +1,4 @@
-angular.module('insert')
+angular.module('BlurAdmin.pages.insert')
   .service('insertService', ['dataContext','$mdDialog', insertServ]);
 
 /** @ngInject */
