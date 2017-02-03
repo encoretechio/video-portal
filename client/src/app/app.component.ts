@@ -26,8 +26,6 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    this.userData = USER_DATA;
-
     console.log("HOME COMPONENT");
     this.dataContext.refresh();
   }
