@@ -62,9 +62,10 @@ export class UserProfileComponent implements OnInit {
   }
 
   onSubmitPasswordForm():void {
-    if(this.passwords.newPassword!=this.passwords.confirmNewPassword)
+    if(this.passwords.newPassword!=this.passwords.confirmNewPassword || this.passwords.oldPassword==="" ||
+        this.passwords.newPassword===""|| this.passwords.confirmNewPassword==="")
     {
-      this.messagePassword = "Passwords doesn't match."
+      this.messagePassword = "Invalid Input"
       this.showMessagePassword = true;
       this.messageTypePassword = "fail";
       this.submitted = false;
@@ -79,6 +80,7 @@ export class UserProfileComponent implements OnInit {
     this.httpService.sendObjects<any>("user/"+ this.user.id+"/change_password/" , this.passwords).subscribe(
       result => {
         console.log(result);
+        this.dataContext.setUserData(null);
       },
       ()=> {
         this.messagePassword = "Can't update password. Check your internet connection."
