@@ -4,4 +4,4 @@
   "users_who_can_answer_comments": [1,2], //optional
   "name": "playlist4",
   "description": "desc"
-}
+};
