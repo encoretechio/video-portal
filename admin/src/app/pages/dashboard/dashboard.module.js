@@ -11,14 +11,14 @@
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('dashboard', {
+        .state('main.dashboard', {
           url: '/dashboard',
           templateUrl: 'app/pages/dashboard/dashboard.html',
           title: 'Dashboard',
           sidebarMeta: {
             icon: 'ion-android-home',
             order: 0,
-          },
+          }
         });
   }
 

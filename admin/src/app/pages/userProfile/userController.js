@@ -1,113 +1,109 @@
-angular.module('user')
-  .controller('userController', userCtrl);
+angular.module('BlurAdmin.pages.user')
+    .controller('userController', userCtrl);
 
 /** @ngInject */
-function userCtrl($scope, $state,$stateParams, $timeout,$sce,$filter) {
+function userCtrl($scope, $state, $stateParams, $timeout, $sce, $filter) {
 
     $scope.userID = $stateParams.userID;
     $scope.users = {
-        "user1" : {
-            "id" : "1",
-            "username" : "Panii",
-            "profilePic":"Pranidhith.png",
-            "firstname" : "Pranidhith",
-            "lastname" : "Munasinghe",
-            "role" : "System Admin",
-            "contactNo" : "071111111",
-            "designation":"Sales Manager",
-            "email":"prani@gmail.com",
-            "playlists" : [{
-                "id" : "1",
-                "name" : "playListName1",
-                "videos" : [{
-                    "id" : "1",
-                    "title" : "videoTitle1",
-                    "link":"http://static.videogular.com/assets/videos/videogular.mp4",
-                    "description" : "videoDescription1",
-                    "length" : "5mins"
+        "user1": {
+            "id": "1",
+            "username": "Panii",
+            "profilePic": "Pranidhith.png",
+            "firstname": "Pranidhith",
+            "lastname": "Munasinghe",
+            "role": "System Admin",
+            "contactNo": "071111111",
+            "designation": "Sales Manager",
+            "email": "prani@gmail.com",
+            "playlists": [{
+                "id": "1",
+                "name": "playListName1",
+                "videos": [{
+                    "id": "1",
+                    "title": "videoTitle1",
+                    "link": "http://static.videogular.com/assets/videos/videogular.mp4",
+                    "description": "videoDescription1",
+                    "length": "5mins"
                 }, {
-                    "id" : "2",
-                    "title" : "videoTitle2",
-                    "link":"http://static.wse.com/assets/videos/videogular.mp4",
-                    "description" : "videoDescription2",
-                    "length" : "5mins"
+                    "id": "2",
+                    "title": "videoTitle2",
+                    "link": "http://static.wse.com/assets/videos/videogular.mp4",
+                    "description": "videoDescription2",
+                    "length": "5mins"
                 }, {
-                    "id" : "3",
-                    "title" : "videoTitle3",
-                    "link":"http://static.videogular.com/assets/videos/videogular.mp4",
-                    "description" : "videoDescription3",
-                    "length" : "5mins"
-                }
-                ]
+                    "id": "3",
+                    "title": "videoTitle3",
+                    "link": "http://static.videogular.com/assets/videos/videogular.mp4",
+                    "description": "videoDescription3",
+                    "length": "5mins"
+                }]
             }, {
-                "id" : "2",
-                "name" : "playListName2",
-                "videos" : [{
-                    "id" : "1",
-                    "title" : "videoTitle1",
-                    "link":"http://static.videogular.com/assets/videos/videogular.mp4",
-                    "description" : "videoDescription1",
-                    "length" : "5mins"
+                "id": "2",
+                "name": "playListName2",
+                "videos": [{
+                    "id": "1",
+                    "title": "videoTitle1",
+                    "link": "http://static.videogular.com/assets/videos/videogular.mp4",
+                    "description": "videoDescription1",
+                    "length": "5mins"
                 }, {
-                    "id" : "2",
-                    "title" : "videoTitle2",
-                    "link":"http://static.videogular.com/assets/videos/videogular.mp4",
-                    "description" : "videoDescription2",
-                    "length" : "5mins"
+                    "id": "2",
+                    "title": "videoTitle2",
+                    "link": "http://static.videogular.com/assets/videos/videogular.mp4",
+                    "description": "videoDescription2",
+                    "length": "5mins"
                 }, {
-                    "id" : "3",
-                    "title" : "videoTitle3",
-                    "link":"http://static.videogular.com/assets/videos/videogular.mp4",
-                    "description" : "videoDescription3",
-                    "length" : "5mins"
-                }
-                ]
+                    "id": "3",
+                    "title": "videoTitle3",
+                    "link": "http://static.videogular.com/assets/videos/videogular.mp4",
+                    "description": "videoDescription3",
+                    "length": "5mins"
+                }]
             }, {
-                "id" : "2",
-                "name" : "playListName2",
-                "videos" : [{
-                    "id" : "1",
-                    "title" : "videoTitle1",
-                    "description" : "videoDescription1",
-                    "length" : "5mins"
+                "id": "2",
+                "name": "playListName2",
+                "videos": [{
+                    "id": "1",
+                    "title": "videoTitle1",
+                    "description": "videoDescription1",
+                    "length": "5mins"
                 }, {
-                    "id" : "2",
-                    "title" : "videoTitle2",
-                    "description" : "videoDescription2",
-                    "length" : "5mins"
+                    "id": "2",
+                    "title": "videoTitle2",
+                    "description": "videoDescription2",
+                    "length": "5mins"
                 }, {
-                    "id" : "3",
-                    "title" : "videoTitle3",
-                    "description" : "videoDescription3",
-                    "length" : "5mins"
-                }
-                ]
+                    "id": "3",
+                    "title": "videoTitle3",
+                    "description": "videoDescription3",
+                    "length": "5mins"
+                }]
 
-            }
-            ]
+            }]
         }
     };
     var profileImage = $scope.users.user1.profilePic.split(".")[0];
     var profileImageExt = $scope.users.user1.profilePic.split(".")[1];
 
-    $scope.picture = $filter('profilePicture')(profileImage,profileImageExt);
+    $scope.picture = $filter('profilePicture')(profileImage, profileImageExt);
 
-    $scope.removePicture = function () {
-      $scope.picture = $filter('appImage')('theme/no-photo.png');
-      $scope.noPicture = true;
+    $scope.removePicture = function() {
+        $scope.picture = $filter('appImage')('theme/no-photo.png');
+        $scope.noPicture = true;
     };
 
-    $scope.uploadPicture = function () {
-      var fileInput = document.getElementById('uploadFile');
-      fileInput.click();
+    $scope.uploadPicture = function() {
+        var fileInput = document.getElementById('uploadFile');
+        fileInput.click();
 
     };
 
-    $scope.getFile = function () {
-      fileReader.readAsDataUrl($scope.file, $scope)
-          .then(function (result) {
-            $scope.picture = result;
-          });
+    $scope.getFile = function() {
+        fileReader.readAsDataUrl($scope.file, $scope)
+            .then(function(result) {
+                $scope.picture = result;
+            });
     };
 
 
@@ -130,40 +126,56 @@ function userCtrl($scope, $state,$stateParams, $timeout,$sce,$filter) {
     };
 
     $scope.readyCB = function() {
-      $timeout(function() {
-        $scope.ignoreChanges = false;
-      });
+        $timeout(function() {
+            $scope.ignoreChanges = false;
+        });
     };
 
     $scope.openNodeCB = function(e, data) {
-      console.log('open-node event call back');
+        console.log('open-node event call back');
     };
 
     $scope.changedCB = function(e, data) {
-        if(data.node.children.length==0){
-             console.log('changed event call back');
-             var videoId = data.selected[0];
-             //$scope.url;
-             for(var i=0; i<$scope.treeData.length;i++){
-                if ($scope.treeData[i].id==videoId){
+        if (data.node.children.length == 0) {
+            console.log('changed event call back');
+            var videoId = data.selected[0];
+            //$scope.url;
+            for (var i = 0; i < $scope.treeData.length; i++) {
+                if ($scope.treeData[i].id == videoId) {
                     $scope.url = $scope.treeData[i].link;
                 }
-             }
+            }
         }
     };
-    
-    $scope.getVideoUrl=function(){
+
+    $scope.getVideoUrl = function() {
         return $sce.trustAsResourceUrl($scope.url);
     };
 
 
-    $scope.treeData =[];
+    $scope.treeData = [];
 
-    for(var i=0;i<$scope.users.user1.playlists.length;i++){
-        var playlistNode ={"id": i ,"parent": "#", "type": "folder", "text": $scope.users.user1.playlists[i].name,"state": {  "opened": true  } }
+    for (var i = 0; i < $scope.users.user1.playlists.length; i++) {
+        var playlistNode = {
+            "id": i,
+            "parent": "#",
+            "type": "folder",
+            "text": $scope.users.user1.playlists[i].name,
+            "state": {
+                "opened": true
+            }
+        }
         $scope.treeData.push(playlistNode);
-        for(var j=0; j<$scope.users.user1.playlists[i].videos.length;j++){
-            var videoNode ={"id": i+"."+j ,"parent": i, "text": $scope.users.user1.playlists[i].videos[j].description, "link" : $scope.users.user1.playlists[i].videos[j].link, "state": {  "opened": true  } }
+        for (var j = 0; j < $scope.users.user1.playlists[i].videos.length; j++) {
+            var videoNode = {
+                "id": i + "." + j,
+                "parent": i,
+                "text": $scope.users.user1.playlists[i].videos[j].description,
+                "link": $scope.users.user1.playlists[i].videos[j].link,
+                "state": {
+                    "opened": true
+                }
+            }
             $scope.treeData.push(videoNode);
         }
     }

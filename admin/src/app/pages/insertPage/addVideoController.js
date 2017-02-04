@@ -1,7 +1,7 @@
 /**
  * Created by Ravindu Hasantha on 09-Nov-16.
  */
-var app = angular.module('insert')
+var app = angular.module('BlurAdmin.pages.insert')
     .controller('addVideoController', ['insertService','$scope', addVideoCtrl]);
 
 /** @ngInject */

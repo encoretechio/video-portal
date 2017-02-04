@@ -1,4 +1,4 @@
-angular.module('insert')
+angular.module('BlurAdmin.pages.insert')
     .controller('addPlaylistController', ['insertService','$scope', addPlaylistCtrl]);
 
 /** @ngInject */

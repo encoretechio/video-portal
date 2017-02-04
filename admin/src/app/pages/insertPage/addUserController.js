@@ -1,4 +1,4 @@
-angular.module('insert')
+angular.module('BlurAdmin.pages.insert')
   .controller('addUserController', ['insertService','$scope', addUserCtrl]);
 
 /** @ngInject */

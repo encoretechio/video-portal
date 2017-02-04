@@ -1,19 +1,19 @@
-angular.module('insert')
+angular.module('BlurAdmin.pages.insert')
   .controller('mainController', mainCtrl);
 
 /** @ngInject */
 function mainCtrl($scope, $state) {
 
     $scope.addUser = function(){
-      $state.go('insert.addUser');
+      $state.go('main.insert.addUser');
     };
      $scope.addRole = function(){
-      $state.go('insert.addRole');
+      $state.go('main.insert.addRole');
     };
     $scope.addPlaylist = function(){
-      $state.go('insert.addPlaylist');
+      $state.go('main.insert.addPlaylist');
     };
     $scope.addVideo = function(){
-      $state.go('insert.addVideo');
+      $state.go('main.insert.addVideo');
     };
 }
