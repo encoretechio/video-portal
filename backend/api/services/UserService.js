@@ -146,6 +146,50 @@ var UserService = {
     });
   },
 
+  /**
+   * update user progress
+   *
+   */
+  updateUserProgress: function (options, callback){
+    var users = options.users;
+
+    const promisesList = users.map((user) => {
+      const promise = function (){
+        var video_count = 0;
+        var completed_video_count = 0;
+        var role_id = user.adminRole.id;
+
+        return getPlaylistIdsSync(role_id).then(function(playlist_ids){
+          return getPlaylistsSync(playlist_ids);
+        }).then(function(playlists){
+          // looping the playlists
+          for (i in playlists){
+            // looping the videos in a playlist
+            for(j in playlists[i]["videos"]){
+                video_count += 1;
+                // check whether the video is watched
+                if(playlists[i]["videos"][j]["id"] in user.watchedVideos){
+                  // TODO: make all time varibles to seconds, check for 10 second threshold
+                  if(result.user.watchedVideos[result.playlists[i]["videos"][j]["id"]] == result.playlists[i]["videos"][j]["length"]){
+                    completed_video_count += 1;
+                  }
+                }
+            }
+          }
+          user.progress = completed_video_count/video_count;
+          console.log("progress:",user.progress);
+        });
+      }
+      return promise;
+    });
+
+    Promise.all(promisesList).then( ()=> {
+      callback(null, users);
+    }).catch(function(error){
+      callback(error, null);
+    });
+  },
+
 
   /**
    * get a list of users

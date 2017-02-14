@@ -58,7 +58,9 @@ module.exports.routes = {
   'POST /user/:user_id/update_video': 'UserController.updateVideo',
   'POST /user/:user_id/change_password': 'UserController.changePassword',
   'GET /usercount': 'UserController.getUserCount',
+  // admin routes
   'GET /usercount/:role_id': 'UserController.getUserCount',
+  'GET /user/progress': 'UserController.getUserProgress',
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',

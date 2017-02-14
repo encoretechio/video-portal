@@ -218,4 +218,24 @@ module.exports = {
   			response.json(count);
   		});
   	},
+
+    // getUserProgress - generate users' progress and send users with progress
+    getUserProgress: function(request, response){
+      User.find().exec(function(error, users){
+  			if (error) {
+    			return;
+  			}
+        UserService.updateUserProgress({users:users}, (error, users)=>{
+          if (!error) {
+            response.json(users);
+          }else{
+            // send the error msg with 401 status
+            return response.json( 401, { err: {
+              status: 'danger',
+              message: response.i18n(error)
+            }});
+          }
+        })
+  		});
+    },
 };
