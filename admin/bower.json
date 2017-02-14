@@ -56,7 +56,8 @@
 	"angular-aria": "~1.5.9",
 	"angular-material":"~1.1.1",
 	"myforce-angularjs-dropdown-multiselect":"~1.10.2",
-    "ng-js-tree": "~0.0.7"
+    "ng-js-tree": "~0.0.7",
+	"aws-sdk":"~2.9.0"
   },
   "resolutions": {
     "angular": "~1.4.8"
