@@ -16,7 +16,8 @@
     'BlurAdmin.pages.signup',
     "ng","ngAnimate","ngAria",
     'ngMaterial',
-    'commonServices'
+    'commonServices',
+    'S3UploadService'
   ])
       .config(routeConfig);
 
