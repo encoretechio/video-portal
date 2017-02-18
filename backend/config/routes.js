@@ -60,7 +60,7 @@ module.exports.routes = {
   'GET /usercount': 'UserController.getUserCount',
   // admin routes
   'GET /usercount/:role_id': 'UserController.getUserCount',
-  'GET /user/progress': 'UserController.getUserProgress',
+  'GET /userprogress': 'UserController.getUserProgress',
 
   // role endpoints
   'GET /role': 'RoleController.getRoles',

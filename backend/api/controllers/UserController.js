@@ -225,11 +225,12 @@ module.exports = {
   			if (error) {
     			return;
   			}
-        UserService.updateUserProgress({users:users}, (error, users)=>{
+        UserService.updateUserProgress({users:users}, function(error, updated_users){
           if (!error) {
-            response.json(users);
+            response.json(updated_users);
           }else{
             // send the error msg with 401 status
+            // console.log("error",error);
             return response.json( 401, { err: {
               status: 'danger',
               message: response.i18n(error)
