@@ -7,14 +7,11 @@
     angular.module('S3UploadService', [])
         .service('S3UploadService', ['$q', function($q) {
 
-            /*AWS.config.update({
-                accessKeyId: "AKIAI3EZYDVBHIAARKBQ",
-                secretAccessKey: "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",
+            AWS.config.update({
+                accessKeyId: "",
+                secretAccessKey: "",
                 region: "us-west-2"  // <- If you want send something to your bucket, you need take off this settings, because the S3 are global.
-            });*/
-
-            AWS.config.region = 'us-west-2';
-            AWS.config.update({ accessKeyId: 'AKIAI3EZYDVBHIAARKBQ', secretAccessKey: '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' });
+            });
 
             var bucket = new AWS.S3({ params: { Bucket: 'letsbuild-videos', maxRetries: 10 }, httpOptions: { timeout: 360000 } });
 
