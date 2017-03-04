@@ -30,7 +30,7 @@ function addVideoCtrl(insertService,S3UploadService,$scope) {
                 file.Success = true;
                 insertService.alertMsg = "You successfully added a Video";
                 insertService.showAlert();
-                //$scope.picture = "https://s3.amazonaws.com/99xt-interns-uploads/profile/" + file.name;
+                //$scope.formdata. = "https://s3.amazonaws.com/99xt-interns-uploads/profile/" + file.name;
                 //$scope.data.profile = $scope.picture;
                 //$scope.update($scope.picture);
             }, function(error) {
