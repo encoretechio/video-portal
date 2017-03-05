@@ -18,13 +18,51 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-sm-6">
-                <div class="button-wrapper"><button type="button" class="btn btn-info btn-raised" ng-click = "uploadVideo()">Upload Video</button></div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea placeholder="Describe the video" class="form-control" id="description" ng-model="formData.description"></textarea>
+                </div>
             </div>
-            <div class="col-sm-6">
-                <button type="submit" class="btn btn-primary" ng-click = "submit()" ng-disabled="!formData.title && !formData.playlistName" >Submit</button>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+                <div class="button-wrapper"><button type="button" class="btn btn-info btn-raised" ng-click = "selectVideo()">Select Video</button></div>
+            </div>
+
+            <div class="col-sm-1">
+            </div>
+
+
+           <!-- <div class="col-sm-4">
+                <div class="panel panel-primary contextual-example-panel bootstrap-panel">
+                    <div class="panel-heading">Video Details</div>
+                    <div class="panel-body">
+                        <p ng-bind="fileName"></p>
+                        <p ng-bind="fileSize"></p>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="col-sm-1">
+            </div>
+            <div class="col-sm-1">
+            </div>
+
+            <div class="col-sm-1">
+                <div class="button-wrapper"><button type="button" class="btn btn-warning btn-raised" ng-click = "uploadVideo()">Upload Video</button></div>
                 <input type="file" ng-show="false" id="uploadFile" ng-file-select="onFileSelect($files)">
+            </div>
+
+        </div>
+
+        <div class="row">
+            <br>
+            <div class="col-md-8">
+                <button type="submit" class="btn btn-primary" ng-click = "submit()" ng-disabled="!formData.title && !formData.playlistName" >Submit</button>
             </div>
         </div>
     </div>`

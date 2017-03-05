@@ -16,10 +16,14 @@ function addVideoCtrl(insertService,S3UploadService,$scope) {
 
     $scope.submit = function(){
         if($scope.formData.title) {
+            //$scope.uploadFiles($scope.file);
             insertService.addVideo($scope.formData);
             console.log($scope.formData);
 
         }
+    };
+
+    $scope.uploadVideo = function(){
         $scope.uploadFiles($scope.file);
     };
 
@@ -30,7 +34,7 @@ function addVideoCtrl(insertService,S3UploadService,$scope) {
                 file.Success = true;
                 insertService.alertMsg = "You successfully added a Video";
                 insertService.showAlert();
-                //$scope.picture = "https://s3.amazonaws.com/99xt-interns-uploads/profile/" + file.name;
+                $scope.formData.link = "https://s3-us-west-2.amazonaws.com/letsbuild-videos/" + file.name;
                 //$scope.data.profile = $scope.picture;
                 //$scope.update($scope.picture);
             }, function(error) {
@@ -47,7 +51,7 @@ function addVideoCtrl(insertService,S3UploadService,$scope) {
     };
 
 
-    $scope.uploadVideo = function () {
+    $scope.selectVideo = function () {
         var fileInput = document.getElementById('uploadFile');
         fileInput.click();
         console.log(fileInput.value);
@@ -55,8 +59,9 @@ function addVideoCtrl(insertService,S3UploadService,$scope) {
 
     $scope.getFile = function() {
         //var fileReader = new FileReader();
+
         $scope.file  = document.querySelector('input[type=file]').files[0];
-        console.log($scope.file.value);
+        console.log($scope.file.name);
     };
 
     insertService.getPlaylists().then(function(data) {

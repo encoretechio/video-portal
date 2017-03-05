@@ -8,8 +8,8 @@
         .service('S3UploadService', ['$q', function($q) {
 
             AWS.config.update({
-                accessKeyId: "",
-                secretAccessKey: "",
+                accessKeyId: "AKIAIRRWQFO5YEIKOVOQ",
+                secretAccessKey: "eNOJkrMIBvsOutWtllCuZR96VSCjxCMUBVo+8YqM",
                 region: "us-west-2"  // <- If you want send something to your bucket, you need take off this settings, because the S3 are global.
             });
 
