@@ -60,7 +60,8 @@
 	"aws-sdk":"~2.9.0"
   },
   "resolutions": {
-    "angular": "~1.4.8"
+    "angular": "~1.4.8",
+    "jquery": "~2.1.4"
   },
   "overrides": {
     "amcharts": {
