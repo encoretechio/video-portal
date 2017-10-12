@@ -72,6 +72,11 @@ module.exports = {
             model: 'role'
         },
 
+        //url for the profile picture stored in s3 bucket
+        profilePic: {
+            type: 'string'
+        },
+
         // json object to keep watched videos of a user
         // format - { video_id : time, v2 : t2, ..}
         watchedVideos: {

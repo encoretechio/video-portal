@@ -131,7 +131,7 @@ module.exports = {
                 // adding hashed newpassword to the data object
                 user.password = hash;
 
-                // update user 
+                // update user
                 user.save(function(error) {
                   if (error) {
                       return response.negotiate(error);
@@ -172,6 +172,7 @@ module.exports = {
     // updateVideo - update watched times of user's videos
     updateVideo: function(request, response){
       // TODO: validate video id - get a list of video ids using a route and call using a sync method
+      // TODO: validate video format - 0:0:0
       // object to keep info sent in request
       var watchedVideos = {};
       User.findOne(request.params.user_id).exec(function(error, user){
@@ -195,6 +196,47 @@ module.exports = {
         	sails.log('videos updated');
         	response.json(user.watchedVideos);
   			});
+  		});
+    },
+
+    // getUserCount - get active user count, if req param role given get active user count for the role
+  	getUserCount: function(request, response){
+      console.log("in the action getusercount");
+      var role_id = request.params.role_id;
+      console.log("role_id:",role_id);
+      var query = {};
+      if (role_id != null){
+        query["adminRole"] = role_id;
+      }
+      console.log("query,",query);
+      User.count(query).exec(function countCB(error, count) {
+        console.log('There are ' + count + ' users.');
+  			if (error) {
+    			// handle error here- e.g. `res.serverError(err);`
+    			return;
+  			}
+  			response.json(count);
+  		});
+  	},
+
+    // getUserProgress - generate users' progress and send users with progress
+    getUserProgress: function(request, response){
+      User.find().exec(function(error, users){
+  			if (error) {
+    			return;
+  			}
+        UserService.updateUserProgress({users:users}, function(error, updated_users){
+          if (!error) {
+            response.json(updated_users);
+          }else{
+            // send the error msg with 401 status
+            // console.log("error",error);
+            return response.json( 401, { err: {
+              status: 'danger',
+              message: response.i18n(error)
+            }});
+          }
+        })
   		});
     },
 };
