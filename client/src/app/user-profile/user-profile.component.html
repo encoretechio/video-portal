@@ -5,7 +5,7 @@
         <div class="col-sm-4">
           <div class="panel panel-default pic-box">
             <div class="panel-body">
-              <h3>Mr. Ravindu Hasantha</h3>
+              <h3>{{user.nickname}}</h3>
               <div>
                 <div class="profile_pic_overlay">Edit</div>
                 <img src="assets/profile_pic.png" alt="..." class="img-thumbnail">
@@ -18,62 +18,66 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <form>
+                <div [hidden]="!message" class="alert" [ngClass]="{'alert-danger':messageType==='fail', 'alert-success':messageType==='success'}" > {{message}} </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Nick Name</label>
-                  <input name="nickName" type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp" [(ngModel)]="user.nickname"  placeholder="First Name">
+                  <input [disabled]="submitted" name="nickName" type="text" class="form-control" id="firstName" aria-describedby="firstNameHelp" [(ngModel)]="user.nickname"  placeholder="First Name">
                   <small class="form-text text-muted">Your nick name here..</small>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">First Name</label>
-                  <input name="firstName" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.firstName"  placeholder="Last Name">
+                  <input [disabled]="submitted" name="firstName" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.firstName"  placeholder="Last Name">
                   <small class="form-text text-muted">Your first name here..</small>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Last Name</label>
-                  <input name="lastName" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.lastName"  placeholder="Last Name">
+                  <input [disabled]="submitted" name="lastName" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.lastName"  placeholder="Last Name">
                   <small class="form-text text-muted">Your last name here..</small>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  [(ngModel)]="user.email"  disabled>
+                  <input [disabled]="submitted" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"  [(ngModel)]="user.email"  disabled>
                   <small class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
 
                 <div class="form-group">
                   <label for="exampleInputEmail1">Contact Number</label>
-                  <input name="contactNumber" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.contactNumber"   placeholder="Contact Number">
+                  <input [disabled]="submitted" name="contactNumber" type="text" class="form-control" aria-describedby="firstNameHelp"  [(ngModel)]="user.contactNumber"   placeholder="Contact Number">
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                <button [disabled]="submitted" type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+
                 <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+                        <h4 class="modal-title" id="passwordModalLabel">Change Password</h4>
                       </div>
                       <div class="modal-body">
+                        <div [hidden]="!messagePassword" class="alert" [ngClass]="{'alert-danger':messageTypePassword==='fail', 'alert-success':messageTypePassword==='success'}" > {{messagePassword}} </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1">Current Password</label>
-                          <input type="password" class="form-control" id="oldPassword" placeholder="Password">
+                          <label>Current Password</label>
+                          <input [disabled]="submitted" type="password" [(ngModel)]= "passwords.oldPassword" name="oldPassword" class="form-control" id="oldPassword" placeholder="Password">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1">New Password</label>
-                          <input type="password" class="form-control" id="newPassword1" placeholder="New Password">
+                          <label>New Password</label>
+                          <input [disabled]="submitted" type="password" [(ngModel)]= "passwords.newPassword" name="newPassword" class="form-control" id="newPassword1" placeholder="New Password">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1">Confirm New Password</label>
-                          <input type="password" class="form-control" id="newPassword2" placeholder="New Password">
+                          <label>Confirm New Password</label>
+                          <input [disabled]="submitted" type="password" [(ngModel)]= "passwords.confirmNewPassword" name="confirmNewPassword" class="form-control" id="newPassword2" placeholder="New Password">
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button [disabled]="submitted" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button [disabled]="submitted" type="button" class="btn btn-primary" (click)="onSubmitPasswordForm()">Save changes</button>
                       </div>
                     </div>
                   </div>
@@ -83,7 +87,7 @@
           </div>
           <div class="panel panel-default">
             <div class="panel-body">
-              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#passwordModal">
                 Change Password
               </button>
             </div>

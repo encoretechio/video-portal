@@ -1,40 +1,41 @@
 (function () {
   'use strict';
 
-  angular.module('insert', [])
+  angular.module('BlurAdmin.pages.insert', [])
       .config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('insert', {
+        .state('main.insert', {
           url: '/insert',
           templateUrl: 'app/pages/insertPage/main.html',
           controller: 'mainController',
+          title: 'Insert',
+          sidebarMeta: {
+            icon: 'ion-plus-round',
+            order: 0,
+          }
         })
-        .state('insert.addUser', {
+        .state('main.insert.addUser', {
           url: '/user',
-          parent : 'insert',
           templateUrl: 'app/pages/insertPage/addUser.html',
-          controller: 'addUserController',
+          controller: 'addUserController'
         })
-        .state('insert.addRole', {
+        .state('main.insert.addRole', {
           url: '/role',
-          parent : 'insert',
           templateUrl: 'app/pages/insertPage/addRole.html',
-          controller: 'addRoleController',
+          controller: 'addRoleController'
         })
-        .state('insert.addPlaylist', {
+        .state('main.insert.addPlaylist', {
             url: '/playlist',
-            parent : 'insert',
             templateUrl: 'app/pages/insertPage/addPlaylist.html',
-            controller: 'addPlaylistController',
+            controller: 'addPlaylistController'
         })
-        .state('insert.addVideo', {
+        .state('main.insert.addVideo', {
           url: '/video',
-          parent : 'insert',
           templateUrl: 'app/pages/insertPage/addVideo.html',
-          controller: 'addVideoController',
+          controller: 'addVideoController'
       });
   }
 })();

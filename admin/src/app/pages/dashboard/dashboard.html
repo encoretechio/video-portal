@@ -1,195 +1,75 @@
 <dashboard-pie-chart></dashboard-pie-chart>
-<!--  
+
 <div class="row">
-  <div class="col-lg-6 col-md-12 col-sm-12"
-       ba-panel
-       ba-panel-title="Acquisition Channels"
-       ba-panel-class="medium-panel traffic-panel">
-    <traffic-chart></traffic-chart>
-  </div>
-  <div class="col-lg-6 col-md-12 col-sm-12"
-       ba-panel
-       ba-panel-title="Users by Country"
-       ba-panel-class="medium-panel">
-    <dashboard-map></dashboard-map>
-  </div>
-</div>
--->
-<div class="row">
- <!-- 
-  <div class="col-xlg-9 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-    <div class="row">
-      <div class="col-xlg-8 col-lg-12 col-md-12 col-sm-7 col-xs-12"
-           ba-panel
-           ba-panel-title="Revenue"
-           ba-panel-class="medium-panel">
-        <dashboard-line-chart></dashboard-line-chart>
-      </div>
-      <div class="col-xlg-4 col-lg-12 col-md-12 col-sm-5 col-xs-12"
-           ba-panel
-           ba-panel-class="popular-app medium-panel">
-        <popular-app></popular-app>
-      </div>
-    </div>
-  </div>
--->
-  <div class="col-sm-6">
-     <div ba-panel ba-panel-title="Users" ba-panel-class="with-scroll">
-        <div class="row">
-          <div class="col-sm-4 col-xs-6">
-            <div class="btn-group" uib-dropdown dropdown-append-to-body>
-              <button type="button" class="btn btn-default " uib-dropdown-toggle>
+
+    <div class="col-sm-6">
+        <div ba-panel ba-panel-title="Users" ba-panel-class="with-scroll">
+            <div class="row">
+                <div class="col-sm-4 col-xs-6">
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                        <button type="button" class="btn btn-default " uib-dropdown-toggle>
                 Watched # <span class="caret"></span>
               </button>
-              <ul uib-dropdown-menu>
-                <li><a href>0-10 videos</a></li>
-                <li><a href>10-100 videos</a></li>
-                <li><a href>100+ videos</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href>set number of videos..</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="btn-group" uib-dropdown dropdown-append-to-body>
-              <button type="button" class="btn btn-default " uib-dropdown-toggle>
+                        <ul uib-dropdown-menu>
+                            <li><a href>0-10 videos</a></li>
+                            <li><a href>10-100 videos</a></li>
+                            <li><a href>100+ videos</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href>set number of videos..</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                        <button type="button" class="btn btn-default " uib-dropdown-toggle>
                 Branch<span class="caret"></span>
               </button>
-              <ul uib-dropdown-menu>
-                <li><a href>Head Office</a></li>
-                <li><a href>Kottawa Branch</a></li>
-                <li><a href>Panadura Branch</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href>View more..</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="btn-group" uib-dropdown dropdown-append-to-body>
-              <button type="button" class="btn btn-default " uib-dropdown-toggle>
+                        <ul uib-dropdown-menu>
+                            <li><a href>Head Office</a></li>
+                            <li><a href>Kottawa Branch</a></li>
+                            <li><a href>Panadura Branch</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href>View more..</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                        <button type="button" class="btn btn-default " uib-dropdown-toggle>
                 District <span class="caret"></span>
               </button>
-              <ul uib-dropdown-menu>
-                <li><a href>Colombo</a></li>
-                <li><a href>Kalutara</a></li>
-                <li><a href>Gampaha</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href>View more..</a></li>
-              </ul>
+                        <ul uib-dropdown-menu>
+                            <li><a href>Colombo</a></li>
+                            <li><a href>Kalutara</a></li>
+                            <li><a href>Gampaha</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href>View more..</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-group" style="margin-top:15px">
-            <input type="text" class="form-control with-danger-addon" placeholder="Search for users...">
-            <span class="input-group-btn">
+            <div class="row">
+                <div class="input-group" style="margin-top:15px">
+                    <input type="text" class="form-control with-danger-addon" placeholder="Search for users...">
+                    <span class="input-group-btn">
                 <button class="btn btn-danger" type="button">Go!</button>
             </span>
-          </div>
-     </div>
-     <div class="row"     
-          ba-panel 
-          ba-panel-title="Recently searched users"
-          ba-panel-class="medium-panel with-scroll feed-panel">
-       <recent-search></recent-search>
-     </div>
-  </div>
-
-  <!--  <div ba-panel ba-panel-title="Users" ba-panel-class="small-panel with-scroll"> -->
-
-     <line-chart></line-chart>
-  <!--  </div> -->
-
-</div>
-  <div class="col-xlg-3 col-lg-6 col-md-6 col-sm-12 col-xs-12"
-       ba-panel
-       ba-panel-title="Feed"
-       ba-panel-class="large-panel  feed-panel">
-    <blur-feed></blur-feed>
-  </div>
-</div>
-
-
-
-
-<!--
-<div class="row shift-up">
-  <div class="col-xlg-3 col-lg-6 col-md-6 col-xs-12"
-       ba-panel
-       ba-panel-title="To Do List"
-       ba-panel-class="xmedium-panel feed-comply-panel with-scroll todo-panel">
-    <dashboard-todo></dashboard-todo>
-  </div>
-  <div class="col-xlg-6 col-lg-6 col-md-6 col-xs-12"
-       ba-panel
-       ba-panel-title="Calendar"
-       ba-panel-class="xmedium-panel feed-comply-panel with-scroll calendar-panel">
-    <dashboard-calendar></dashboard-calendar>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-6">
-     <div ba-panel ba-panel-title="Users" ba-panel-class="with-scroll">
-        <div class="row">
-          <div class="col-sm-4 col-xs-6">
-            <div class="btn-group" uib-dropdown dropdown-append-to-body>
-              <button type="button" class="btn btn-default " uib-dropdown-toggle>
-                Watched Videos <span class="caret"></span>
-              </button>
-              <ul uib-dropdown-menu>
-                <li><a href>0-10 videos</a></li>
-                <li><a href>10-100 videos</a></li>
-                <li><a href>100+ videos</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href>set number of videos..</a></li>
-              </ul>
+                </div>
             </div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="btn-group" uib-dropdown dropdown-append-to-body>
-              <button type="button" class="btn btn-default " uib-dropdown-toggle>
-                Branch <span class="caret"></span>
-              </button>
-              <ul uib-dropdown-menu>
-                <li><a href>Head Office</a></li>
-                <li><a href>Kottawa Branch</a></li>
-                <li><a href>Panadura Branch</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href>View more..</a></li>
-              </ul>
+            <div class="row" ba-panel ba-panel-title="Recently searched users" ba-panel-class="medium-panel with-scroll feed-panel">
+                <recent-search></recent-search>
             </div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="btn-group" uib-dropdown dropdown-append-to-body>
-              <button type="button" class="btn btn-default " uib-dropdown-toggle>
-                District <span class="caret"></span>
-              </button>
-              <ul uib-dropdown-menu>
-                <li><a href>Colombo</a></li>
-                <li><a href>Kalutara</a></li>
-                <li><a href>Gampaha</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href>View more..</a></li>
-              </ul>
-            </div>
-          </div>
         </div>
-        <div class="row">
-          <div class="input-group" style="margin-top:15px">
-            <input type="text" class="form-control with-danger-addon" placeholder="Search for users...">
-            <span class="input-group-btn">
-                <button class="btn btn-danger" type="button">Go!</button>
-            </span>
-          </div>
-     </div>
-  </div>
-</div>
--->
 
-<!--<div class="row">
-  <div class="col-lg-4 col-sm-6 col-xs-12">
-    <div ba-panel ba-panel-title="Weather" ba-panel-class="medium-panel with-scroll">
-      <blur-weather forecast="5"></blur-weather>
+        <!--  <div ba-panel ba-panel-title="Users" ba-panel-class="small-panel with-scroll"> -->
+
+        <line-chart></line-chart>
+        <!--  </div> -->
+
     </div>
-  </div>
-</div>-->
+    <div class="col-sm-6">  <!-- class="col-xlg-3 col-lg-6 col-md-6 col-sm-12 col-xs-12" -->
+        <div ba-panel ba-panel-title="Feed" ba-panel-class="large-panel  feed-panel">
+            <blur-feed></blur-feed>
+        </div>
+    <div class="col-sm-6">
+</div>

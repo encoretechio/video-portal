@@ -2140,6 +2140,10 @@
 			padding: 4em;
 		}
 
+		.logo{
+			background-image: url("images/ideo.png");
+		}
+
 /* Header */
 
 	@-moz-keyframes reveal-header {

@@ -54,3 +54,4 @@ build
 /bower_components
 
 .tmp
+src/app/pages/commonServices/upload.service.js
